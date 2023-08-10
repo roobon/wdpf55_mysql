@@ -1,1 +1,25 @@
 CREATE DATABASE databasename;
+
+#### Relationship  ##############
+CREATE TABLE orders (
+   orderid INT PRIMARY KEY AUTO_INCREMENT,
+    ordernumber INT NOT NULL,
+    personid INT NOT NULL,
+    FOREIGN KEY (personid) REFERENCES persons(PersonID)
+);
+
+##### UNIQUE or No duplicate #######
+ALTER TABLE persons
+ADD UNIQUE(email_address);
+
+
+CREATE TABLE Persons1 (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Dhaka'
+);
+
+CREATE INDEX fnameindex
+ON persons(FirstName)
