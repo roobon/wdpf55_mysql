@@ -1,0 +1,32 @@
+mysql -h localhost -u root -p
+show databases;
+create database wdpf55_test;  //for create database
+show databases;
+use wdpf55_test; //for select database
+DROP DATABASE wdpf55_test; //for delete database
+show databases;
+use wdpf_55; //for select database
+show tables;
+describe students; //describe {table_name} for show table
+
+CREATE TABLE users (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+address VARCHAR(300) NULL,
+phone VARCHAR(20) NOT NULL,
+dob DATE
+) ENGINE=INNODB;
+
+INSERT INTO users (id, name, address, phone, dob, email) VALUES (
+	NULL, 'Mizanur Rahman', 'Narayanganj', '01768139923', '1998-07-17', 'mizanur1326@gmial.com'
+)
+INSERT INTO users (id, name, address, phone, dob, email) VALUES (
+	NULL, 'Ahad Rahman', 'Dhaka', '01610266117', '1998-07-17', 'mizanur1326@gmial.com'
+)
+INSERT INTO users VALUES (
+	NULL, 'Rahman', 'Dhaka', '01610266117', '1998-07-17'
+)
+
+//SELECT Query
+SELECT * FROM users;  //for select all fields
+SELECT id, name, email FROM users; //for select specific fields
