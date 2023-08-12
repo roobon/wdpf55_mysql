@@ -22,7 +22,7 @@
             $_SESSION['name'] = $row['name'];
             $_SESSION['email'] = $row['email'];
 
-            header ("Location: home.php");
+            header ("Location: 1.3_home.php");
         } else {
             $_SESSION['error'] = "Email and password is not stored in the database";  // step: 03
             
