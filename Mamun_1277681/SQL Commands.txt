@@ -1,70 +1,3 @@
-mysql -h localhost -u root -p
-show databases;
-create database wdpf55_test;
-show databases;
-use wdpf55_test;
-DROP DATABASE wdpf55_test;
-show databases;
-use php_oop_crud;
-show tables;
-describe members; // table
-
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
-  address VARCHAR(200) NULL,
-  phone VARCHAR(20) NOT NULL,
-  dob DATE	
-) ENGINE=INNODB;
-
-//INSERT Query into table
-INSERT INTO users (id, name, address, phone, dob) VALUES (
-	NULL, 'Masum', 'Mirpur', '0147523698', '2015-05-03'
-)
-INSERT INTO users VALUES (
-	NULL, 'Rojoni', 'Mirpur', '0147523698', '2015-05-03'
-)
-
-//SELECT Query
-SELECT * FROM users; // all fields
-SELECT id, name, address FROM users; // selected fields
-
-
-
-============== Alter =============
-
-1. ALTER TABLE Customers
-   ADD Email varchar(255);  					= add column.
-
-
-2.  ALTER TABLE persons
-    CHANGE COLUMN email email_address VARCHAR(50) ;		= rename column.
-
-
-
-
-3. CREATE TABLE Orders (
-    orderID INT PRIMARY KEY AUTO_INCREMENT,
-    orderNumber INT NOT NULL,					= make relation with primary and foreign key.		
-    personID INT NOT NULL,
-	FOREIGN KEY (personID) REFERENCES persons(PersonID)
-    
-    );
-
-
-
-
-
-4. SELECT DISTINCT jobTitle FROM employees;			= distinct returns only different value.
-
-
-
-5. SELECT * FROM employees WHERE officeCode='1' OR officeCode='2';	= 
-
-
-
-
-
 CREATE DATABASE databasename;
 
 #### Relationship  ##############
@@ -76,7 +9,7 @@ CREATE TABLE orders (
 );
 
 ##### UNIQUE or No duplicate #######
-ALTER TABLE persons						= make column unique
+ALTER TABLE persons
 ADD UNIQUE(email_address);
 
 
@@ -113,8 +46,6 @@ SELECT * FROM `employees` ORDER BY employeeNumber desc;
 SELECT * FROM `employees` ORDER BY lastName, firstName; 
 
 UPDATE employees SET lastName='Ahmed', firstName='Masum', email='masum@gmail.com' WHERE employeeNumber=1002
-
-
 
 
 
