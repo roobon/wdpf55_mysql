@@ -18,6 +18,10 @@ require_once("db_config.php")  // step: 02
 
 <body>
 
+        <?php 
+            // step: 03
+        ?>
+
     <div class="container">
         <h2>List of all persons</h2>
         <p>The .table-striped class adds zebra-stripes to a table:</p>
@@ -35,7 +39,7 @@ require_once("db_config.php")  // step: 02
             </thead>
             <tbody>
 
-                <?php  // step: 03
+                <?php  // step: 3.1
                 while ($row = $result->fetch_object()) {
                 ?>
                     <tr>
