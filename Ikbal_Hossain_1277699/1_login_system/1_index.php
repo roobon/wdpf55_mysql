@@ -16,7 +16,8 @@
         }
     ?>
 
-    <form action="1.1_login.php" method="post">
+
+    <form action="1.1_login.php" method="post"> 
         <input type="email" name="email" placeholder="Enter Email"> <br>
         <input type="password" name="password" placeholder="Enter password"> <br>
         <input type="submit" name="submit" value="LOgIN"> <br>

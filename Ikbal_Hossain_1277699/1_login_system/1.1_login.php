@@ -3,6 +3,8 @@
         $email = $_POST["email"];
         $pass = $_POST["password"];
 
+        $pass = md5($pass);  // encrypted // step: 04;
+
         
         // echo "Your Email: $email <br>";
         // echo "Your Password: $pass <br>";
