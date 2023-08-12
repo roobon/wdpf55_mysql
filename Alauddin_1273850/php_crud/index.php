@@ -11,14 +11,13 @@
 </head>
 <body>
     <?php 
-        $sql = "SELECT * FROM parsons";
-        $result = $db->query($sql);
+       $sql = "SELECT * FROM persons";
+       $result = $db->query($sql);
     ?>
 
 <div class="container">
-  <h2>List of all persons</h2>
-  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
-  <table class="table">
+  <h2>List of all persons</h2>         
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>ID</th>
@@ -30,23 +29,21 @@
         <th>Action</th>
       </tr>
     </thead>
-    <tbody>
-        <?php 
-            while ($row = $result->fetch_object()): ?>
-      <tr>
+    <tbody>   
+    <?php 
+    while($row = $result->fetch_object()): ?>
+    <tr>
         <td><?php echo $row->PersonID ?></td>
         <td><?php echo $row->First_Name . " " . $row->Last_Name ?></td>
         <td><?php echo $row->Address ?></td>
         <td><?php echo $row->City ?></td>
         <td><?php echo $row->Email ?></td>
         <td><?php echo $row->DOB ?></td>
-        
+        <td></td>	 	 	 	 
       </tr>
-      <?php endwhile; ?>
-      
+    <?php  endwhile; ?>
     </tbody>
   </table>
 </div>
-
 </body>
 </html>
