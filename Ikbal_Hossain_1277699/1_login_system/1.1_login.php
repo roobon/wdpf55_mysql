@@ -10,7 +10,7 @@
 
         require_once("1.2_db_config.php");
 
-        $sql = "SELECT email, password FROM users WHERE email = '$email' AND password = '$pass'";  // step: 02
+        $sql = "SELECT name, email, password FROM users WHERE email = '$email' AND password = '$pass'";  // step: 02
         $result = $db -> query($sql);  // step: 02
         $row = $result -> fetch_assoc();
 
