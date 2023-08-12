@@ -21,8 +21,6 @@
             $_SESSION['error'] = "Email and password is not stored in the database";
             header("Location: index.php");
         }
-       
-
     }
 
 ?>
