@@ -9,7 +9,7 @@
     <h2> Login Form </h2>
 
     <?php 
-        session_start();
+        session_start();  // step: 02
         if(isset($_SESSION['error'])){
             echo $_SESSION['error'];
             unset($_SESSION['error']);
