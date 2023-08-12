@@ -23,15 +23,12 @@ Version 2.0
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-<<<<<<< HEAD:Alauddin_1273850/mysqlsampledatabase.sql
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`wdpf55_sample` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `wdpf55_sample`;
-=======
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`wdpf55sample` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `wdpf55sample`;
->>>>>>> bca1cff2102d6a881a8eb109cb27039e5ce1b261:mysqlsampledatabase.sql
 
 /*Table structure for table `customers` */
 
