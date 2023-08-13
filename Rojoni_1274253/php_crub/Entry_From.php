@@ -10,22 +10,14 @@
 <h3>Person Entry Form</h3>
 
 <?php 
-  require_once("db_config.php");
-$id = $_GET['id'];
-
-$result = $db->query("SELECT * FROM persons WHERE PersonID = '$id'");
-$row = $result->fetch_assoc();
-
-
-
 if(isset($_POST['submit'])){
     extract($_POST);
-  
+    require_once("db_config.php");
 
     //  echo "INSERT INTO persons VALUES (NULL,'$lname','$fname','$address','$city','$email','$dob')";
    
 
-    // $sql = "INSERT INTO persons VALUES (NULL,'$lname','$fname','$address','$city','$email','$dob')";
+    $sql = "INSERT INTO persons VALUES (NULL,'$lname','$fname','$address','$city','$email','$dob')";
     $db->query($sql);
 
    if($db->affected_rows){
@@ -36,7 +28,7 @@ if(isset($_POST['submit'])){
 ?>
 
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-    <input type="text" name="lname" placeholder="Enter your Last Name" value="<?php echo $row['FirstName']?>"><br>
+    <input type="text" name="lname" placeholder="Enter your Last Name"><br>
     <input type="text" name="fname" placeholder="Enter your First Name"><br>
     <textarea name="address"  cols="30" rows="10"></textarea><br>
     <select name="city" >
