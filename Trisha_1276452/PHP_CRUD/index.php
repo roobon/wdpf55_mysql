@@ -1,3 +1,4 @@
+<?php require_once("db_config.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,64 +10,46 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<?php 
-    $sql = "SELECT * FROM persons";
-    $result = $db->query
-?>
+    <?php 
+       $sql = "SELECT * FROM persons";
+       $result = $db->query($sql);
+    ?>
 
 <div class="container">
-  <h2>Hover Rows</h2>       
-  <table class="table table-hover">
+  <h2>List of All persons</h2> 
+  <a href ="entry_from.php" class= "btn btn_success">New Person Entry</a>        
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Adress</th>
+        <th>Address</th>
         <th>City</th>
         <th>Email</th>
         <th>Birth Date</th>
         <th>Action</th>
-        
-        
       </tr>
+
+
     </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+    <tbody>   
+    <?php 
+    while($row = $result->fetch_object()): ?>
+    <tr>
+        <td><?php echo $row->PersonID ?></td>
+        <td><?php echo $row->FirsttName . " " . $row->lastName ?></td>
+        <td><?php echo $row->Address ?></td>
+        <td><?php echo $row->City ?></td>
+        <td><?php echo $row->email_address ?></td>
+        <td><?php echo $row->dob ?></td>
+        <td><a class ="btn btn-success" href ="edit.php?id =<?php echo $row->PersonID?>" ><span class="glyphicon glyphion-edit"></span></a>
+
+        <a class = "btn btn-danger" href="delete.php?id =<?php echo $row->PersonID?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphion-trash"></span></a>
+      </td>	 	 	 	 
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Moe</td>
-        <td>Dhanmondi</td>
-        <td>Dhaka</td>
-        <td>mary@example.com</td>
-        <td>09/12/12</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-      <td>2</td>
-        <td>Moe</td>
-        <td>Dhanmondi</td>
-        <td>Dhaka</td>
-        <td>mary@example.com</td>
-        <td>09/12/12</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-      <td>3</td>
-        <td>Moe</td>
-        <td>Dhanmondi</td>
-        <td>Dhaka</td>
-        <td>mary@example.com</td>
-        <td>09/12/12</td>
-        <td>mary@example.com</td>
-      </tr>
+    <?php  endwhile; ?>
     </tbody>
   </table>
 </div>
-
 </body>
 </html>

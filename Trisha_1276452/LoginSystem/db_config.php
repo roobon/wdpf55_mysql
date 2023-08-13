@@ -1,8 +1,11 @@
+
 <?php 
-$host ="Localhost";
-$user = "root";
+
+$host = "localhost";
+$user =  "root";
 $password = "";
 $database = "wdpf55_test";
 
-$db = new mysqli($host,$user,$password,$database);
+$db = new mysqli($host, $user, $password, $database);
+
 ?>
