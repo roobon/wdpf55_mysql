@@ -24,6 +24,7 @@ require_once("db_config.php")
 
 <div class="container">
   <h2>List of all person</h2>
+  <a href="person_entry_form.php" class="btn btn-success">New Person Entry</a>
   <p>The .table-striped class adds zebra-stripes to a table:</p>            
   <table class="table table-striped">
     <thead>
@@ -48,6 +49,11 @@ require_once("db_config.php")
         <td><?php echo $row->City?></td>
         <td><?php echo $row->Email_address?></td>
         <td><?php echo $row->DOB?></td>
+        <td>
+          <a class="btn btn-success" href="edit.php"><span class="glyphicon glyphicon-edit"></span></a>
+          &nbsp;
+          <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID?>"
+        onclick="return confirm('Are You Sure to Delete?')"><span class="glyphicon glyphicon-trash"></span></a></td>
       </tr>
       <?php } //endwhile; ?>
 

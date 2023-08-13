@@ -7,23 +7,15 @@
 </head>
 <body>
 
-    <?php
-    require_once("db_config.php");
+    <?php 
     
-    $id = $_GET["id"];
-
-    $result = $db->query("SELECT * FROM persons WHERE PersoneID='$id'");
-    $row = $result->fetch_assoc();
-
-
-
     if(isset($_POST['submit'])){
         extract($_POST);
-        
+        require_once("db_config.php");
 
         // echo $sql = "INSERT INTO persons VALUE (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob' )"; //sql string
-        // $sql = "INSERT INTO persons VALUE (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob' )";
-        // $db->query($sql);
+        $sql = "INSERT INTO persons VALUE (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob' )";
+        $db->query($sql);
 
         if($db->affected_rows){
             echo "Form Submited Successfully";
@@ -33,7 +25,7 @@
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
     First Name: <br>
-    <input type="text" name="fname" placeholder="Enter first name" value="<?php echo $row['FirstName']?>"> <br>
+    <input type="text" name="fname" placeholder="Enter first name"> <br>
     Last Name:<br>
     <input type="text" name="lname" placeholder="Enter last name"> <br>
     Address:<br>
@@ -44,7 +36,7 @@
     <input type="email" name="email"><br>
     Date of Birth:<br>
     <input type="date" name="dob"><br>
-        <input type="submit" name="submit" value="Update">
+        <input type="submit" name="submit" value="submit">
     </form>
 </body>
 </html>
