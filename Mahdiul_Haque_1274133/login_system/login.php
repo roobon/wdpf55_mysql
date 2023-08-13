@@ -6,7 +6,7 @@
      $password = $_POST['password'];
     //  $password = sha1($password);
    
-      require_once("db_config.php"); // connetion db file
+      require_once("db_config.php"); // connection db file
       
       $sql = "SELECT name, email, password FROM users WHERE email='$email' AND password = '$password'";
       $result = $db->query($sql);
@@ -15,8 +15,8 @@
       session_start();
       
        if($result->num_rows){
-         $_SESSION['name'] = $row['name'];
-         $_SESSION['email'] = $row['email'];
+         $_SESSION['myname'] = $row['name'];
+         $_SESSION['myemail'] = $row['email'];
          header("Location: home.php");
        } else {
         $_SESSION['error'] = "Email and password is not stored in the database";
