@@ -1,9 +1,5 @@
-<?php
+<?php 
     session_start();
-
-    if (!isset($_SESSION['email'])) {
-        header("Location: index.php");
-    }
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><?php echo $_SESSION['name'] . ", " ?> Welcome to Home page. </h1>
+    <h1><?php echo $_SESSION["name"].",";?>Congratulation!</h1>
 
-    <a href="logout.php">logout</a>
+    <a href="log_out.php">Logout</a>
 </body>
 </html>
