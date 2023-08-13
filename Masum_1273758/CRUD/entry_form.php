@@ -7,16 +7,11 @@
 </head>
 <body>
     <?php 
-         require_once("db_config.php");
-
-    $id = $_GET['id'];
-    $result = $db->query("SELECT * FROM persons WHERE personID= '$id'");
-    $row = $result->fetch_assoc();
     if(isset($_POST['submit'])){
         extract($_POST);
-   
-    //     echo  "INSERT persons VALUES(NULL, '$fname','$lname','$address','$city', '$date',  '$number', '$email')" ;
-    //  $sql =  "INSERT persons VALUES(NULL, '$fname','$lname','$address','$city', '$date',  '$number', '$email')" ;
+        require_once("db_config.php");
+        echo  "INSERT persons VALUES(NULL, '$fname','$lname','$address','$city', '$date',  '$number', '$email')" ;
+     $sql =  "INSERT persons VALUES(NULL, '$fname','$lname','$address','$city', '$date',  '$number', '$email')" ;
      $db->query($sql);
       echo"<br>"; 
      if ($db->affected_rows){
@@ -27,9 +22,9 @@
 
     }
     ?>
-   <h3>Edit Data</h3> 
+   <h3>INput user data</h3> 
    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-    <input type="text" name="fname" id="" placeholder="Enter Your First Name" value="<?php echo $row['FirstName'] ?>"><br><br>
+    <input type="text" name="fname" id="" placeholder="Enter Your First Name"><br><br>
     <input type="text" name="lname" id="" placeholder="Enter Your Last Name"><br><br>
     <textarea name="address" id="" cols="30" rows="10"></textarea><br><br>
     <select name="city">
@@ -44,7 +39,7 @@
  <input type="email" name="email" placeholder="email"><br><br>
     <input type="date" name="date" placeholder="Date"><br><br>
     <input type="number" name="number" placeholder="number"><br><br>
-    <input type="submit" name="submit" value="UPDATE"><br><br>
+    <input type="submit" name="submit" value="SUBMIT"><br><br>
 
 
    </form>
