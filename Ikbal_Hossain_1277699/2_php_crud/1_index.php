@@ -20,11 +20,15 @@ require_once("db_config.php")  // step: 02
 
         <?php 
             // step: 03
+            $sql = "SELECT * FROM persons";
+            $result = $db -> query($sql);
         ?>
 
     <div class="container">
         <h2>List of all persons</h2>
-        <p>The .table-striped class adds zebra-stripes to a table:</p>
+        <a href="person_entry.php" class = "btn btn-success"> New Person Entry </a>
+
+        
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -43,13 +47,15 @@ require_once("db_config.php")  // step: 02
                 while ($row = $result->fetch_object()) {
                 ?>
                     <tr>
-                        <td>1</td>
-                        <td>Doe</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $row ->PersonID ?></td>
+                        <td><?php echo $row ->FirstName. " " . $row ->LastName ?></td>
+                        <td><?php echo $row ->Address ?></td>
+                        <td> <?php echo $row ->City ?></td>
+                        <td><?php echo $row ->email_address ?></td>  
+                        <td> <?php echo $row ->dob ?></td>
+                        <td>
+                            <a class="btn btn-success" href="edit.php?id=<?php echo $row -> PersonID ?">Edit</a> 
+                            <a class="btn btn-danger" href="delete.php?id">Delete</a></td> 
                     </tr>
 
                 <?php    } ?>
