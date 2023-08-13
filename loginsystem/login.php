@@ -1,6 +1,5 @@
 <?php 
 
-
     if(isset($_POST['submit'])){
         $email = $_POST['email'];
         $pass = $_POST['password'];
@@ -14,8 +13,8 @@
         session_start();
 
         if($result->num_rows){
-            $_SESSION['name'] = $row['name'];
-            $_SESSION['email'] = $row['email'];
+            $_SESSION['myname'] = $row['name'];
+            $_SESSION['myemail'] = $row['email'];
             header("Location: home.php");
         } else {
             $_SESSION['error'] = "Email and password is not stored in the database<br>";
