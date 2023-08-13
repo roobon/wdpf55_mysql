@@ -11,11 +11,12 @@
         session_start();
         if(isset($_SESSION['error'])){
             echo $_SESSION['error'];
-            unset($_SESSION['error']);
+            session_destroy();
+            //print_r($_POST);
         }
     ?>
     <form action="login.php" method="post">
-        <input type="email" name="email" placeholder="Enter Email"><br>
+        <input type="text" name="email" placeholder="Enter Email"><br>
         <input type="password" name="password" placeholder="Enter password"><br>
         <input type="submit" name="submit" value="LOGIN">
     </form>    
