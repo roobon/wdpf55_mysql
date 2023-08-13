@@ -53,7 +53,9 @@ require_once("db_config.php")  // step: 02
                         <td> <?php echo $row ->City ?></td>
                         <td><?php echo $row ->email_address ?></td>  
                         <td> <?php echo $row ->dob ?></td>
-                        <td><a class="btn btn-success" href="">Edit</a> <a class="btn btn-danger" href="delete.php?id">Delete</a></td> 
+                        <td>
+                            <a class="btn btn-success" href="edit.php?id=<?php echo $row -> PersonID ?">Edit</a> 
+                            <a class="btn btn-danger" href="delete.php?id">Delete</a></td> 
                     </tr>
 
                 <?php    } ?>
