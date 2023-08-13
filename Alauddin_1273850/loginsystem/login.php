@@ -25,6 +25,4 @@
         // echo "Your Password: $pass<br>";
     }
 
-
-
 ?>

@@ -119,4 +119,8 @@ UPDATE employees SET lastName='Ahmed', firstName='Masum', email='masum@gmail.com
 
 
 
+=============================== PHP Mysql ==============================================
 
+1.  extract($_POST) ; 			=  form er shob variable niye neya hoye jabe.
+
+2. echo $myDB->affected_rows ;        // koyta data insert hoilo dekhabe

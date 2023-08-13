@@ -19,7 +19,8 @@ $result = $db->query($sql);
 
 <body>
     <div class="container mt-3">
-        <h2>List of All Persons</h2>
+        <h2 class="">List of All Persons</h2>
+        <a href="entry.php" class="btn btn-outline-primary" target="_blank">New Person Entry</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -29,6 +30,7 @@ $result = $db->query($sql);
                     <th>City</th>
                     <th>Email_Address</th>
                     <th>PhoneNo</th>
+                    <th>Date of Birth</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -42,8 +44,11 @@ $result = $db->query($sql);
                     <td><?php echo $row->City ?></td>
                     <td><?php echo $row->Email_Address ?></td>
                     <td><?php echo $row->PhoneNo ?></td>
-
+                    <td><?php echo $row->DOB ?></td>
+                    <td><a href="edit.php?id=<?php echo $row->PersonID ?>" class="btn btn-outline-warning" target="_blank">Edit</a> | 
+                    <a href="delete.php?id=<?php echo $row->PersonID ?>" class="btn btn-outline-danger" onclick="return confirm('Sure! DELETE')">Delete</a></td>
                 </tr>
+                
             <?php 
             }
             ?>
