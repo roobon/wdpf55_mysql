@@ -20,6 +20,8 @@ require_once("db_config.php")  // step: 02
 
         <?php 
             // step: 03
+            $sql = "SELECT * FROM persons";
+            $result = $db -> query($sql);
         ?>
 
     <div class="container">
@@ -43,12 +45,12 @@ require_once("db_config.php")  // step: 02
                 while ($row = $result->fetch_object()) {
                 ?>
                     <tr>
-                        <td>1</td>
-                        <td>Doe</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $row ->PersonID ?></td>
+                        <td><?php echo $row ->FirstName. " " . $row ->LastName ?></td>
+                        <td><?php echo $row ->Address ?></td>
+                        <td> <?php echo $row ->City ?></td>
+                        <td><?php echo $row ->email_address ?></td>
+                        <td> <?php echo $row ->dob ?></td>
                         <td></td>
                     </tr>
 
