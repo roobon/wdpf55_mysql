@@ -17,8 +17,10 @@
 
 <div class="container">
   <h2>list of all person</h2>
-  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
-  <table class="table">
+  <!-- <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>             -->
+  
+  <a href="Entry_From.php" class="btn btn_success">New Person Entry</a>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>ID</th>
@@ -41,7 +43,10 @@ while($row = $result->fetch_object()):?> //result thake data tule ante fetch_obj
         <td><?php echo $row->City?></td>
         <td><?php echo $row->email_address?></td>
         <td><?php echo $row->dob?></td>
-        <td>?</td>
+        <td><a class="btn btn-success" href="edit.php? id=<?php echo $row->PersonID?>"><samp class="glyphicon glyphicon-edit "></samp></a>
+
+
+        <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a></td>
         
       </tr>
 
