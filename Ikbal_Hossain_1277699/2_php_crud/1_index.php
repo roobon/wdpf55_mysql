@@ -26,7 +26,9 @@ require_once("db_config.php")  // step: 02
 
     <div class="container">
         <h2>List of all persons</h2>
-        <p>The .table-striped class adds zebra-stripes to a table:</p>
+        <a href="person_entry.php" class = "btn btn-success"> New Person Entry </a>
+
+        
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -49,9 +51,9 @@ require_once("db_config.php")  // step: 02
                         <td><?php echo $row ->FirstName. " " . $row ->LastName ?></td>
                         <td><?php echo $row ->Address ?></td>
                         <td> <?php echo $row ->City ?></td>
-                        <td><?php echo $row ->email_address ?></td>
+                        <td><?php echo $row ->email_address ?></td>  
                         <td> <?php echo $row ->dob ?></td>
-                        <td></td>
+                        <td><a class="btn btn-success" href="">Edit</a> <a class="btn btn-danger" href="delete.php?id">Delete</a></td> 
                     </tr>
 
                 <?php    } ?>
