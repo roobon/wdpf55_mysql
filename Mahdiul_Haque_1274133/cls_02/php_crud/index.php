@@ -55,7 +55,7 @@
         <td><?php echo $row->phone	 ?></td>
         <td><?php echo $row->dob	 ?></td>
         <td>
-          <a class="btn btn-success" href="edit.php">Edit</a>
+          <a class="btn btn-success" href="edit.php?id=<?php echo $row->PersonID ?>">Edit</a>
           <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID ?>"onclick="return confirm('Are you sure to DELETE')">Delete</a>
         </td>
        

@@ -11,43 +11,61 @@
     <?php 
         require_once("db_config.php");
 
-        $id =$_GET['id'];  // step: 01
+        $id =$_REQUEST['id'];  // step: last 
 
-        $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id");
-        $row = $result -> fetch_assoc();
+        // $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id");
+        // $row = $result -> fetch_assoc();
 
-        if(isset($_POST['submit'])){
+        // ei dui line ke echo "Successfully Updated ar porer line a bosano holo. jete update er pore form ar data gula update hoye jaoyar por je obosthay thakbe sei vabei dekhabe.
+
+
+        if(isset($_POST['update'])){
             extract($_POST);
             
 
             // echo  "INSERT INTO persons VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
             // $db -> query($sql);
 
-        //    $sql = "INSERT INTO persons VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
+           // echo  "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', City = '$city', email_address = '$email', dob = '$dob' WHERE PersonID = '$id' ";
+
+
+           $sql = "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', City = '$city', email_address = '$email', dob = '$dob' WHERE PersonID = '$id' ";
+
            $db -> query($sql);
 
         //    echo $db -> affected_rows;  // step: 3 after submission form. check for alert
             
             if($db -> affected_rows){
-                echo "<h3> Successfully Inserted </h3> ";
+                echo "<h3> Successfully Updated </h3> ";
             }
         }
+
+        $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id'");
+        $row = $result -> fetch_assoc();
     ?>
 
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-        FirstName: <input type="text" name="fname" value="" placeholder="Enter LastName"> <br>
-        LastName: <input type="text" name="lname" placeholder="Enter FirstName"> <br>
-        Address: <br> <textarea name="address" id="" cols="30" rows="10"></textarea> <br>
+        FirstName: <input type="text" name="fname" value="<?php echo $row['FirstName'] ?>" placeholder="Enter LastName"> <br>
+
+        LastName: <input type="text" name="lname" value="<?php echo $row['LastName'] ?>" placeholder="Enter LastName"> <br>
+
+        Address: <br> <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address'] ?></textarea> <br>
 
         City: <select name="city" id="">
             <option value="">Select one</option>
-            <option value="Dhaka">Dhaka</option>
-            <option value="Khulna">Khulna</option>
-            <option value="Lakshmipur">Lakshmipur</option>
+            <option value="Dhaka" <?php if($row['City'] == 'Dhaka') echo "selected"; ?> > Dhaka </option>
+            <option value="Khulna" <?php if($row['City'] == 'Khulna') echo "selected"; ?> > Khulna </option>
+            <option value="Lakshmipur" <?php if($row['City'] == 'Lakshmipur') echo "selected"; ?> > Lakshmipur 
+        </option>
         </select> <br>
-        email_address: <input type="email" name="email" placeholder="Enter email"> <br>
-        dob: <input type="date" name="dob" placeholder="Enter date"> <br>
-        <input type="submit" name="submit" value = "Update">
+
+        email_address: <input type="email" name="email" value="<?php echo $row['email_address'] ?>" placeholder="Enter email"> <br>
+
+        dob: <input type="date" name="dob" value="<?php echo $row['dob'] ?>" placeholder="Enter date"> <br>
+
+        <input type="submit" name="update" value = "Update"> <br>
+
+        <input type= "hidden" value = " <?php echo $row['PersonID'] ?>" name = "id" >
 
     </form>
 </body>
