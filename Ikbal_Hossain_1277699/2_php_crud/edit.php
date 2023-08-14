@@ -35,18 +35,18 @@
     ?>
 
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-        FirstName: <input type="text" name="fname" value="" placeholder="Enter LastName"> <br>
-        LastName: <input type="text" name="lname" placeholder="Enter FirstName"> <br>
-        Address: <br> <textarea name="address" id="" cols="30" rows="10"></textarea> <br>
+        FirstName: <input type="text" name="fname" value="<?php echo $row['FirstName'] ?>" placeholder="Enter LastName"> <br>
+        LastName: <input type="text" name="lname" value="<?php echo $row['LastName'] ?>" placeholder="Enter FirstName"> <br>
+        Address: <br> <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address'] ?></textarea> <br>
 
         City: <select name="city" id="">
             <option value="">Select one</option>
-            <option value="Dhaka">Dhaka</option>
-            <option value="Khulna">Khulna</option>
-            <option value="Lakshmipur">Lakshmipur</option>
+            <option value="Dhaka" <?php if($row['city'] = 'Dhaka') echo "selected"; ?> > Dhaka </option>
+            <option value="Khulna" <?php if($row['city'] = 'Khulna') echo "selected"; ?> > Khulna </option>
+            <option value="Lakshmipur" <?php if($row['city'] = 'Lakshmipur') echo "selected"; ?> > Lakshmipur </option>
         </select> <br>
-        email_address: <input type="email" name="email" placeholder="Enter email"> <br>
-        dob: <input type="date" name="dob" placeholder="Enter date"> <br>
+        email_address: <input type="email" name="email" value="<?php echo $row['email_address'] ?>" placeholder="Enter email"> <br>
+        dob: <input type="date" name="dob" value="<?php echo $row['dob'] ?>" placeholder="Enter date"> <br>
         <input type="submit" name="submit" value = "Update">
 
     </form>
