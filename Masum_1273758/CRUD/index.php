@@ -50,7 +50,7 @@ require_once("db_config.php");
         
         <td><a class="btn btn-success"  href="edit.php?id=<?php echo $row->personID?>">Edit</a>
         <a class="btn btn-danger" href="delete.php?id=<?php echo $row->personID?>">Delete</a></td>
-        <td></td>
+      
       </tr>
       <?php } ?>
       
