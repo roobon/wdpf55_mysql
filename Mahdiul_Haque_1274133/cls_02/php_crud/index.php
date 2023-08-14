@@ -19,6 +19,7 @@
 
 <div class="container">
   <h2>List of all persons</h2>
+  <a href="entryform.php" class="btn btn-success">New Person Entry</a>
       
   <table class="table table-striped">
     <thead>
@@ -30,6 +31,7 @@
         <th>city_name</th>
         <th>phone</th>
         <th>dob</th>
+        <th>Action</th>
       </tr>
     </thead>
 
@@ -52,11 +54,15 @@
         <td><?php echo $row->city_name ?></td>
         <td><?php echo $row->phone	 ?></td>
         <td><?php echo $row->dob	 ?></td>
+        <td>
+          <a class="btn btn-success" href="edit.php?id=<?php echo $row->PersonID ?>">Edit</a>
+          <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID ?>"onclick="return confirm('Are you sure to DELETE')">Delete</a>
+        </td>
        
-
+                                    <!-- icon kote hobe -->
       </tr>
        <?php }
-        ?>
+        ?>  
 
 
       

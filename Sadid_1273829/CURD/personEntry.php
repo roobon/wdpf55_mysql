@@ -11,12 +11,15 @@
 
     <?php 
         if (isset($_REQUEST['submit'])) {
-            extract($_POST);
+            extract($_REQUEST);
             require_once('db_config.php');
 
             $sql = "INSERT INTO persons VALUES(NULL, '$lastname', '$firstname', '$address', '$city', '$email', '$dob')";
             $db->query($sql);
-            header("Location: index.php");
+            if ($db->affected_rows) {
+                // $_SESSION['message'] = "User data submit successfully.";
+                header("Location: index.php");
+            }
         }
     ?>
 
@@ -24,13 +27,13 @@
         <input class="form-control" type="text" name="firstname" placeholder="First Name"><br>
         <input class="form-control" type="text" name="lastname" placeholder="Last Name"><br>
         <textarea class="form-control" name="address" placeholder="Address" cols="20" rows="6"></textarea><br>
-        <!-- <input class="form-control" type="text" name="city" placeholder="Enter Your City"><br> -->
-        <select name="city" class="form-control">
+        <input class="form-control" type="text" name="city" placeholder="Enter Your City"><br>
+        <!-- <select name="city" class="form-control">
             <option value="" selected>Select Your city</option>
             <option value="Dhaka">Dhaka</option>
             <option value="Chittagong">Chittagong</option>
             <option value="Rajshahi">Rajshahi</option>
-        </select><br>
+        </select><br> -->
         <input class="form-control" type="email" name="email" placeholder="Enter Your email address"><br>
         <label>Date Of Birth</label>
         <input class="form-control" type="date" name="dob"> <br>

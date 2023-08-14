@@ -1,11 +1,11 @@
 <?php 
+require_once("db_config.php");
 
 if( isset($_POST['email']) ){
     $email = $_POST['email'];
     $pass = $_POST['password'];
     $pass = sha1($pass) ;
 
-    require_once("db_config.php");
 
     $sql = "SELECT Name, email, password FROM users WHERE email='$email' AND password = '$pass'  " ;
     $result = $myDB->query($sql);

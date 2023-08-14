@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>CRUD index</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -22,6 +22,8 @@ $result = $myDB->query($sql);
 
 <div class="container">
   <h2>List Of person</h2>
+
+  <a class="btn btn-success" href="entry_form.php"> Insert Persons </a>
   
   <table class="table">
     <thead>
@@ -49,7 +51,11 @@ $result = $myDB->query($sql);
         <td> <?php  echo  $row->email_address ?> </td>
         <td> <?php  echo  $row->DateOfBirth ?> </td>
         <td> <?php  echo  $row->phone ?> </td>
-        <td> <?php  ?> </td>
+        <td>  <a href="edit.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-primary"> Edit </a> 
+
+        
+        <a onclick="return confirm('are you sure') " href="delete.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-danger"> Delete </a>
+      </td>
        
       </tr>
 
@@ -67,6 +73,8 @@ $result = $myDB->query($sql);
     </tbody>
   </table>
 </div>
+
+
 
 </body>
 </html>
