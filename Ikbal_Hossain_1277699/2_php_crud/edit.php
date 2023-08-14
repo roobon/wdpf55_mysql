@@ -17,7 +17,7 @@
         // $row = $result -> fetch_assoc();
 
         // ei dui line ke echo "Successfully Updated ar porer line a bosano holo. jete update er pore form ar data gula update hoye jaoyar por je obosthay thakbe sei vabei dekhabe.
-        
+
 
         if(isset($_POST['update'])){
             extract($_POST);
@@ -26,10 +26,10 @@
             // echo  "INSERT INTO persons VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
             // $db -> query($sql);
 
-            // echo  "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', city = '$city', email_address = '$email', dob = '$dob') WHERE PersonID = '$id' ";
+           // echo  "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', City = '$city', email_address = '$email', dob = '$dob' WHERE PersonID = '$id' ";
 
 
-           $sql = "UPDATE persons SET LastName =('$lname', FirstName = '$fname', Address = '$address', city = '$city', email_address = '$email', dob = '$dob') WHERE PersonID = '$id' ";
+           $sql = "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', City = '$city', email_address = '$email', dob = '$dob' WHERE PersonID = '$id' ";
 
            $db -> query($sql);
 
@@ -53,9 +53,10 @@
 
         City: <select name="city" id="">
             <option value="">Select one</option>
-            <option value="Dhaka" <?php if($row['city'] = 'Dhaka') echo "selected"; ?> > Dhaka </option>
-            <option value="Khulna" <?php if($row['city'] = 'Khulna') echo "selected"; ?> > Khulna </option>
-            <option value="Lakshmipur" <?php if($row['city'] = 'Lakshmipur') echo "selected"; ?> > Lakshmipur </option>
+            <option value="Dhaka" <?php if($row['City'] == 'Dhaka') echo "selected"; ?> > Dhaka </option>
+            <option value="Khulna" <?php if($row['City'] == 'Khulna') echo "selected"; ?> > Khulna </option>
+            <option value="Lakshmipur" <?php if($row['City'] == 'Lakshmipur') echo "selected"; ?> > Lakshmipur 
+        </option>
         </select> <br>
 
         email_address: <input type="email" name="email" value="<?php echo $row['email_address'] ?>" placeholder="Enter email"> <br>
