@@ -1,4 +1,4 @@
-<?php require_once("db_confiq.php");?>
+<?php require_once("db_config.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +14,9 @@
        $sql = "SELECT * FROM persons";
        $result = $db->query($sql);
     ?>
-
 <div class="container">
-  <h2>List of all persons</h2>         
+  <h2>List of all persons</h2>
+  <a href="entry_form.php" class="btn btn-success">New Person Entry</a>         
   <table class="table table-striped">
     <thead>
       <tr>
@@ -39,7 +39,9 @@
         <td><?php echo $row->City ?></td>
         <td><?php echo $row->Email ?></td>
         <td><?php echo $row->DOB ?></td>
-        <td></td>	 	 	 	 
+        <td><a class="btn btn-success" href="edit.php?id=<?php echo $row->PersonID ?>"><span class="glyphicon glyphicon-edit"></span></a>
+        &nbsp;
+        <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID ?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a></td>	 	 	 	 
       </tr>
     <?php  endwhile; ?>
     </tbody>
