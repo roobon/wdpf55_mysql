@@ -17,11 +17,6 @@ require_once("db_config.php");
     <?php
         $sql= "SELECT * FROM persons";
         $result = $db->query($sql);
-
-        // session_start();
-        // if ($_SESSION['message']) {
-        //     echo $_SESSION['message'];
-        // }
     ?>
     <h1 class="text-center m-4">List Of All Persons</h1>
 
