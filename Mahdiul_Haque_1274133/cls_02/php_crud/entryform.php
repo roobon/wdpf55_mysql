@@ -39,7 +39,7 @@
       
   <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         PersonID : <input type="number" name="pid">
-        Last Name: <input type="text" name="Lastname" placeholder="Enter Last Name"><br><br>
+        Last Name: <input type="text" name="LastName" placeholder="Enter Last Name"><br><br>
         First Name: <input type="text" name="FirstName" placeholder="Enter First Name"><br><br><br>
         Address: <textarea name="address" id="" cols="30" rows="4"></textarea><br><br>
         City_Name: <select name="city" id="">
