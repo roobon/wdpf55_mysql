@@ -26,12 +26,14 @@
     <form = action"<?php echo $_SERVER ['PHP_SELF'] ?>" method="post" >
     <input type="text" name="lname" placeholder="Enter Lirst Name"> <br>
     <input type="text" name="fname" placeholder="Enter First Name"> <br>
-     <textarea name="address" id="" cols="10" rows="10"></textarea> 
+     <textarea name="address" id="" cols="05" rows="05"></textarea> 
 
      <br><select name="city">
         <option value="">Select One</option>
-        <option value="Dhaka">Dhaka</option>
+        <option value="Dhaka" >Dhaka</option>
         <option value="Khulna">Khulna</option>
+        <option value="Sylhet">Sylhet</option>
+        
     </select> <br>
 
     <input type="text" name="email" placeholder="Enter email adress"> <br>
