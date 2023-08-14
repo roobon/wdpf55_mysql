@@ -49,9 +49,9 @@
         <td><?php echo $row->email_address ?></td>
         <td><?php echo $row->dob ?></td>
         <td>
-          <a href="edit.php?id=<?php echo $row->PersonID ?>" class="btn btn-primary">Edit</a>
+          <a href="edit.php?id=<?php echo $row->PersonID ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
           
-          <a href="delete.php?id=<?php echo $row->PersonID ?>" class="btn btn-danger" onclick="return confirm('Are you sure DELETE ?')">Delete</a>
+          <a href="delete.php?id=<?php echo $row->PersonID ?>" class="btn btn-danger" onclick="return confirm('Are you sure DELETE ?')"><i class="fas fa-trash-alt"></i></a>
       </td>
       </tr>
 

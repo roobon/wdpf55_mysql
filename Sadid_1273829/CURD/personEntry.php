@@ -17,7 +17,7 @@
             $sql = "INSERT INTO persons VALUES(NULL, '$lastname', '$firstname', '$address', '$city', '$email', '$dob')";
             $db->query($sql);
             if ($db->affected_rows) {
-                $_SESSION['message'] = "User data submit successfully.";
+                // $_SESSION['message'] = "User data submit successfully.";
                 header("Location: index.php");
             }
         }
