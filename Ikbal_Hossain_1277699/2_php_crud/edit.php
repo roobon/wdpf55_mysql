@@ -11,12 +11,13 @@
     <?php 
         require_once("db_config.php");
 
-        $id =$_REQUEST['id'];  // step: last after
+        $id =$_REQUEST['id'];  // step: last 
 
         // $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id");
         // $row = $result -> fetch_assoc();
 
         // ei dui line ke echo "Successfully Updated ar porer line a bosano holo. jete update er pore form ar data gula update hoye jaoyar por je obosthay thakbe sei vabei dekhabe.
+        
 
         if(isset($_POST['update'])){
             extract($_POST);
@@ -25,7 +26,10 @@
             // echo  "INSERT INTO persons VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
             // $db -> query($sql);
 
-           $sql = "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', city = '$city', email_address = '$email', dob = '$dob') WHERE PersonID = '$id' ";
+            // echo  "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', city = '$city', email_address = '$email', dob = '$dob') WHERE PersonID = '$id' ";
+
+
+           $sql = "UPDATE persons SET LastName =('$lname', FirstName = '$fname', Address = '$address', city = '$city', email_address = '$email', dob = '$dob') WHERE PersonID = '$id' ";
 
            $db -> query($sql);
 
@@ -57,7 +61,8 @@
         email_address: <input type="email" name="email" value="<?php echo $row['email_address'] ?>" placeholder="Enter email"> <br>
 
         dob: <input type="date" name="dob" value="<?php echo $row['dob'] ?>" placeholder="Enter date"> <br>
-        <input type="submit" name="update" value = "Update">
+
+        <input type="submit" name="update" value = "Update"> <br>
 
         <input type= "hidden" value = " <?php echo $row['PersonID'] ?>" name = "id" >
 
