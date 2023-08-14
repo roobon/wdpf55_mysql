@@ -11,10 +11,12 @@
     <?php 
         require_once("db_config.php");
 
-        $id =$_REQUIRE['id'];  // step: last after
+        $id =$_REQUEST['id'];  // step: last after
 
-        $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id");
-        $row = $result -> fetch_assoc();
+        // $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id");
+        // $row = $result -> fetch_assoc();
+
+        // ei dui line ke echo "Successfully Updated ar porer line a bosano holo. jete update er pore form ar data gula update hoye jaoyar por je obosthay thakbe sei vabei dekhabe.
 
         if(isset($_POST['update'])){
             extract($_POST);
@@ -33,12 +35,15 @@
                 echo "<h3> Successfully Updated </h3> ";
             }
         }
+
+        $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$pid");
+        $row = $result -> fetch_assoc();
     ?>
 
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         FirstName: <input type="text" name="fname" value="<?php echo $row['FirstName'] ?>" placeholder="Enter LastName"> <br>
 
-        LastName: <input type="text" name="lname" value="<?php echo $row['LastName'] ?>" placeholder="Enter FirstName"> <br>
+        LastName: <input type="text" name="lname" value="<?php echo $row['LastName'] ?>" placeholder="Enter LastName"> <br>
 
         Address: <br> <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address'] ?></textarea> <br>
 
@@ -50,11 +55,11 @@
         </select> <br>
 
         email_address: <input type="email" name="email" value="<?php echo $row['email_address'] ?>" placeholder="Enter email"> <br>
-        
+
         dob: <input type="date" name="dob" value="<?php echo $row['dob'] ?>" placeholder="Enter date"> <br>
         <input type="submit" name="update" value = "Update">
 
-        <input type= "hidden" value = " <?php echo $row['PersonID'] ?>" name = "id" >
+        <input type= "hidden" value = " <?php echo $row['PersonID'] ?>" name = "pid" >
 
     </form>
 </body>
