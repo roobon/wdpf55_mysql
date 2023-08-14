@@ -14,7 +14,7 @@
             echo $_SESSION['error'];
             unset($_SESSION['error']);
         }
-    
+
     ?>
     <form action="login.php" method="post">
         <input type="email" name="email" placeholder="Enter Email"><br>

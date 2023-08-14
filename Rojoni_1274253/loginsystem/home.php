@@ -1,20 +1,11 @@
 <?php 
     session_start();
-    if(!isset($_SESSION['name'])){//  (!isset) call not isset 
+    if(!isset($_SESSION['myemail'])){//  (!isset) call not isset 
         
 
         header("Location:index.php");
-
-
     }
-
-
-
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><?php echo $_SESSION['name'].","?>Welcome to home page</h1>
+    <h1><?php echo $_SESSION['myname'].","?>Welcome to home page</h1>
 
     <a href="logout.php">Logout</a>
     

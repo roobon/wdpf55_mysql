@@ -1,5 +1,5 @@
 <?php 
-require_once("config.php");
+require_once("db_config.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,17 +20,19 @@ require_once("config.php");
 
 <div class="container">
   <h2>List of all persons</h2>
+  <a class="btn btn-primary" href="entry_form.php">Insert persons</a>
   <p>The .table-hover class enables a hover state on table rows:</p>            
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>personID</th>
         <th>Name</th>
-        <th>address</th>
-        <th>city</th>
-        <th>Email</th>
-        <th>Birth Date</th>
+        <th>Address</th>
+        <th>City</th>
+      <th>Date_Birth</th>
+        <th>Phone</th>
         <th>action</th>
+
       </tr>
     </thead>
     <tbody>
@@ -38,14 +40,17 @@ require_once("config.php");
         while ($row = $result->fetch_object()){ 
         ?>
       <tr>
-        <td></td>
-        <td><?php echo $row->PersonID?></td>
-        <td><?php echo $row->FirstName."".$row->LastName?></td>
+       
+        <td><?php echo $row->personID ?></td>
+        <td><?php echo $row->FirstName ."".$row->LastName?></td>
         <td><?php echo $row->Address?></td>
-        <td><?php echo $row->city?></td>
-        <td><?php echo $row->Email?></td>
-        <td></td>
-        <td></td>
+        <td><?php echo $row->City ?></td>
+        <td><?php echo $row->Date_Birth ?></td>
+        <td><?php echo $row->phone ?></td>
+        
+        <td><a class="btn btn-success"  href="edit.php?id=<?php echo $row->personID?>">Edit</a>
+        <a class="btn btn-danger" href="delete.php?id=<?php echo $row->personID?>">Delete</a></td>
+      
       </tr>
       <?php } ?>
       
