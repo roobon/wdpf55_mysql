@@ -36,7 +36,7 @@
             }
         }
 
-        $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$pid");
+        $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id'");
         $row = $result -> fetch_assoc();
     ?>
 
@@ -59,7 +59,7 @@
         dob: <input type="date" name="dob" value="<?php echo $row['dob'] ?>" placeholder="Enter date"> <br>
         <input type="submit" name="update" value = "Update">
 
-        <input type= "hidden" value = " <?php echo $row['PersonID'] ?>" name = "pid" >
+        <input type= "hidden" value = " <?php echo $row['PersonID'] ?>" name = "id" >
 
     </form>
 </body>
