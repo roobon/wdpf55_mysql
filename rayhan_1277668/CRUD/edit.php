@@ -14,6 +14,8 @@
     $result = $myDB->query("SELECT * FROM persons WHERE PersonID = '$id' ");
     $row = $result->fetch_assoc();
 
+    // hello
+
 
     if ( isset( $_POST['submit'] ) ){
         extract($_POST) ; // form er shob variable niye neya hoyeche
@@ -22,7 +24,7 @@
         // echo  " INSERT INTO persons  VALUES ( NULL, '$address', '$city', '$email',  '$number', '$date', '$name') ";
 
         // $sql = " INSERT INTO persons  VALUES ( NULL, '$address', '$city', '$email',  '$number', '$date', '$name') ";
-        $myDB->query($sql);
+        // $myDB->query($sql);
 
         if ( $myDB->affected_rows ) {
             echo " data inserted " ;
