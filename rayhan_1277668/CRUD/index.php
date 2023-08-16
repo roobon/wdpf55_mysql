@@ -54,7 +54,7 @@ $result = $myDB->query($sql);
         <td>  <a href="edit.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-primary"> Edit </a> 
 
         
-        <a onclick="return confirm('are you sure') " href="delete.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-danger"> Delete </a>
+        <a onclick="return confirm('are you sure..!! Data will be Deleted Permanently') " href="delete.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-danger"> Delete </a>
       </td>
        
       </tr>

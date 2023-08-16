@@ -19,8 +19,10 @@
             $sql = "INSERT INTO persons VALUE (NULL, '$lname','$fname','$address','$city','$email','$dob')";
             $db->query($sql);
 
+            header("Location: index.php");
+
             if($db->affected_rows){
-                echo "Submited";
+                echo "Submited Successfull";
             }
 
             
@@ -44,7 +46,12 @@
     </div>
     <div class="mb-3 mt-3">
       <label for="city">City:</label>
-      <input type="text" class="form-control" name="city">
+      <select name="city">
+            <option value="">Select one</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Barisal">Barisal</option>
+        </select><br>
     </div>
     <div class="mb-3 mt-3">
       <label for="email">Email:</label>
@@ -54,11 +61,7 @@
       <label for="dob">Dob:</label>
       <input type="date" class="form-control" name="dob">
     </div>
-    <!-- <div class="form-check mb-3">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember"> Remember me
-      </label>
-    </div> -->
+    
     <button type="submit" class="btn btn-success" name="entry">Entry</button>
   </form>
 

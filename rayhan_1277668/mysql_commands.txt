@@ -124,3 +124,41 @@ UPDATE employees SET lastName='Ahmed', firstName='Masum', email='masum@gmail.com
 1.  extract($_POST) ; 			=  form er shob variable niye neya hoye jabe.
 
 2. echo $myDB->affected_rows ;        // koyta data insert hoilo dekhabe
+
+3. $result->num_rows 			= show number of rows
+
+
+* diff betwwen CHAR vs VARCHAR
+
+
+
+
+==================================  Authentication Doc ===================================
+
+1. connect the DB ( check if it has users, if not input some users )
+
+2.  connect index page / login form with login page through action
+
+3. connect db-config with login page,  chech email & password is set, give query, fetch data , start session
+
+
+
+
+
+==================================== Securing MySQL ==========================================
+
+*** take necessary action for MySQL user authorization & authentication ***
+** Grant = give permission ,	revoke = remove permission **
+
+
+
+create user 'masum'@'localhost'identified by 'abc123'			= mysql user created
+mysql -h localhost -u masum -p						= command for user login
+grant select, insert on wdpf_55.* to 'masum'@'localhost';		= masum user wdpf_55 database er shob table select , insert korte parbe
+grant select, insert on wdpf_55.* to 'masum'@'localhost';		( to give this command you need to login as root user )
+
+
+
+
+
+
