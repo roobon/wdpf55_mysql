@@ -18,3 +18,8 @@
     DROP user 'masuma'@' localhost
 
 ?>
+
+<?php 
+    CREATE VIEW
+    SELECT employeeNumber, lastName, firstName, jobTitle, city, county FROM employee
+?>p
