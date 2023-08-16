@@ -61,11 +61,7 @@
       <label for="dob">Dob:</label>
       <input type="date" class="form-control" name="dob">
     </div>
-    <!-- <div class="form-check mb-3">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember"> Remember me
-      </label>
-    </div> -->
+    
     <button type="submit" class="btn btn-success" name="entry">Entry</button>
   </form>
 
