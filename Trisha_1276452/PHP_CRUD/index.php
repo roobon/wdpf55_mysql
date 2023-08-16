@@ -40,11 +40,11 @@
         <td><?php echo $row->FirsttName . " " . $row->lastName ?></td>
         <td><?php echo $row->Address ?></td>
         <td><?php echo $row->City ?></td>
-        <td><?php echo $row->email_address ?></td>
-        <td><?php echo $row->dob ?></td>
-        <td><a class ="btn btn-success" href ="edit.php?id =<?php echo $row->PersonID?>" ><span class="glyphicon glyphion-edit"></span></a>
+        <td><?php echo $row->EmailAdress?></td>
+        <td><?php echo $row->Dob ?></td>
+        <td><a class ="btn btn-success" href ="edit.php?id =<?php echo $row->PersonID?>" ><span class="glyphicon glyphicon-edit"></span></a>
 
-        <a class = "btn btn-danger" href="delete.php?id =<?php echo $row->PersonID?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphion-trash"></span></a>
+       <a class = "btn btn-danger" href="delete.php?id =<?php echo $row->PersonID?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a>
       </td>	 	 	 	 
       </tr>
     <?php  endwhile; ?>

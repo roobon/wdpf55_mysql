@@ -13,20 +13,14 @@
 
 <div class="container">
   <h2>List of all persons</h2>
-  <?php
-     require_once("db_config.php");
-     $id = $_GET['id'];
-
-     $result = $db->query("SELECT * FROM persons WHERE PersonID='$id'");
-     $row = $result->fetch_assoc();
-
+  <?php 
     if(isset($_POST['submit'])){
         extract($_POST);
         require_once("db_config.php");
       
        
         
-        // $sql = "INSERT INTO persons VALUES ($pid, '$Lastname', '$FirstName', '$address', '$city', '$phone', '$dob')";
+        $sql = "INSERT INTO persons2 VALUES ($pid, '$Lastname', '$FirstName', '$address', '$city', '$phone', '$dob')";
         $db->query($sql);
 
         if($db->affected_rows){
@@ -45,8 +39,8 @@
       
   <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         PersonID : <input type="number" name="pid">
-        Last Name: <input type="text" name="Lastname" placeholder="Enter Last Name" value="<?php echo $row['LastName'] ?>"><br><br>
-        First Name: <input type="text" name="FirstName" placeholder="Enter First Name"><br><br><br>
+        First Name: <input type="text" name="FirstName" placeholder="Enter  First Name"><br><br>
+         Last Name: <input type="text" name="Lastname" placeholder="Enter Lastname"><br><br><br>
         Address: <textarea name="address" id="" cols="30" rows="4"></textarea><br><br>
         City_Name: <select name="city" id="">
             <option value="">Select One</option>
@@ -58,7 +52,7 @@
         Date of Birth: <input type="date" name="dob"><br><br>
          
         
-            Submit : <input type="submit" name="submit" value="UPDATE">
+            Submit : <input type="submit" name="submit">
         
     </form>
 </div>

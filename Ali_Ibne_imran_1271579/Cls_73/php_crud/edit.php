@@ -15,8 +15,6 @@
     <?php
         require_once("db_config.php");
         $id = $_REQUEST["id"];
-        $result = $db->query("SELECT * FROM persons WHERE PersonID='$id'");
-        $row = $result->fetch_assoc();
         
         if(isset($_POST["update"])){
             extract($_POST);
@@ -28,10 +26,11 @@
 
             if($db->affected_rows){
                 echo "Updated Successfully";
-            }
-
-            
+            }   
         }
+        
+        $result = $db->query("SELECT * FROM persons WHERE PersonID='$id'");
+        $row = $result->fetch_assoc();
 
         // PersonID	    LastName	FirstName	Address	City	email_address	dob
     ?>
