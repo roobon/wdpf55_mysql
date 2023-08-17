@@ -1,0 +1,1 @@
+create user 'mizanur'@'localhost' identified by '123456';

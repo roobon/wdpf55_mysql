@@ -1,0 +1,5 @@
+create user 'masum'@'localhost' identified by 'abc1234';
+
+mysql -u localhost -u root -p
+
+grant select, insert on wdpf55.* to 'masum'@'localhost';
