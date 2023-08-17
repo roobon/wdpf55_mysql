@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Person Entry Form</h3>
+    <h3>Person Edit Form</h3>
     <?php 
         require_once('db_config.php');
         $id = $_REQUEST['id'];
