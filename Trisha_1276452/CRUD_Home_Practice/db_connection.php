@@ -1,7 +1,7 @@
 <?php 
 $host = "localhost";
 $user = "root";
-$password = "",
+$password = "";
 $database = "wdpf55_php";
 
 $db = new mysqli($host, $user, $password, $database);
