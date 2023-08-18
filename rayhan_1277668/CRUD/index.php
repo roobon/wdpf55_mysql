@@ -20,7 +20,7 @@ $result = $myDB->query($sql);
 
 ?>
 
-<div class="container">
+
   <h2>List Of person</h2>
 
   <a class="btn btn-success" href="entry_form.php"> Insert Persons </a>
@@ -35,7 +35,7 @@ $result = $myDB->query($sql);
         <th>Email_address</th>
         <th>Date Of Birth</th>
         <th>Phone</th>
-        <th> Action </th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -72,7 +72,7 @@ $result = $myDB->query($sql);
    
     </tbody>
   </table>
-</div>
+
 
 
 
