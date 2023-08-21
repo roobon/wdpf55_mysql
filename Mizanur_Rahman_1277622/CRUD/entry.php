@@ -46,6 +46,9 @@
                     <option value="Dhaka">Dhaka</option>
                     <option value="Barisal">Barisal</option>
                     <option value="Narayanganj">Narayanganj</option>
+                    <option value="Chitagonj">Chitagonj</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Khulna">Khulna</option>
                 </select></div>
 
                 <span class="form-label">Email Address</span>

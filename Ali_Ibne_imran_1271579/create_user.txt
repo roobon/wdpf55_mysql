@@ -1,0 +1,7 @@
+create user 'masum'@'localhost' identified by '1234';
+mysql -h localhost -u masum -p
+grant select, insert on wdpf_55.* to 'masum'@'localhost'
+revoke select, insert on wdpf_55.* from 'masum'@'localhost'
+
+
+mysql -h localhost -u root -p //root

@@ -10,27 +10,21 @@
     <?php 
     require_once('db_config.php');
 
-    $id = $_GET['id'];
-    $result = $myDB->query("SELECT * FROM persons WHERE PersonID = '$id' ");
-    $row = $result->fetch_assoc();
-
-    // hello
-
-
+    $id = $_GET['id'];  
+    
     if ( isset( $_POST['submit'] ) ){
         extract($_POST) ; // form er shob variable niye neya hoyeche
-
         
-        // echo  " INSERT INTO persons  VALUES ( NULL, '$address', '$city', '$email',  '$number', '$date', '$name') ";
-
-        // $sql = " INSERT INTO persons  VALUES ( NULL, '$address', '$city', '$email',  '$number', '$date', '$name') ";
-        // $myDB->query($sql);
-
+        $sql = " UPDATE persons SET Address='$address', City='$city', email_address='$email',  phone='$number', DateOfBirth='$date', firstName='$name' WHERE PersonID = $id ";  // PersonID = $id -> hidden id
+        
+        $myDB->query($sql);
         if ( $myDB->affected_rows ) {
-            echo " data inserted " ;
+            echo " Update successfull " ;
         }
     }
-
+    $result = $myDB->query("SELECT * FROM persons WHERE PersonID = '$id' ");
+    $row = $result->fetch_assoc();
+    
     ?>
 
 
@@ -38,22 +32,25 @@
 
     <form action="" method="post">
         <input type="text" name="name" placeholder="name"  value="<?php echo $row['firstName'] ?>" > <br>
-        <textarea name="address" placeholder="Address" value="<?php echo $row['Address'] ?>" cols="20" rows="10"></textarea> <br>
+        <textarea name="address" placeholder="Enter Address"  cols="20" rows="5"> <?php echo $row['Address'] ?> </textarea> <br>
          <select name="city">
-            <option value="Dhaka">Dhaka</option>
-            <option value="Chittagong">Chottogram</option>
-            <option value="rajshahi">Rajshahi</option>
-            <option value="khulna">Khulna</option>
-            <option value="Barisal">Barisal</option>
-            <option value="sylhet">Sylhet</option>
+            <option value="Dhaka" <?php if ($row['City'] =='Dhaka') echo "selected" ; ?> >Dhaka</option>
+            <option value="Chittagong" <?php if ($row['City'] =='Chittagong') echo "selected" ; ?>>Chottogram</option>
+            <option value="rajshahi" <?php if ($row['City'] =='rajshahi') echo "selected" ; ?>>Rajshahi</option>
+            <option value="khulna" <?php if ($row['City'] =='khulna') echo "selected" ; ?>>Khulna</option>
+            <option value="Barisal" <?php if ($row['City'] =='Barisal') echo "selected" ; ?>>Barisal</option>
+            <option value="sylhet" <?php if ($row['City'] =='sylhet') echo "selected" ; ?>>Sylhet</option>
          </select>   <br>
 
-         <input type="email" name="email" placeholder="email"> <br>
+         <input type="email" name="email" placeholder="email" value="<?php echo $row['email_address'] ?>"> <br>
 
-         <input type="date" name="date" placeholder="date"> <br>
-         <input type="number" name="number" placeholder="number"> <br>
+         <input type="date" name="date" placeholder="date" value="<?php echo $row['DateOfBirth'] ?>"> <br>
+         <input type="number" name="number" placeholder="number" value="<?php echo $row['phone'] ?>"> <br>
 
-         <input type="submit" name="submit" value="Update">
+         <input type="submit" name="submit" value="Update"> <br>
+         <input type="hidden" value="<?php echo $row['PersonID'] ?>" name="id">
+
+
 
     </form>
 </body>

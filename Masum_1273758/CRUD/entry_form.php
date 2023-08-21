@@ -17,10 +17,7 @@
      if ($db->affected_rows){
         echo "Inserted";
      }
-   
- 	 	 	 	 	
-
-    }
+}
     ?>
    <h3>INput user data</h3> 
    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
