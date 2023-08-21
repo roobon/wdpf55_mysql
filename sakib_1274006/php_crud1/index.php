@@ -1,6 +1,11 @@
 <?php 
+$host = "localhost";
+$user = "root";
+$pass = "";
+$database = "wdpf55";
 
-require_once("db_config.php")
+
+$db = new mysqli($host, $user, $pass, $database);
 
 ?>
 
@@ -15,51 +20,62 @@ require_once("db_config.php")
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <?php 
+
+<!-- Student Display with Table Start -->
+<?php 
     
-    $sql = "SELECT * FROM persons";
+    $sql = "SELECT * FROM idb_bisew_wdpf55";
     $result = $db->query($sql);
     
     ?>
-
+<!-- ID	Name	Gender	DOB	Email	Batch	Address	Hobbies -->
 <div class="container">
   <h2>List of all person</h2>
-  <a href="person_entry_form.php" class="btn btn-success">New Person Entry</a>
+  <a href="entry_form.php" class="btn btn-success">New Person Entry</a>
   <p>The .table-striped class adds zebra-stripes to a table:</p>            
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>PersonID</th>
+        <th>ID</th>
         <th>Name</th>
-        <th>Address</th>
-        <th>City</th>
-        <th>Email_address</th>
+        <th>Gender</th>
         <th>DOB</th>
+        <th>Email</th>
+        <th>Batch</th>
+        <th>Address</th>
+        <th>Hobbies</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      
+
     <?php while($row = $result->fetch_object()){//:?>
-   
+      
+     
     <tr>
-        <td><?php echo $row->PersonID?></td>
-        <td><?php echo $row->FirstName . " " .$row->LastName?></td>
-        <td><?php echo $row->Address?></td>
-        <td><?php echo $row->City?></td>
-        <td><?php echo $row->Email_address?></td>
+        <td><?php echo $row->ID?></td>
+        <td><?php echo $row->Name?></td>
+        <td><?php echo $row->Gender?></td>
         <td><?php echo $row->DOB?></td>
+        <td><?php echo $row->Email?></td>
+        <td><?php echo $row->Batch?></td>
+        <td><?php echo $row->Address?></td>
+        <td><?php echo $row->Hobbies?></td>
+
         <td>
-          <a class="btn btn-success" href="edit.php?id=<?php echo $row->PersonID?>"><span class="glyphicon glyphicon-edit"></span></a>
+          <a class="btn btn-success" href="edit.php?id=<?php echo $row->ID;?>"><span class="glyphicon glyphicon-edit"></span></a>
           &nbsp;
-          <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID?>"
+          <a class="btn btn-danger" href="delete.php?id=<?php echo $row->ID;?>"
         onclick="return confirm('Are You Sure to Delete?')"><span class="glyphicon glyphicon-trash"></span></a></td>
       </tr>
-      <?php } //endwhile; ?>
 
+      <?php } ?>
     </tbody>
   </table>
 </div>
+<!-- Student Display with Table End -->
+
+
 
 </body>
 </html>
