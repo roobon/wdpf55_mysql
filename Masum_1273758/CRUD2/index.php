@@ -19,7 +19,7 @@ require_once("db_config.php")
 <div class="container">
   <h1>List of Student Information</h1>
   <a class="btn btn-success mb-2" href="Entry_form.php">Inserted Form</a>
-<table class="table table-striped table-warning text-dark text-center table-responsive" style="width: 900px; height:500px">
+<table class="table table-striped table-warning text-dark text-center table-responsive" style="width: 1000px; height:400px">
 </div>
   <thead>
     <tr>
@@ -48,7 +48,7 @@ require_once("db_config.php")
       <td><?php echo $row->Phone ?></td>
       <td><?php echo $row->	Address?></td>
       <td><?php echo $row->City ?></td>
-      <td><a class="btn btn-danger" href="delete.php?id= <?php echo $row->StudentID?>">DELETE</a></td>
+      <td><a class="btn btn-success" href="edit.php?id= <?php echo $row->StudentID?>">Edit</a><a class="btn btn-danger" href="delete.php?id= <?php echo $row->StudentID?>">DELETE</a></td>
     </tr>
     <?php } ?>
    

@@ -1,0 +1,16 @@
+create user 'masum'@'localhost' identified by 'abc123';
+mysql -h localhost -u masum -p
+mysql -h localhost -u root -p
+exit
+grant select, insert, update on wdpf55_php.* to 'masum'@'localhost';
+revoke insert on wdpf55_php.* from 'masum'@'localhost';
+show databases;
+drop database wdpf55_php;
+use wdpf55_php;
+select * from persons;
+INSERT INTO persons VALUES(NULL, 'Shuvo', 'Ahmed', 'Dhanmondi', 'Dhaka', 'shuvo@gmail.com', '');
+show tables;
+UPDATE persons SET FirstName='Mizanur', LastName='Rahman', Address= 'Gulistan', District='Dhaka' WHERE PersonID='11';
+
+RENAME USER 'masum'@'localhost' TO 'masuma'@'localhost';
+DROP USER 'masuma'@'localhost';
