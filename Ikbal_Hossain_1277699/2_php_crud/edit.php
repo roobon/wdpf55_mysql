@@ -19,7 +19,7 @@
         // ei dui line ke echo "Successfully Updated ar porer line a bosano holo. jete update er pore form ar data gula update hoye jaoyar por je obosthay thakbe sei vabei dekhabe.
 
 
-        if(isset($_POST['update'])){
+        if(isset($_POST['update'])){ // step:01
             extract($_POST);
             
 
@@ -29,20 +29,26 @@
            // echo  "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', City = '$city', email_address = '$email', dob = '$dob' WHERE PersonID = '$id' ";
 
 
+           // step: 02
            $sql = "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', City = '$city', email_address = '$email', dob = '$dob' WHERE PersonID = '$id' ";
 
+           // step:03
            $db -> query($sql);
 
         //    echo $db -> affected_rows;  // step: 3 after submission form. check for alert
             
+        // step: 04
             if($db -> affected_rows){
                 echo "<h3> Successfully Updated </h3> ";
             }
         }
 
+        // step: 05
         $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id'");
         $row = $result -> fetch_assoc();
     ?>
+
+    <!-- This page you need to copy entry_form.php so that you can edit this form here  -->
 
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         FirstName: <input type="text" name="fname" value="<?php echo $row['FirstName'] ?>" placeholder="Enter LastName"> <br>

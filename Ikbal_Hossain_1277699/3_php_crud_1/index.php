@@ -1,5 +1,5 @@
 <?php 
-    $db = new mysqli("localhost", "root", "", "idb_bisew_wdpf55")
+    $db = new mysqli("localhost", "root", "", "idb_bisew_wdpf55");
 ?>
 
 <!DOCTYPE html>
@@ -46,36 +46,12 @@
                 <td> <?php echo $row->batch ?> </td>
                 <!-- <td> <button>edit</button> <button> delete </button> </td> -->
                 <td> 
-                    <a href="">Edit</a>
-                    <a href="">Delete</a>
+                    <a href="edit.php ? id = <?php echo $row -> id; ?>">Edit</a>
+                    <a href="delete.php ? id = <?php echo $row -> id; ?>" onclick="return confirm('Are you sure to delete')"> Delete </a>
                 </td>
 
             </tr>
       <?php } ?>
       </table>
-
-      <!-- Student Display with Table End -->
-
-      <!-- Delete data start -->
-    <?php 
-        if(isset($_GET['delete'])){
-            if($_GET['action'] == 'delete'){
-
-           
-           $id =  $_GET['id'];
-
-           $db -> query("DELETE FROM students WHERE id = '$id'");
-
-           if($db -> affected_rows){
-            echo "Deleted";
-           }
-        }
-        }
-        // jokhon show ba display korbo tokhon fetch korte hobe
-    ?>
-
-
-
-      <!-- Delete data end -->
 </body>
 </html>
