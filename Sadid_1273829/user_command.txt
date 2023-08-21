@@ -1,0 +1,5 @@
+create user 'masum'@'localhost' identified by 'abc123';
+
+grant select, insert on wdpf55_php.* to 'masum'@'localhost';
+
+revoke insert on wdpf55_php.* from 'masum'@'localhost';

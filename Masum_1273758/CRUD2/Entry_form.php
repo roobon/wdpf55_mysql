@@ -10,13 +10,14 @@
     if(isset($_POST['submit'])){
        extract( $_POST);
        require_once('db_config.php');
-      echo  "INSERT student_details VALUES(NULL,$fname,$lname,$email,$phone,$address,$city)";
-       $sql ="INSERT student_details VALUES(NULL,$fname,$lname,$email,$phone,$address,$city)";
+      echo  "INSERT student_details VALUES(NULL,'$fname','$lname','$email','$phone','$address','$city')";
+       $sql ="INSERT student_details VALUES(NULL,'$fname','$lname','$email','$phone','$address','$city')";
        $db->query($sql);
-            // if($db->affected_rows){
-            //     echo "Inserted";
-            // };
-
+            if($db->affected_rows){
+                echo "Inserted";
+            };
+            
+         	
 
     }
     ?>
@@ -25,7 +26,7 @@
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
     <input type="text" name="fname" placeholder="Enter your Name"><br><br>
     <input type="text" name="lname" placeholder="Enter your Last Name"><br><br>
-    <input type="text" name="email" placeholder="Enter your Email"><br><br>
+    <input type="email" name="email" placeholder="Enter your Email"><br><br>
     <input type="number"name="phone" placeholder="Enter your Phone Number"><br><br>
     <textarea name="address" id="" cols="30" rows="10"></textarea><br><br>
     <select name="city">

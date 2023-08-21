@@ -31,7 +31,14 @@
     Address:<br>
     <textarea name="address" id="" cols="20" rows="5"></textarea><br>
     City:<br>
-    <input type="text" name="city"><br>
+    <select name="city">
+            <option value="">Select one</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Rajshahi">Rajshahi</option>
+            <option value="Cumilla">Cumilla</option>
+            <option value="Noakhali">Noakhali</option>
+        </select><br><br>
     Email Address:<br>
     <input type="email" name="email"><br>
     Date of Birth:<br>
