@@ -1,0 +1,6 @@
+db: idb_bisew
+table: students
+
+id
+name
+gen

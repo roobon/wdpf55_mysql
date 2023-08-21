@@ -1,0 +1,18 @@
+creat user 'masum'@'localhost' identified by 'abc123';
+mysql -h localhost -u masum -p
+mysql -h localhost -u root -p
+exit 
+grant select, Insert, update on wdpf55_test.* to 'masum'@'localhost';
+revoke insert on wdpf55_test.* from 'masum'@'localhost';
+show database;
+drop database wdpf55_test;
+use wdpf55_test;
+select * from persons;
+INSERT INTO persons VALUES (NULL , 'Shuvo', 'Ahmed', 'Dhanmondi'. 'Dhaka', 'suvho@gmail.com' '');
+show tables;
+UPDATE persons SET FirstName = 'Mizanue', LastName = 'Rahman', Address = 'Gulistan';
+District = 'Dhaka' WHERE PersonID = '11';
+DROP USER 'masum'@'localhost';
+
+
+
