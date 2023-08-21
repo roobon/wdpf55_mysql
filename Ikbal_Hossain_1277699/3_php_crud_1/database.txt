@@ -1,0 +1,11 @@
+db: idb_bisew
+table: students
+
+id
+name
+gender
+dob
+email
+batch
+address
+hobbies

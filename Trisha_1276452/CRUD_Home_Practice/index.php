@@ -16,7 +16,9 @@
 
 <div class="container">
   <h2>Lis of all persons</h2> 
-  <a href="entry.php" class="btn btn-success">New Person Entry</a>        
+
+  <a href="entry_form.php" class="btn btn-success">New Person Entry</a>    
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -40,6 +42,13 @@
         <td><?php echo $row->Adress ?></td>
         <td><?php echo $row->City ?></td>
         <td><?php echo $row->Email ?></td>
+
+        <td>
+        <a class="btn btn-success" href="edit.php?id=<?php echo $row->PersonID ?>"><span class="glyphicon glyphicon-edit"></span></a>
+          &nbsp;
+          <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID ?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a>
+
+        </td>
 
     </tr>
         <?php endwhile; ?>
