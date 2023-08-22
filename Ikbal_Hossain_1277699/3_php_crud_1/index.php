@@ -1,5 +1,7 @@
 <?php 
-    $db = new mysqli("localhost", "root", "", "idb_bisew_wdpf55");
+    // $db = new mysqli("localhost", "root", "", "idb_bisew_wdpf55");
+
+    require_once("db_config.php");
 ?>
 
 <!DOCTYPE html>
