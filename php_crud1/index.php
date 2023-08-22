@@ -1,5 +1,5 @@
 <?php 
-  $db=  new mysqli("localhost", "root", "", "idb_bisew_wdpf55");
+  $db=  new mysqli("localhost", "root", "", "wdpf55_idb_bisew");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,11 +25,17 @@
                 while($row=$result->fetch_object()){  
             ?>
             <tr>
-                <td><?php echo $row->id; ?></td>
-                <td><?php echo $row->name; ?></td>
+                <td><?php echo $row->ID; ?></td>
+                <td><?php echo $row->Name; ?></td>
+                <td><?php echo $row->Gender; ?></td>
+                <td><?php echo $row->DOB; ?></td>
+                <td><?php echo $row->Email; ?></td>
+                <td><?php echo $row->Batch; ?></td>
+                <td><?php echo $row->Address; ?></td>
+                <td><?php echo $row->Hobbies; ?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $row->id; ?>">Edit</a>  
-                    <a href="delete.php?id=<?php echo $row->id; ?>" onclick="return confirm('Are you sure to delete')">Delete</a>
+                    <a href="edit.php?id=<?php echo $row->ID; ?>">Edit</a>  
+                    <a href="delete.php?id=<?php echo $row->ID; ?>" onclick="return confirm('Are you sure to delete')">Delete</a>
                 </td>
             </tr>
         <?php } ?>
