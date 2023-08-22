@@ -1,5 +1,5 @@
 <?php
-require_once("db_config.php")  // step: 02
+    require_once("db_config.php")  // step: 02
 
 ?>
 

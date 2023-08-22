@@ -50,4 +50,8 @@ UPDATE employees SET lastName='Ahmed', firstName='Masum', email='masum@gmail.com
 
 
 
+SELECT employeeNumber, lastName, firstName, jobTitle, city, country FROM employees, offices WHERE offices.officeCode = employees.officeCode; 
 
+
+CREATE VIEW employee_contact_info AS 
+SELECT employeeNumber, lastName, firstName, jobTitle, city, country FROM employees, offices WHERE offices.officeCode = employees.officeCode

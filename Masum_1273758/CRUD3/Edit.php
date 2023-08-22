@@ -81,28 +81,10 @@
   <!-- Submit button -->
 <div class="text-center">
 <input class="bg-primary text center" type="submit" name="submit" value="SUBMIT">
+<input type="hidden" name="id" value="<?php echo $row['StudentID'] ?>" >
 
 </div>
-<input type="hidden" name="id" value="<?php  echo $row['StudentID'] ?>">
- <!-- Register buttons -->
-  <div class="text-center">
-    <p>or Submit with:</p>
-    <button type="button" class="btn btn-secondary btn-floating mx-1">
-      <i class="fab fa -facebook-f"></i>
-    </button>
 
-    <button type="button" class="btn btn-secondary btn-floating mx-1">
-      <i class="fab fa-google"></i>
-    </button>
-
-    <button type="button" class="btn btn-secondary btn-floating mx-1">
-      <i class="fab fa-twitter"></i>
-    </button>
-
-    <button type="button" class="btn btn-secondary btn-floating mx-1">
-      <i class="fab fa-github"></i>
-    </button>
-  </div>
 </form>
 </div>
 </body>

@@ -21,59 +21,56 @@ $result = $myDB->query($sql);
 ?>
 
 
-  <h2>List Of person</h2>
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
 
-  <a class="btn btn-success" href="entry_form.php"> Insert Persons </a>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>City</th>
-        <th>Email_address</th>
-        <th>Date Of Birth</th>
-        <th>Phone</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
 
-    <?php 
-    while($row = $result->fetch_object()){ ?>
 
-      <tr>
-        <td> <?php  echo  $row->PersonID ?> </td>
-        <td> <?php  echo  $row->firstName ?> </td>
-        <td> <?php  echo  $row->Address ?> </td>
-        <td> <?php  echo  $row->City ?> </td>
-        <td> <?php  echo  $row->email_address ?> </td>
-        <td> <?php  echo  $row->DateOfBirth ?> </td>
-        <td> <?php  echo  $row->phone ?> </td>
-        <td>  <a href="edit.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-primary"> Edit </a> 
+<h2>List Of person</h2>
 
-        
-        <a onclick="return confirm('are you sure..!! Data will be Deleted Permanently') " href="delete.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-danger"> Delete </a>
-      </td>
-       
-      </tr>
+<a class="btn btn-success" href="entry_form.php"> Insert Persons </a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Email_address</th>
+      <th>Date Of Birth</th>
+      <th>Phone</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <?php 
+  while($row = $result->fetch_object()){ ?>
+
+    <tr>
+      <td> <?php  echo  $row->PersonID ?> </td>
+      <td> <?php  echo  $row->firstName ?> </td>
+      <td> <?php  echo  $row->Address ?> </td>
+      <td> <?php  echo  $row->City ?> </td>
+      <td> <?php  echo  $row->email_address ?> </td>
+      <td> <?php  echo  $row->DateOfBirth ?> </td>
+      <td> <?php  echo  $row->phone ?> </td>
+      <td>  <a href="edit.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-primary"> Edit </a> 
 
       
-	
-	
-	
-	
-	
-	
+      <a onclick="return confirm('are you sure..!! Data will be Deleted Permanently') " href="delete.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-danger"> Delete </a>
+    </td>
+     
+    </tr>
+    <?php } ?>
  
+  </tbody>
+</table>
 
-      <?php } ?>
-   
-    </tbody>
-  </table>
+</div>
 
-
+</div>
 
 
 </body>
