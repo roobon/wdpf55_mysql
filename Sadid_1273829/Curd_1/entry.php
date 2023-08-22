@@ -1,7 +1,7 @@
 <?php 
     if (isset($_REQUEST['submit'])) {
         extract($_REQUEST);
-        implode(",", $hobby);
+        $hobbies = implode(",", $hobby);
         $db->query("INSERT INTO students VALUES(NULL, '$name', '$gender', '$dob', '$email', '$batch', '$address','$hobbies')");
 
         if ($db->affected_rows>0) {
@@ -24,7 +24,6 @@
     Gender: 
     <input type="radio" class="" name="gender" id=""> Male
     <input type="radio" class="" name="gender" id=""> Female <br>
-    <!-- <input type="name" name="name" class="form-control" ><br> -->
     <input type="date" name="date" class="form-control" ><br>
     <input type="email" name="email" class="form-control" placeholder="enter email"><br>
     Batch:
