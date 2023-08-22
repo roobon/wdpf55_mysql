@@ -14,7 +14,7 @@ require_once("config.php");
 </head>
 <body>
     <h1>Student Information Details</h1>
-    <a class="btn btn-success mb-3 ml-5 font-weight-bold" href="form_entry.php">Inserted</a>
+    <a class="btn btn-success mb-3 ml-5 font-weight-bold" href="form_entry.php">NEW ENTRY FORM</a>
     
     <?php 
     $sql = "SELECT * FROM students";
@@ -49,7 +49,7 @@ require_once("config.php");
       <td><?php echo $row->Address ?></td>
       <td><?php echo $row->hobbies?></td>
       <td>
-        <a class="btn btn-success" href="edit.php">Edit</a> 
+        <a class="btn btn-success" href="edit.php?id=<?php echo $row->id?>">Edit</a> 
        
         <a class="btn btn-danger" href="Delete.php ?id=<?php  echo $row->id?>" onclick="return confirm('Are you sure to deleted')">Delete</a>
       </td>
