@@ -44,7 +44,7 @@
             <td><?php echo $row->Batch ?></td>
             <td><?php echo $row->Address ?></td>
             <td><?php echo $row->Hobbies ?></td>
-            <td><a class="btn btn-success" href="index.php?id=<?php echo $row->ID ?>$action=edit"><span class="glyphicon glyphicon-edit"></span></a>
+            <td><a class="btn btn-success" href="edit.php?id=<?php echo $row->ID ?>"><span class="glyphicon glyphicon-edit"></span></a>
         &nbsp;
         <a class="btn btn-danger" href="delete.php?id=<?php echo $row->ID ?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a></td>	 	 	 	 
       </tr>

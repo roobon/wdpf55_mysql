@@ -1,5 +1,3 @@
-<!-- DELETE DATA START -->
-
 <?php 
 $host = "localhost";
 $user = "root";
@@ -10,18 +8,15 @@ $database = "wdpf55";
 $db = new mysqli($host, $user, $pass, $database);
 
 ?>
-
 <?php 
 
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
 
-$id = $_GET["ID"];
+    $db->query("DELETE FROM idb_bisew_wdpf55 WHERE ID='$id'");
 
-
-$db->query("DELETE FROM persons WHERE ID= '$id'");
-header("Location:index.php");
-
-
-
+    if($db->affected_rows){
+     header("Location:index.php");
+    }
+}
 ?>
-
-<!-- DELETE DATA END -->

@@ -12,7 +12,7 @@ require_once("config_file.php");
 </head>
 <body>
     <?php 
-    $sql = "SELECT * FROM  biodata";
+    $sql = "SELECT * FROM  person";
     $result = $myDB->query($sql);
  ?>
     <h1>One of person Detailes</h1> 
