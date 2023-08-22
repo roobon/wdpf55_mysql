@@ -60,14 +60,8 @@ if(isset($_POST['update'])){
 
             <label for = ""> <?php echo $key; ?> </label> <input type = "checkbox" name = "<?php echo $key; ?>" value= "<?php echo $val; ?>" <?php echo in_array($val, $hobbies) ? "checked" : ""; ?>>
 
-            <?php } ?>
+            <?php } ?> 
     
-        
-
-        
-
-
-      
 
         Address: <br> <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address'] ?></textarea> <br>
 
