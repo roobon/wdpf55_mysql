@@ -1,7 +1,8 @@
 <?php 
+    // step: 01
     // $db = new mysqli("localhost", "root", "", "idb_bisew_wdpf55");
 
-    require_once("db_config.php");
+    require_once("db_config.php")
 ?>
 
 <!DOCTYPE html>
@@ -14,12 +15,12 @@
 <body>
 
     <!-- Student Display with Table -->
-    <?php 
+    <?php // step: 03
         $sql = "SELECT * FROM students";
         $result = $db->query($sql);
 
     ?>
-
+<!-- step: 02 -->
     <table>
         <tr>
             <th>ID</th>
@@ -34,7 +35,7 @@
         </tr>
     
 
-    <?php 
+    <?php  // step: 04
          while ($row = $result->fetch_object()) {
             ?>
             <tr>
