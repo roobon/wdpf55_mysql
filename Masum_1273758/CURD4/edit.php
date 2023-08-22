@@ -11,7 +11,9 @@
     require_once('db_config.php'); 
     $id= $_REQUEST['id'];
     if(isset($_POST['update'])){
-        $sql ="UPDATE student_details SET FirstName='$fname',LastName='$lname',Email='$email', Phone_Number='$phone', FatherName='$faname', MotherName='$maname', Address='$address', City='$city', Department='$department'";
+        extract($_POST);
+        
+        $sql ="UPDATE student_details SET FirstName='$fname',LastName='$lname',Email='$email', Phone_Number='$phone', FatherName ='$faname', MotherName='$maname', Address='$address', City='$city', Department='$department' WHERE StudentID ='$id'";
      $myDB->query($sql);
        if($myDB->affected_rows){
         echo "Successful Updat";
@@ -35,7 +37,7 @@ StudentID 	FirstName 	LastName 	Email 	Phone_Number 	FatherName 	MotherName 	Add
     <input type="text"name="lname" placeholder="Enter Your Last Name" value="<?php echo $row['LastName'] ?>"><br><br>
     <input type="email"name="email" placeholder="Enter Your Email" value="<?php echo $row['Email'] ?>"><br><br>
     <input type="number"name="phone" placeholder="Enter Your Phone Number" value="<?php echo $row['Phone_Number'] ?>"><br><br>
-    <input type="text"name="faname" placeholder="Enter Your Father Name" value="<?php echo $row['FatherName '] ?>"><br><br>
+    <input type="text" name="faname" placeholder="Enter your Father Name" value="<?php echo $row['FatherName'] ?>"><br><br>
     <input type="text"name="maname" placeholder="Enter Your Mother Name" value="<?php echo $row['MotherName'] ?>"><br><br>
     <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address'] ?></textarea><br><br>
     <select name="city">

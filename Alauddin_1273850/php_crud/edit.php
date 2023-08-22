@@ -59,7 +59,7 @@
         <input type="date" name="dob" placeholder="Enter date of birth" value="<?php echo $row['DOB']?>"><br>
 
         <input type="submit" name="update" value="UPDATE">
-        <input type="hidden" name="id" value="<?php echo $row['PersonID'] ?>">
+        <input type="hidden" name="id" value="<?php echo $row['ID'] ?>">
 
     </form>
 </body>

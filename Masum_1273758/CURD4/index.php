@@ -39,10 +39,10 @@ require_once("db_config.php");
     while($row =$result->fetch_object()){
     ?>
     <tr>
-      <th><?php echo $row->StudentID  ?></th>
+      <td><?php echo $row->StudentID  ?></td>
       <td><?php echo $row->FirstName."".$row->LastName ?></td>
      <td><?php echo $row->Email ?></td>
-      <th><?php echo $row->Phone_Number?></th>
+      <td><?php echo $row->Phone_Number?></td>
       <td><?php echo $row->FatherName ?></td>
       <td><?php echo $row-> MotherName ?></td>
          <td><?php echo $row->Address ?></td>
