@@ -4,7 +4,9 @@
 if(isset($_POST['update'])){
     extract($_POST);
     // Name = according to form name
-    $sql = "UPDATE students SET Name = '$name', Gender = '$gender', Dob = '$dob', Email = '$email', Batch = '$batch', Address = '$address', WHERE id = '$id'";
+
+    $newhobbies = implode("," , $hobby);
+    $sql = "UPDATE students SET Name = '$name', Gender = '$gender', Dob = '$dob', Email = '$email', Batch = '$batch', Address = '$address', Hobbies = '$newhobbies' WHERE id = '$id'";
 
     $db -> query($sql);
 
@@ -61,7 +63,6 @@ if(isset($_POST['update'])){
             <label for = ""> <?php echo $key; ?> </label> <input type = "checkbox" name = "<?php echo $key; ?>" value= "<?php echo $val; ?>" <?php echo in_array($val, $hobbies) ? "checked" : ""; ?>>
 
             <?php } ?> 
-    
 
         Address: <br> <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address'] ?></textarea> <br>
 
