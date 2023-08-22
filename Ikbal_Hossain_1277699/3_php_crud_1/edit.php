@@ -1,4 +1,23 @@
 <?php 
+// update data 
+// step: last
+if(isset($_POST['update'])){
+    extract($_POST);
+    // Name = according to form name
+    $sql = "UPDATE students SET Name = '$name', Gender = '$gender', Dob = '$dob', Email = '$email', Batch = '$batch', Address = '$address', WHERE id = '$id'";
+
+    $db -> query($sql);
+
+    if($db -> affected_rows >0){
+        header("Location: index.php");
+    }
+}
+
+
+
+
+
+// data showing in the form
     // step: 01
     require_once("db_config.php");
 
@@ -35,14 +54,14 @@
         Batch: <input type="text" name="">
 
         Hobbies: <br>
-        <?php 
+        <?php  // static checkbox comment a rakhle dynamic korte subida hobe.
             foreach ($hobilist as $key => $val){ ?>
             <!-- level pore add kore nibo -->
 
             <label for = ""> <?php echo $key; ?> </label> <input type = "checkbox" name = "<?php echo $key; ?>" value= "<?php echo $val; ?>" <?php echo in_array($val, $hobbies) ? "checked" : ""; ?>>
 
             <?php } ?>
-        ?>
+    
         
 
         
@@ -66,6 +85,6 @@
 
         <input type="submit" name="update" value = "UPDATE"> <br>
 
-        <input type= "hidden" value = " <?php echo $row['PersonID'] ?>" name = "id" >
+        <input type= "hidden" value = " <?php echo $row['id']    ?>" name = "id" >
 
     </form>
