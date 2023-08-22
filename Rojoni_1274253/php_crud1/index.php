@@ -18,6 +18,7 @@ $db = new mysqli ("localhost","root","","idb_bisew_wdpf55");
         $result = $db->query($sql);
     ?>
     <h2>Students List</h2>
+    <a href="entry.php">Entry From</a>
 `    <table border="1">
         
 
@@ -44,7 +45,7 @@ $db = new mysqli ("localhost","root","","idb_bisew_wdpf55");
             <td><?php echo $row->Address?></td>
             <td><?php echo $row->Hobbies?></td>
             <td>
-                <a class="btn btn-success" href="index.php? id=<?php echo $row->ID?>">Edit</a>
+                <a class="btn btn-success" href="edit.php? id=<?php echo $row->ID?>">Edit</a>
                  <a class="btn btn-danger" href="delete.php?id=<?php echo $row->ID?>" onclick="return confirm('Are you sure to delete')">Delete</a>
      </td>
          </tr>
