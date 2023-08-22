@@ -15,23 +15,25 @@
         <h2>Person Update Form</h2>
         <?php 
         require_once("db_config.php");
-        $id = $_GET['id'];
+        $id = $_REQUEST['id'];
 
-        $result = $db->query("SELECT * FROM persons WHERE PersonID='$id'");
-        $row = $result->fetch_assoc();
-
-        if(isset($_POST["submit"])){
+        if(isset($_POST["update"])){
             extract($_POST);
-            
-            //$sql = "INSERT INTO persons VALUE(NULL, '$lastName', '$firstName', '$address', '$city', '$email', '$phone', '$dob')";
+            echo "UPDATE persons SET LastName = '$lastName', FirstName = '$firstName', Address = '$address', City = '$city', Email_Address = '$email', PhoneNo = '$phone', DOB = '$dob' WHERE PersonID='$id'";
+
+            $sql = "UPDATE persons SET LastName = '$lastName', FirstName = '$firstName', Address = '$address', City = '$city', Email_Address = '$email', PhoneNo = '$phone', DOB = '$dob' WHERE PersonID='$id'";
 
             $db->query($sql);
 
             if($db->affected_rows){
-                echo "Info Successfully inserted";
-            }
+                echo "Info Successfully Updated";
+            } 
         }
+        
+        $result = $db->query("SELECT * FROM persons WHERE PersonID='$id'");
+        $row = $result->fetch_assoc();
         ?>
+
         <div class="">
             <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
                 <div class="">
@@ -55,28 +57,32 @@
                 <div>
                     <select name="city" class="form-control">
                         <option value="">Select One</option>
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Barisal">Barisal</option>
-                        <option value="Narayanganj">Narayanganj</option>
+                        <option value="Dhaka" <?php if($row["City"]=="Dhaka") echo "selected";?>>Dhaka</option>
+                        <option value="Barisal" <?php if($row["City"]=="Barisal") echo "selected";?>>Barisal</option>
+                        <option value="Narayanganj" <?php if($row["City"]=="Narayanganj") echo "selected";?>>Narayanganj</option>
+                        <option value="Chitagonj" <?php if($row["City"]=="Chitagonj") echo "selected";?>>Chitagonj</option>
+                        <option value="Rajshahi" <?php if($row["City"]=="Rajshahi") echo "selected";?>>Rajshahi</option>
+                        <option value="Khulna" <?php if($row["City"]=="Khulna") echo "selected";?>>Khulna</option>
                     </select>
                 </div>
 
                 <span class="form-label">Email Address</span>
                 <div>
-                    <input type="text" name="email" placeholder="Enter Your Email Address" class="form-control">
+                    <input type="text" name="email" placeholder="Enter Your Email Address" class="form-control" value="<?php echo $row["Email_Address"]?>">
                 </div>
 
                 <span class="form-label">Phone Number</span>
                 <div>
-                    <input type="text" name="phone" placeholder="Enter Your Phone Number" class="form-control">
+                    <input type="text" name="phone" placeholder="Enter Your Phone Number" class="form-control" value="<?php echo $row["PhoneNo"]?>">
                 </div>
 
                 <span class="form-label">Date of Birth</span>
                 <div>
-                    <input type="date" name="dob" class="form-control">
+                    <input type="date" name="dob" class="form-control" value="<?php echo $row["DOB"]?>">
                 </div>
 
-                <input type="submit" name="submit" value="UPDATE" class="btn btn-primary mt-3">
+                <input type="submit" name="update" value="UPDATE" class="btn btn-primary mt-3">
+                <input type="hidden" value="<?php echo $row["PersonID"]?>" name="id">
             </form>
         </div>
     </div>

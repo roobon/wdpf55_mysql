@@ -1,0 +1,1 @@
+INSERT INTO `students` (`ID`, `Name`, `Gender`, `DOB`, `Email`, `Batch`, `Address`, `Hobbies`) VALUES (NULL, 'MD Alauddin', 'Male', '1995/03/30', 'alauddin@gmail.com', '18', 'south,khilgaon', 'Traveling,sports');

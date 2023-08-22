@@ -1,5 +1,5 @@
 <?php
-require_once("db_config.php")  // step: 02
+    require_once("db_config.php")  // step: 02
 
 ?>
 
@@ -18,17 +18,17 @@ require_once("db_config.php")  // step: 02
 
 <body>
 
-        <?php 
-            // step: 03
-            $sql = "SELECT * FROM persons";
-            $result = $db -> query($sql);
-        ?>
+    <?php
+    // step: 03
+    $sql = "SELECT * FROM persons";
+    $result = $db->query($sql);
+    ?>
 
     <div class="container">
         <h2>List of all persons</h2>
-        <a href="person_entry.php" class = "btn btn-success"> New Person Entry </a>
+        <a href="person_entry.php" class="btn btn-success"> New Person Entry </a>
 
-        
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -47,15 +47,17 @@ require_once("db_config.php")  // step: 02
                 while ($row = $result->fetch_object()) {
                 ?>
                     <tr>
-                        <td><?php echo $row ->PersonID ?></td>
-                        <td><?php echo $row ->FirstName. " " . $row ->LastName ?></td>
-                        <td><?php echo $row ->Address ?></td>
-                        <td> <?php echo $row ->City ?></td>
-                        <td><?php echo $row ->email_address ?></td>  
-                        <td> <?php echo $row ->dob ?></td>
+                        <td><?php echo $row->PersonID ?></td>
+                        <td><?php echo $row->FirstName . " " . $row->LastName ?></td>
+                        <td><?php echo $row->Address ?></td>
+                        <td> <?php echo $row->City ?></td>
+                        <td><?php echo $row->email_address ?></td>
+                        <td> <?php echo $row->dob ?></td>
                         <td>
-                            <a class="btn btn-success" href="edit.php?id=<?php echo $row -> PersonID ?">Edit</a> 
-                            <a class="btn btn-danger" href="delete.php?id">Delete</a></td> 
+                            <a class="btn btn-success" href="edit.php?id=<?php echo $row->PersonID ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                            &nbsp;
+                            <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID ?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
                     </tr>
 
                 <?php    } ?>

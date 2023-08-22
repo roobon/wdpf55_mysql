@@ -50,7 +50,7 @@ require_once("db_config.php")
         <td><?php echo $row->Email_address?></td>
         <td><?php echo $row->DOB?></td>
         <td>
-          <a class="btn btn-success" href="edit.php"><span class="glyphicon glyphicon-edit"></span></a>
+          <a class="btn btn-success" href="edit.php?id=<?php echo $row->PersonID?>"><span class="glyphicon glyphicon-edit"></span></a>
           &nbsp;
           <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID?>"
         onclick="return confirm('Are You Sure to Delete?')"><span class="glyphicon glyphicon-trash"></span></a></td>

@@ -15,12 +15,9 @@
     session_start();
     if(isset($_SESSION["error"])){
         echo $_SESSION["error"];
-
         unset($_SESSION["error"]);
-
     }
   ?>
-  
   <form action="login.php" method="post">
     <div class="mb-3 mt-3">
       <label for="email">Email:</label>
@@ -29,6 +26,11 @@
     <div class="mb-3">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+    </div>
+    <div class="form-check mb-3">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+      </label>
     </div>
     <button type="submit" class="btn btn-primary" name="submit">Login</button>
   </form>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,33 +11,38 @@
     <h3>Person Entry Form</h3>
     <?php
         require_once("db_config.php"); 
-         $id = $_GET['id'];
-
-         $result = $db->query("SELECT * FROM persons WHERE PersonID='$id'");
-         $row = $result->fetch_assoc();
-        
-        if(isset($_POST['submit'])){
+         $id = $_REQUEST['id'];
+       
+        if(isset($_POST['update'])){
             extract($_POST);
-           // $sql = "INSERT INTO persons  VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
+           $sql = "UPDATE persons  SET LastName='$lname', FirstName='$fname', Address='$address', City= '$city', email_address = '$email', dob='$dob' WHERE PersonID='$id'";
             $db->query($sql);
 
            if($db->affected_rows){
-            echo "Inserted";
+            echo "Updated Succcessfully";
            }
-        }  
+        } 
+        
+        $result = $db->query("SELECT * FROM persons WHERE PersonID='$id'");
+        $row = $result->fetch_assoc();
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-        <input type="text" name="fname" placeholder="Enter First Name" value="<?php echo  $row['FirstName'] ?>"><br>
-        <input type="text" name="lname" placeholder="Enter Last Name"><br>
-        <textarea name="address" cols="30" rows="10"></textarea><br>
+    ID: <input type="text" value="<?php echo $row['PersonID'] ?>" name="id" disabled><br>    
+    <input type="text" name="fname" placeholder="Enter First Name" value="<?php echo  $row['FirstName'] ?>"><br>
+        <input type="text" name="lname" placeholder="Enter Last Name" value="<?php echo  $row['LastName'] ?>"><br>
+        <textarea name="address" cols="30" rows="10"><?php echo  $row['Address'] ?></textarea><br>
         <select name="city">
             <option value="">Select one</option>
-            <option value="Dhaka">Dhaka</option>
-            <option value="Khulna">Khulna</option>
+            <option value="Dhaka" <?php if($row['City']=='Dhaka') echo "selected"; ?>>Dhaka</option>
+            <option value="Khulna" <?php if($row['City']=='Khulna') echo "selected"; ?>>Khulna</option>
+            <option value="Rajshahi" <?php if($row['City']=='Rajshahi') echo "selected"; ?>>Rajshahi</option>
+            <option value="Cumilla" <?php if($row['City']=='Cumilla') echo "selected"; ?>>Cumilla</option>
+            <option value="Noakhali" <?php if($row['City']=='Noakhali') echo "selected"; ?>>Noakhali</option>
         </select><br>
-        <input type="text" name="email" placeholder="Enter email address"><br>
-        <input type="date" name="dob" placeholder="Enter date"><br>
-        <input type="submit" name="submit" value="UPDATE">
+        <input type="text" name="email" placeholder="Enter email address" value="<?php echo  $row['email_address'] ?>"><br>
+        <input type="date" name="dob" placeholder="Enter date" value="<?php echo  $row['dob'] ?>"><br>
+        <input type="submit" name="update" value="UPDATE">
+        
     </form>
 </body>
 </html>
