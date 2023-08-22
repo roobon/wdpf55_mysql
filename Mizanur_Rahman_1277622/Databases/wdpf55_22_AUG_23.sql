@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2023 at 08:19 AM
+-- Generation Time: Aug 22, 2023 at 08:27 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -83,7 +83,8 @@ INSERT INTO `persons2` (`PersonID`, `FirstName`, `LastName`, `Gender`, `Address`
 (31, 'Jannatul', 'Ferdous', 'Female', 'Kuril', 'Dhaka', 'jannat@gg.com', '01555555', '2023-08-22'),
 (32, 'Jahid ', 'Hasan', 'Male', 'Paltan', 'Dhaka', 'jahid@gmail.com', '0000000', '2023-08-22'),
 (33, 'Sakhawa', 'Hossain', 'Male', 'Narayanganj Stadium', 'Narayanganj', 'sakhawat@gmail.com', '0176987', '2023-08-01'),
-(34, 'Riadul', 'Islam', 'Male', 'Jatrabari', 'Dhaka', 'riyad@gmail.com', '0000000000', '2023-08-01');
+(34, 'Riadul', 'Islam', 'Male', 'Jatrabari', 'Dhaka', 'riyad@gmail.com', '0000000000', '2023-08-01'),
+(35, 'Nadia', 'Sultana', 'Female', 'Demra', 'Dhaka', 'nadia@gmail.com', '0000000000', '2023-08-22');
 
 -- --------------------------------------------------------
 
@@ -146,7 +147,7 @@ ALTER TABLE `persons`
 -- AUTO_INCREMENT for table `persons2`
 --
 ALTER TABLE `persons2`
-  MODIFY `PersonID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `PersonID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `students`
