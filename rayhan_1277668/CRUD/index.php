@@ -40,6 +40,7 @@ $result = $myDB->query($sql);
       <th>Email_address</th>
       <th>Date Of Birth</th>
       <th>Phone</th>
+      <th>Gender</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -56,6 +57,8 @@ $result = $myDB->query($sql);
       <td> <?php  echo  $row->email_address ?> </td>
       <td> <?php  echo  $row->DateOfBirth ?> </td>
       <td> <?php  echo  $row->phone ?> </td>
+      <td> <?php  echo  $row->Gender ?> </td>
+      
       <td>  <a href="edit.php?id=<?php  echo  $row->PersonID ?>" class="btn btn-primary"> Edit </a> 
 
       
