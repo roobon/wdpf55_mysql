@@ -23,6 +23,7 @@
 
                     if($db->affected_rows){
                        echo "Success";
+                       header("Location: index.php");
                     }
                 }
             ?>
@@ -34,8 +35,8 @@
             </div>
             <div class="form-group mb-3 mt-3">
             <label>Gender :</label><br>
-            <input type="radio" name="gender"> Male
-            <input type="radio" name="gender"> Female
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
             </div>
             <div class="form-group mb-3 mt-3">
             <label>DOB :</label>
