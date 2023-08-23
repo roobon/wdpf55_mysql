@@ -30,7 +30,7 @@ $result=$db->query($sql);
 
             <tr>
                 <td><?php echo $row->id?></td>
-                <td><?php echo $row->name?></td>
+                <td><?php echo $row->studentname?></td>
                 <td><?php echo $row->gender?></td>
                 <td><?php echo $row->batch?></td>
                 <td><?php echo $row->phone?></td>
