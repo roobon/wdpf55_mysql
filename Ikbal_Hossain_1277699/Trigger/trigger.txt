@@ -17,7 +17,7 @@ SET
 	student_name = NEW.name,
 	action = 'insert';
 ########################################################################
-CREATE TRIGGER after_student_insert
+CREATE TRIGGER after_student_update
 	AFTER UPDATE ON students
 	FOR EACH ROW
 INSERT INTO students_audit
@@ -25,3 +25,13 @@ SET
 	student_id = OLD.id,
 	student_name = OLD.name,
 	action = 'update';
+
+##############################################
+CREATE TRIGGER after_student_delete 
+    AFTER DELETE ON students
+    FOR EACH ROW 
+ INSERT INTO students_audit
+ SET 
+     student_id = OLD.ID,
+     student_name = OLD.Name,
+     action = 'delete';
