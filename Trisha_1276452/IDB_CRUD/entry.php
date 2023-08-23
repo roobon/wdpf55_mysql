@@ -14,7 +14,7 @@
 
            // echo "INSERT INTO persons  VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
 
-            $sql = "INSERT INTO persons  VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
+            $sql = "INSERT INTO person2  VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
             $db->query($sql);
 
            if($db->affected_rows){
