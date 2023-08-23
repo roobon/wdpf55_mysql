@@ -11,7 +11,9 @@
 </head>
 <body>
     <?php 
-        $sql = "SELECT * FROM persons";//query string
+    //  query string
+        $sql = "SELECT * FROM persons";
+       
         $result = $db->query($sql);//query method a query string pass .se ta akta row variable a store korsi
     ?>
 
@@ -20,6 +22,7 @@
   <!-- <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>             -->
   
   <a href="Entry_From.php" class="btn btn_success">New Person Entry</a>
+ 
   <table class="table table-striped">
     <thead>
       <tr>
@@ -35,7 +38,8 @@
     <tbody>
 
 <?php 
-while($row = $result->fetch_object()):?> //result thake data tule ante fetch_object use kora hoise
+while($row = $result->fetch_object()):?>
+ <!-- result thake data tule ante fetch_object use kora hoise -->
  <tr>
         <td><?php echo $row->PersonID?></td>
         <td><?php echo $row->FirstName . " " . $row->LastName?></td>
