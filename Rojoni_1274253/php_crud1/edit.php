@@ -18,8 +18,9 @@ $db = new mysqli ("localhost","root","","idb_bisew_wdpf55");
 //Update data using submission
 if(isset($_POST['update'])){
     extract ($_POST);
-    echo "UPDATE students SET Name='$name', Gender='$gender', Dob='$dob', Email='$email',Batch='$batch',Address='$address' WHERE ID='$id'";
-    $sql = "UPDATE students SET Name='$name', Gender='$gender', Dob='$dob', Email='$email',Batch='$batch',Address='$address' WHERE ID='$id'";
+    // echo "UPDATE students SET Name='$name', Gender='$gender', Dob='$dob', Email='$email',Batch='$batch',Address='$address' WHERE ID='$id'";
+    $newwhobbies = implode (",",$hobby);//array to string
+    $sql = "UPDATE students SET Name='$name', Gender='$gender', Dob='$dob', Email='$email',Batch='$batch',Address='$address', Hobbies = '$newwhobbies' WHERE ID='$id'";
     $db->query($sql);
     if($db->affected_rows>0){
         header("Location:index.php");
