@@ -34,6 +34,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Gender</th>
                     <th>Address</th>
                     <th>City</th>
                     <th>Email</th>
@@ -47,16 +48,17 @@
                 while ($row = $result->fetch_object()) {
                 ?>
                     <tr>
-                        <td><?php echo $row->PersonID ?></td>
+                        <td><?php echo $row-> person_id ?></td>
                         <td><?php echo $row->FirstName . " " . $row->LastName ?></td>
+                        <td><?php echo $row->gender ?></td>
                         <td><?php echo $row->Address ?></td>
                         <td> <?php echo $row->City ?></td>
                         <td><?php echo $row->email_address ?></td>
                         <td> <?php echo $row->dob ?></td>
                         <td>
-                            <a class="btn btn-success" href="edit.php?id=<?php echo $row->PersonID ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a class="btn btn-success" href="edit.php?id=<?php echo $row-> person_id ?>"><span class="glyphicon glyphicon-edit"></span></a>
                             &nbsp;
-                            <a class="btn btn-danger" href="delete.php?id=<?php echo $row->PersonID ?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a class="btn btn-danger" href="delete.php?id=<?php echo $row-> person_id ?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a>
                         </td>
                     </tr>
 

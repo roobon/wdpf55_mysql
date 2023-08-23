@@ -1,17 +1,16 @@
-
-<?php
-if (isset($_REQUEST['submit'])) {
-    $db = new mysqli("localhost", "root", "", "idb_bisew_wdpf55");
+<?php 
+if(isset($_REQUEST['submit'])){
+    $db = new mysqli('localhost', 'root', '', 'isdb_bisew_55');
     extract($_REQUEST);
     $hobbies = implode(",", $hobby);
-    $db->query("INSERT INTO students VALUES(NULL, '$name', '$gender', '$dob', '$email', '$batch', '$address','$hobbies')");
     
-    if ($db->affected_rows) {
+    $db->query("INSERT INTO user VALUES(NULL, '$name', '$gender', '$email',  '$dob', '$address', '$hobbies')");
+    
+    if($db->affected_rows){
         header("Location: index.php");
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,17 +29,9 @@ if (isset($_REQUEST['submit'])) {
         <input type="radio" class="" name="gender" value="Male"> Male
         <input type="radio" class="" name="gender" value="Female"> Female <br>
 
-        <input type="date" name="dob" class="form-control"><br>
-
         <input type="email" name="email" class="form-control" placeholder="enter email"><br>
 
-        Batch:
-        <select name="batch">
-            <option value="53">53</option>
-            <option value="54">54</option>
-            <option value="55">55</option>
-            <option value="56">56</option>
-        </select> <br>
+        <input type="date" name="dob" class="form-control"><br>
 
         <textarea name="address" class="form-control" placeholder="Enter address"></textarea> <br>
 

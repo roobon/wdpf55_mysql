@@ -22,13 +22,13 @@
             $hobby = $row["Hobbies"]; //string
             $hobbies = explode(",", $hobby); //array
             $hobbilist = array("Cricket","Football","Batminton");
-            $namefield = "hobby";
+            
 
         //<!-- -----update data from Form ------>
         
             if(isset($_POST["update"])){
                 extract($_POST);
-                $hobbies = implode(",", $hobby);
+                $hobbies = implode(",", $hobby); //array to string 
                 
                 $sql = "UPDATE students SET Name='$name', Gender='$gender', Batch='$batch', Address='$address', Hobbies='$hobbies', Dob='$dob', Email='$email' WHERE st_id='$id'";
                 $db->query($sql);
@@ -79,8 +79,7 @@
             <label>Hobbies :</label><br>
                 <?php 
                   foreach($hobbilist as $val){?>
-                    <label><?php echo $val; ?></label>
-                    <input type="checkbox" name="<?php echo $namefield.'[]';?>" value="<?php echo $val;?>" <?php echo in_array($val,$hobbies)?"checked":"";?>>
+                    <label><?php echo $val;?></label><input type="checkbox" name="hobby[]" value="<?php echo $val;?>" <?php echo in_array($val,$hobbies)?"checked":"";?>>
                 <?php }?>
                 
             </div>
