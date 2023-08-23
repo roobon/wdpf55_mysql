@@ -2,7 +2,7 @@
 $host= "localhost";
 $user  = "root";
 $password = "";
-$database = "admission_from";
+$database = "wdpf55";
 $myDB = new mysqli($host,$user,$password,$database);
 
 ?>
