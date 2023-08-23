@@ -34,6 +34,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Gender</th>
                     <th>Address</th>
                     <th>City</th>
                     <th>Email</th>
@@ -49,6 +50,7 @@
                     <tr>
                         <td><?php echo $row->PersonID ?></td>
                         <td><?php echo $row->FirstName . " " . $row->LastName ?></td>
+                        <td><?php echo $row->gender ?></td>
                         <td><?php echo $row->Address ?></td>
                         <td> <?php echo $row->City ?></td>
                         <td><?php echo $row->email_address ?></td>
