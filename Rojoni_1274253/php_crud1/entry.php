@@ -1,3 +1,8 @@
+<?php 
+$db = new mysqli ("localhost","root","","idb_bisew_wdpf55");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +16,8 @@
     if(isset($_POST['submit'])){
         extract($_POST);
         $sql = "INSERT INTO students VALUES(NULL,'$name','$gender','$dob','$email','$batch','$address','$hobbies')";
-        $bd->query($sql);
-        if($db->affected_row>0){
+        $db->query($sql);
+        if($db->affected_rows>0){
             header("Location:index.php");
         }
     }
@@ -22,7 +27,7 @@
         Gender <br>
        Male <input type="radio" name="gender" value="male">
        Female <input type="radio" name="gender" value="female"><br>
-        <input type="data" name="dob"><br>
+        <input type="data" name="dob" placeholder="Enter dob"><br>
         <input type="text" name="email" placeholder="Enter email"><br>
         Batch Name: <br>
         <select name="batch">
@@ -38,7 +43,7 @@
     Football: <input type="checkbox" name="football" value="football">
      Hockey: <input type="checkbox" name="hockey" value="hockey"><br>
      Tenis: <input type="checkbox" name="tenis" value="tenis">
-    Badminton: <input type="badminton" name="cricket" value="badminton"><br>
+    Badminton: <input type="checkbox" name="badminton" value="badminton"><br>
     <input type="submit" name="submit" value="SUBMIT">
     </form>
     

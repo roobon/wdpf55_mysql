@@ -62,9 +62,9 @@
         <td><?php echo $row->address?></td>
         <td><?php echo $row->hobbies	 ?></td>
         <td>
-          <a href="edit.php?id=<?php echo $row->id;?>"class="btn btn-success">Edit</a>
+          <a href="edit.php?id=<?php echo $row->id;?>"class="btn btn-success">Edit</a><br>
 
-          <a href="delete.php?id=<?php echo $row->id; ?>" onclick="return confirm('Are you sure to delete')"a class="btn btn-danger">Delete</a>
+          <a href="delete.php?id=<?php echo $row->id; ?>" onclick="return confirm('Are you sure to delete')"class="btn btn-danger">Delete</a>
         </td>
        
                                     <!-- icon kote hobe -->
