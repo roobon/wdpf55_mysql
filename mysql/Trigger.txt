@@ -34,3 +34,23 @@ CREATE TABLE students_audit(
   action VARCHAR(10), 	  
   date DATETIME DEFAULT CURRENT_TIMESTAMP		
 )
+##################################
+CREATE TRIGGER after_orders_insert 
+    AFTER INSERT ON orders
+    FOR EACH ROW 
+ UPDATE products
+ SET 
+     product_amount = product_amount - NEW.pr_amount
+     WHERE products.id = NEW.pr_id	
+     
+
+
+
+
+
+
+
+
+
+
+
