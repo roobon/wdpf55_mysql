@@ -1,0 +1,37 @@
+CREATE TABLE students_audit(
+	id int AUTO_INCREMENT PRIMARY KEY,
+	student_id INT NOT NULL,
+	student_name VARCHAR(100),
+	action VARCHAR(10),
+	date DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+
+
+CREATE TRIGGER after_student_insert
+	AFTER INSERT ON students
+	FOR EACH ROW
+INSERT INTO students_audit
+SET 
+	student_id = NEW.id,
+	student_name = NEW.name,
+	action = 'insert';
+########################################################
+CREATE TRIGGER after_student_update
+	AFTER UPDATE ON students
+	FOR EACH ROW
+INSERT INTO students_audit
+SET 
+	student_id = OLD.id,
+	student_name = OLD.name,
+	action = 'update';
+
+########################################################
+CREATE TRIGGER after_student_delete 
+    AFTER DELETE ON students
+    FOR EACH ROW 
+ INSERT INTO students_audit
+ SET 
+     student_id = OLD.ID,
+     student_name = OLD.Name,
+     action = 'delete';

@@ -14,7 +14,7 @@
             extract($_POST);
             require_once("db_config.php");
 
-            // jodi check box thake tahole take implode kore array theke string a convert korte hobe. tahole akdik check box show korbe
+            // jodi check box thake tahole take implode kore array theke string a convert korte hobe. tahole akdik check box show korbe // eita checkbox er khetre projojjo
 
             // echo  "INSERT INTO persons VALUES (NULL, '$lname', '$fname', '$address', '$city', '$email', '$dob')";
             // $db -> query($sql);

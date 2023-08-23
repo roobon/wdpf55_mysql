@@ -11,7 +11,7 @@
 require_once("config_file.php");
 if(isset($_POST['submit'])){
     extract($_POST);
-    $sql = "INSERT biodata VALUES(NULL, '$fname','$lname','$email','$phone','$address','$city','$nationality','$gender') ";
+    $sql = "INSERT person VALUES(NULL, '$fname','$lname','$email','$phone','$address','$city','$nationality','$gender') ";
     $myDB->query($sql);
     if($myDB->affected_rows){
         echo "Inserted Successfully";
