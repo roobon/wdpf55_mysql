@@ -1,3 +1,4 @@
+
 <?php
 if (isset($_REQUEST['submit'])) {
     $db = new mysqli("localhost", "root", "", "idb_bisew_wdpf55");
@@ -20,7 +21,6 @@ if (isset($_REQUEST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>New Entry</title>
 </head>
-
 <body>
     <form class="container w-25 mt-5">
         <input type="name" name="name" class="form-control" placeholder="Enter name"><br>

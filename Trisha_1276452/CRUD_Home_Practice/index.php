@@ -15,7 +15,7 @@
     
 
 <div class="container">
-  <h2>Lis of all persons</h2> 
+  <h2>List of all persons</h2> 
 
   <a href="entry_form.php" class="btn btn-success">New Person Entry</a>    
 
@@ -33,6 +33,7 @@
     </thead>
     <tbody>
         
+
     <?php 
     while ( $row = $result->fetch_object()): ?>
      <tr>

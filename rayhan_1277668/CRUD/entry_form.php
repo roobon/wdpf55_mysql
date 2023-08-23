@@ -16,11 +16,11 @@
         
         // echo  " INSERT INTO persons  VALUES ( NULL, '$address', '$city', '$email',  '$number', '$date', '$name') ";
 
-        $sql = " INSERT INTO persons  VALUES ( NULL, '$address', '$city', '$email',  '$number', '$date', '$name') ";
+        $sql = " INSERT INTO persons  VALUES ( NULL, '$address', '$city', '$email',  '$number', '$date', '$name' , '$gender') ";
         $myDB->query($sql);
 
         if ( $myDB->affected_rows ) {
-            echo " data inserted " ;
+            header("Location:index.php");
         }
     }
 
@@ -45,6 +45,11 @@
 
          <input type="date" name="date" placeholder="date"> <br>
          <input type="number" name="number" placeholder="number"> <br>
+        
+         <b>Gender</b> <br>
+        Male <input type="radio" name="gender" value="Male">
+        Female <input type="radio" name="gender" value="Female">
+
 
          <input  type="submit" name="submit" value="SUBMIT">
 

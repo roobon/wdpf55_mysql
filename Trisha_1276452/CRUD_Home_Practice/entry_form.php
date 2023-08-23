@@ -15,20 +15,20 @@
         require_once("db_connection.php");
 
 
-        $sql = "INSERT INTO persons VALUES (NULL, '$fname', '$lname', '$adress', '$city', '$email')";
+        $sql = "INSERT INTO persons VALUES (NULL, '$FirstName', '$LastName', '$Adress', '$City', '$Email')";
         $db->query($sql);
 
         if($db->affected_rows){
             echo "Inserted";
         }
     }
-    
+
     ?>
  <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method = "post" >
-        <input type="text" name = "fname" placeholder = "Enter First Name"><br><br>
-        <input type="text" name = "lname" placeholder = "Enter Last Name"><br><br>
-        <textarea name="adress" id="" cols="21" rows="05"></textarea>
-         <br><br><select name="city" id="">
+        <input type="text" name = "FirstName" placeholder = "Enter First Name"><br><br>
+        <input type="text" name = "LastName" placeholder = "Enter Last Name"><br><br>
+        <textarea name="Adress" id="" cols="21" rows="05"></textarea>
+         <br><br><select name="City" id="">
             <option value="">Select one</option>
             <option value="Dhaka">Dhaka</option>
             <option value="Khulna">Khulna</option>
@@ -36,7 +36,7 @@
             <option value="Bogura">Bogura</option>
         </select> <br> <br>
 
-        <input type="text" name = "email" placeholder = "Enter Your Email"><br><br>
+        <input type="text" name = "Email" placeholder = "Enter Your Email"><br><br>
         <input type="submit" name = "submit" value = "SUBMIT"><br>
 
     </form>
