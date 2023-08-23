@@ -11,7 +11,7 @@
     require_once("db_config.php");
     if(isset($_POST['submit'])){
         extract($_POST);
-        	    $sql = "INSERT biodata VALUES(NULL,'$fname','$lname','$email','$phone','$department','$address','$city')";
+        	    $sql = "INSERT biodata VALUES(NULL,'$fname','$lname','$email','$phone','$department','$gender', '$address','$city')";
      $myDB->query($sql);
     if($myDB->affected_rows){
         echo "Inserted Successfully";
@@ -33,8 +33,8 @@
                 <option value="Bangla">Bangla</option>
              </select><br><br>
             
-            <!-- <input type="radio" name="gender" value="male">Male
-            <input type="radio" name="gender" value="female">Female<br><br> -->
+            <input type="radio" name="gender" value="Male">Male
+            <input type="radio" name="gender" value="Female">Female<br><br>
             <textarea name="address" id="" cols="30" rows="10"></textarea><br><br>
             <select name="city">
                 <option value="Dhaka">Dhaka</option>
