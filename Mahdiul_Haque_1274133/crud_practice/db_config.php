@@ -2,7 +2,12 @@
   $host = "localhost";
   $user = "root";
   $pass = "";
-  $db = "idb";
+  $db = "evaly";
 
   $db = new mysqli($host, $user, $pass, $db);
+
+
+
+
+
 ?>
