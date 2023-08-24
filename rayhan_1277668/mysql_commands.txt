@@ -17,6 +17,8 @@ CREATE TABLE users (
   dob DATE	
 ) ENGINE=INNODB;
 
+
+
 //INSERT Query into table
 INSERT INTO users (id, name, address, phone, dob) VALUES (
 	NULL, 'Masum', 'Mirpur', '0147523698', '2015-05-03'
@@ -24,6 +26,8 @@ INSERT INTO users (id, name, address, phone, dob) VALUES (
 INSERT INTO users VALUES (
 	NULL, 'Rojoni', 'Mirpur', '0147523698', '2015-05-03'
 )
+
+
 
 //SELECT Query
 SELECT * FROM users; // all fields
@@ -75,9 +79,11 @@ CREATE TABLE orders (
     FOREIGN KEY (personid) REFERENCES persons(PersonID)
 );
 
+
 ##### UNIQUE or No duplicate #######
 ALTER TABLE persons						= make column unique
 ADD UNIQUE(email_address);
+
 
 
 CREATE TABLE Persons1 (
@@ -87,6 +93,8 @@ CREATE TABLE Persons1 (
     Age int,
     City varchar(255) DEFAULT 'Dhaka'
 );
+
+
 
 CREATE INDEX fnameindex
 ON persons(FirstName)
@@ -156,6 +164,141 @@ create user 'masum'@'localhost'identified by 'abc123'			= mysql user created
 mysql -h localhost -u masum -p						= command for user login
 grant select, insert on wdpf_55.* to 'masum'@'localhost';		= masum user wdpf_55 database er shob table select , insert korte parbe
 grant select, insert on wdpf_55.* to 'masum'@'localhost';		( to give this command you need to login as root user )
+
+
+
+
+
+=================================== MySQL trigger ==============================================
+
+// use case of trigger
+
+* order/stock remaining er jonno trigger use kora hoy.
+* user tracking /  order tracking
+* audit  
+
+
+// trigger command insert
+
+CREATE TRIGGER after_students_insert				
+    AFTER INSERT ON students					
+    FOR EACH ROW 
+ INSERT INTO students_audit
+ SET 
+     student_id = NEW.id,
+     student_name = NEW.name ,
+     action = 'insert' ;
+
+
+
+// trigger command update
+
+CREATE TRIGGER after_students_update				
+    AFTER UPDATE ON students					
+    FOR EACH ROW 
+ INSERT INTO students_audit
+ SET 
+     student_id = OLD.id,
+     student_name = OLD.name ,
+     action = 'update' ;
+
+
+
+
+// trigger command delete
+
+CREATE TRIGGER after_students_delete				
+    AFTER DELETE ON students					
+    FOR EACH ROW 
+ INSERT INTO students_audit
+ SET 
+     student_id = OLD.id,
+     student_name = OLD.name ,
+     action = 'delete' ;
+
+
+
+
+
+
+// product order 
+
+
+CREATE TRIGGER after_orders_insert				
+    AFTER INSERT ON orders					
+    FOR EACH ROW 
+ UPDATE products
+ SET 
+     ProductAmount = ProductAmount - NEW.ProductAmount 				
+     WHERE products.ProductID = NEW.ProductID  ;
+     
+
+*** left side product table | right side order table ***
+     
+
+
+
+
+// create table
+
+CREATE TABLE students_audit(
+ id int AUTO_INCREMENT PRIMARY KEY,
+ student_id int NOT NULL,
+ student_name VARCHAR(100),
+ action VARCHAR(10),
+ date DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+
+
+
+======================================  MySQL View ==============================================
+*database = wdpf55_sample
+
+
+1. 	SELECT * FROM customers WHERE city = 'Madrid' OR city='paris';				= view both city result
+
+
+
+2. 	SELECT customers.customerNumber , customerName, phone, city orderNumber, orderDate, status FROM customers , orders WHERE customers.customerNumber = 	orders.customerNumber 									
+												= get data from two table
+
+
+
+3. 	SELECT customers.customerNumber , customerName, phone, city orderNumber, orderDate, status FROM customers , orders WHERE customers.customerNumber = 	orders.customerNumber AND status != 'shipped';
+
+												= get customers data which are not shipped.
+
+
+
+
+4. 	SELECT customers.customerNumber, customerName, phone, city , orderNumber, quantityOrdered , priceEach ,orderdetails.productCode, productName FROM customers, 	orderdetails, products WHERE ????
+
+												= get data from multiple table.
+
+
+
+* 	SELECT customers.customerNumber, customerName, phone, city , orderNumber, quantityOrdered , priceEach ,orderdetails.productCode, productName, quantityOrdered * 	priceEach AS TotalPrice FROM customers, orderdetails, products WHERE ????
+
+
+												= multiply column and show result in a new column 
+
+
+
+
+* 	SELECT customers.customerNumber, customerName, phone, city , quantityOrdered ,orderdetails.productCode, productName, quantityOrdered * priceEach AS TotalPrice 	FROM customers, orderdetails, products GROUP BY customerNumber				
+												= group by ( per head koto order korce seta pawa jabe )
+
+
+
+5. create view 		= save the query table
+
+CREATE VIEW customer_orders AS
+SELECT customers.customerNumber, customerName, phone, city , quantityOrdered ,orderdetails.productCode, productName, quantityOrdered * priceEach AS TotalPrice 	FROM customers, orderdetails, products GROUP BY customerNumber ;
+
+
+
+
 
 
 

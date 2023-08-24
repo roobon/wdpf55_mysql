@@ -1,0 +1,39 @@
+SELECT * FROM customers WHERE state='NY';
+#############################################
+SELECT * FROM customers WHERE city='Paris';
+#############################################
+SELECT * FROM customers WHERE city='Madrid';
+#############################################
+SELECT * FROM customers WHERE city='Paris' OR city='Madrid'; 
+#############################################
+
+SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status FROM customers, orders WHERE 
+customers.customerNumber = orders.customerNumber
+
+#############################################
+
+SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status FROM customers, orders WHERE 
+customers.customerNumber = orders.customerNumber AND status!='Shipped'
+
+#############################################
+
+SELECT customers.customerNumber, customerName, phone, city, orders.orderNumber, products.productCode, productName, quantityOrdered, priceEach FROM customers, orders, products, orderdetails WHERE 
+customers.customerNumber = orders.customerNumber AND orders.orderNumber = orderdetails.orderNumber AND orderdetails.productCode = products.productCode
+
+#############################################
+
+SELECT customers.customerNumber, customerName AS "Customer Name", phone, city, orders.orderNumber, products.productCode, productName, quantityOrdered, priceEach, quantityOrdered * priceEach AS Total FROM customers, orders, products, orderdetails WHERE customers.customerNumber = orders.customerNumber AND orders.orderNumber = orderdetails.orderNumber AND orderdetails.productCode = products.productCode; 
+
+#############################################
+
+CREATE VIEW customer_orders_view AS
+
+SELECT customers.customerNumber, customerName AS "Customer Name", phone, city, SUM(quantityOrdered) AS 'Total Orders', SUM(quantityOrdered * priceEach) AS 'Total Price' FROM customers, orders, products, orderdetails WHERE customers.customerNumber = orders.customerNumber AND orders.orderNumber = orderdetails.orderNumber AND orderdetails.productCode = products.productCode GROUP BY customerNumber; 
+
+
+
+
+
+
+
+
