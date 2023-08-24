@@ -26,6 +26,7 @@ require_once("db_config.php")
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
       <th scope="col">Department</th>
+      <th scope="col">Gender</th>
     <th scope="col">Address</th>
       <th scope="col">City</th>
       <th scope="col">Action</th>
@@ -42,8 +43,8 @@ require_once("db_config.php")
       <td><?php echo $row->Email ?></td>
       <td><?php echo $row->Phone ?></td>
       <th><?php echo $row->Department ?></th>
-    
-      <td><?php echo $row->Address ?></td>
+      <th><?php echo $row->Gender?></th>
+     <td><?php echo $row->Address ?></td>
       <td><?php echo $row->City ?></td>
       <td>
       <a class="btn btn-primary" href="Edit.php?id=<?php echo $row->personID ?>">Edit</a>

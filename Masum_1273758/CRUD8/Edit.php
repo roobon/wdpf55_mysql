@@ -12,7 +12,8 @@
     $id = $_REQUEST['id'];
     if(isset($_POST['update'])){
         extract($_POST);
-        $sql2 = "UPDATE biodata SET FirstName='$fname',LastName='$lname', Email='$email',Phone='$phone',Department='$department',City=$city WHERE personID='$id' ";
+         
+        $sql2 = "UPDATE biodata SET FirstName='$fname',LastName='$lname', Email='$email',Phone='$phone',Department='$department',Gender='$gender',City='$city' WHERE personID='$id' ";
         $myDB->query($sql2);
         if($myDB->affected_rows){
             echo "Update Successfully";
@@ -42,13 +43,14 @@
                 <option value="Bangla"<?php if($row['Department']=='Bangla') echo 'selected' ?>>Bangla</option>
              </select><br><br>
             
-            <!-- <input type="radio" name="gender" value="male">Male
-            <input type="radio" name="gender" value="female">Female<br><br> -->
-            <textarea name="address" id="" cols="30" rows="10"></textarea><br><br>
+            <input type="radio" name="gender" value="Male" <?php echo ($row['Gender']=='Male')? "checked":""; ?>>Male
+            <input type="radio" name="gender" value="Female" <?php echo($row['Gender']=='Female')? "checked":""; ?>>Female<br><br>
+            <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address'] ?></textarea><br><br>
             <select name="city">
                 <option value="Dhaka" <?php if($row['City']=='Dhaka') echo "selected" ?>>Dhaka</option>
                 <option value="Khulna"<?php if($row['City']=='Khulna') echo "selected" ?>>Khulna</option>
                 <option value="Maymansing"<?php if($row['City']=='Maymansing') echo "selected" ?>>Maymansing</option>
+  
                 <option value="Comilla"<?php if($row['City']=='Comilla') echo "selected" ?>>Comilla</option>
                 <option value="Faridpur"<?php if($row['City']=='Faridpur') echo "selected" ?>>Faridpur</option>
                   </select><br><br>
