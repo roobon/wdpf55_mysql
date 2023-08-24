@@ -1,3 +1,4 @@
+<?php require_once('DB_config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,35 +10,47 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <h2>List of Persons</h2>
+  <a href=""></a>
+  <?php 
+    $sql = "SELECT * FROM cf_55"; 
+    $result = $db->query($sql); 
+  
+  
+  ?>
 <div class="container">
-<table class="table">
+<table class="table table-strip">
 <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>DOB</th>
+      <th>Email</th>
+      <th>Batch</th>
+      <th>Address</th>
+      <th>Hobbies</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
+    <?php while ($row = $result->fetch_object()): ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><?php echo $row->ID ?></td>
+      <td><?php echo $row->Name ?></td>
+      <td><?php echo $row->Gender ?></td>
+      <td><?php echo $row->DOB ?></td>
+      <td><?php echo $row->Email ?></td>
+      <td><?php echo $row->Batch ?></td>
+      <td><?php echo $row->Address ?></td>
+      <td><?php echo $row->Hobbies ?></td>
+      <td>
+        <a class="btn btn-success" href="Edit.php?id= <?php echo $row->ID ?>"><span class="glyphicon glyphicon-edit"></span></a>
+        <a class="btn btn-danger" href="delete.php?id= <?php echo $row->ID ?>" onclick="return confirm('Are you sure to delete')"><span class="glyphicon glyphicon-trash"></span></a>
+      </td>
+      
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <?php endwhile; ?>
   </tbody>
 </table>
 </div>
