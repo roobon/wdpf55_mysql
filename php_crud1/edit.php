@@ -14,7 +14,7 @@
         // UPdate data using submission
         if(isset($_POST['update'])){
             extract($_POST);
-            $newhobbies = implode("," ,$hobby);
+            $newhobbies = implode("," ,$hobby); // array to string
             $sql = "UPDATE students SET Name='$name', Gender='$gender', DOB='$dob', Email='$email', Batch='$batch', Address='$address', Hobbies='$newhobbies' WHERE ID='$id'";
             $db->query($sql);
             if($db->affected_rows>0){
