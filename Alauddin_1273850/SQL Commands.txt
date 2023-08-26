@@ -48,6 +48,25 @@ SELECT * FROM `employees` ORDER BY lastName, firstName;
 UPDATE employees SET lastName='Ahmed', firstName='Masum', email='masum@gmail.com' WHERE employeeNumber=1002
 
 
+############################# Mysql Views ###############################
 
 
 
+
+SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status FROM customers, orders WHERE customers.customerNumber = orders.customerNumber;
+
+SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status FROM customers, orders WHERE customers.customerNumber = orders.customerNumber AND status!='Shipped'; 
+
+
+====== 2 tables condition =========
+SELECT customerNumber, customerName, phone, addressLine1, addressLine2, orderNumber, quantityOrdered, products.productCode, priceEach, productName FROM customers, orderdetails, products WHERE orderdetails.productCode=products.productCode;
+
+
+==== 2 tables condition with Total price ====== 
+SELECT customerNumber, customerName, phone, addressLine1, addressLine2, orderNumber, quantityOrdered, products.productCode,productName, priceEach, quantityOrdered * priceEach AS Total FROM customers, orderdetails, products WHERE orderdetails.productCode=products.productCode;
+
+
+
+=============== Create View ===============
+CREATE VIEW customers_orders_view AS
+SELECT customers.customerNumber, customerName AS "Customer Name", phone, city, SUM(quantityOrdered) AS 'Total Orders', SUM(quantityOrdered * priceEach) AS 'Total Price' FROM customers, orders, products, orderdetails WHERE customers.customerNumber = orders.customerNumber AND orders.orderNumber = orderdetails.orderNumber AND orderdetails.productCode = products.productCode GROUP BY customerNumber;
