@@ -18,7 +18,7 @@
             $result = $db->query($sql);
             ?>  
 
-            <a href="entry.php" class="btn btn-success">New Entry</a><br><br>
+            <a href="entry_procedure.php" class="btn btn-success">New Entry</a><br><br>
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
