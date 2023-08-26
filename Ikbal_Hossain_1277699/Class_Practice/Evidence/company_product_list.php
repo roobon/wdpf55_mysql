@@ -14,26 +14,29 @@ $db =  new mysqli("localhost", "root", "", "wdpf55_evidence");
 <body>
   <h3> Company List </h3>
 
-  <?php 
+  <?php // step: 03
     if(isset($_POST['delete'])) :
 
-      print_r($_POST);
+      // print_r($_POST);
+
+      
 
     endif;
   ?>
+  <!-- step: 01 => show form and drop down list in company_name -->
     <form action="" method="post">
           <select name="company">
             <option value=""> Select One </option>
 
-            <?php 
-              $result = $re -> query("SELECT * FROM manufacturer");
+            <?php  // step: 02 until endwhile
+              $result = $db -> query("SELECT * FROM 	manufacturer");
               while($row = $result -> fetch_assoc()) :
             ?>
 
             <option value=""><?php echo $row['company_name']; ?></option>
 
             <?php endwhile;?>
-        </select>
+        </select> <br>
 
         <input type="submit" name="delete" value="DELETE">
     </form>
