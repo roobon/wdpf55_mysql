@@ -1,0 +1,8 @@
+DELIMITER //
+Create PROCEDURE insert_studentinfo(IN p_name varchar(50), IN p_gender varchar(20), IN p_batch varchar(20),
+IN p_phone varchar(20), IN p_email varchar(20))
+
+BEGIN 
+	insert into students(studentname, gender, batch, phone, email) values (p_name, p_gender, p_batch, p_phone, p_email);
+END //
+
