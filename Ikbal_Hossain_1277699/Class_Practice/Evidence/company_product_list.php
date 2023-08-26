@@ -19,7 +19,7 @@ $db =  new mysqli("localhost", "root", "", "wdpf55_evidence");
 
       // print_r($_POST);
 
-      
+
 
     endif;
   ?>
@@ -33,7 +33,8 @@ $db =  new mysqli("localhost", "root", "", "wdpf55_evidence");
               while($row = $result -> fetch_assoc()) :
             ?>
 
-            <option value=""><?php echo $row['company_name']; ?></option>
+            <!-- <option value=""><?php echo $row['company_name']; ?></option> -->
+            <option value="<?php echo $row['company_name']; ?>"><?php echo $row['company_name']; ?>
 
             <?php endwhile;?>
         </select> <br>
