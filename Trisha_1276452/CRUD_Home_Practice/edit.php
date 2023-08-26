@@ -19,7 +19,6 @@
        $sql = "UPDATE persons  SET FirstName='$fname', LastName='$lname', Adress='$address', City='$city', Email = '$email' WHERE PersonID='$id'";
       if($db->query($sql)){
 
-       
         echo "Updated Succcessfully";
        }else{
         echo 'problem';

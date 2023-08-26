@@ -25,8 +25,6 @@
             } 
             }
 
-    
-        
         $result = $db->query("SELECT * FROM persons WHERE ID='$id'");
         $row = $result->fetch_assoc();
     ?>
