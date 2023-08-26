@@ -1,0 +1,5 @@
+create user 'afiza@'localhost' identified by 'abc123';
+
+mysql -h localhost -u mamum -p
+
+grant select, insert on wdpf55.* to'sunny'@'localhost'

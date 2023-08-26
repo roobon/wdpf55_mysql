@@ -1,7 +1,4 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +15,20 @@
         if(isset($_POST['update'])){
             extract($_POST);
             // echo "UPDATE persons  SET lname='$lname', fname='$fname', address='$address', city= '$city', email = '$email', dob='$dob' WHERE ID='$id'";
-           $sql = "UPDATE persons  SET lname='$lname', fname='$fname', address='$address', city= '$city', email = '$email', dob='$dob' WHERE ID='$id'";
+           $sql = "UPDATE person2  SET lname='$lname', fname='$fname', address='$address', city= '$city', email = '$email', dob='$dob' WHERE ID='$id'";
             $db->query($sql);
             if($db->affected_rows){
                 header("Location:index.php");
             } 
             }
 
+<<<<<<< HEAD
         $result = $db->query("SELECT * FROM persons WHERE ID='$id'");
+=======
+    
+        
+        $result = $db->query("SELECT * FROM person2 WHERE ID='$id'");
+>>>>>>> 31c04c956610b9bfee8bbaaac66266a33928b65d
         $row = $result->fetch_assoc();
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
