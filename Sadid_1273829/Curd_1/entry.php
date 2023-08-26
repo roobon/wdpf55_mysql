@@ -21,34 +21,6 @@ if (isset($_REQUEST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>New Entry</title>
 </head>
-<<<<<<< HEAD
-<body>
-<form class="container w-25 mt-5">
-    <input type="name" name="name" class="form-control" placeholder="Enter name"><br>
-    Gender: 
-    <input type="radio" class="" name="gender" id=""> Male
-    <input type="radio" class="" name="gender" id=""> Female <br>
-    <input type="date" name="date" class="form-control" ><br>
-    <input type="email" name="email" class="form-control" placeholder="enter email"><br>
-    Batch:
-    <select name="batch">
-        <option value="53">53</option>
-        <option value="54">54</option>
-        <option value="55">55</option>
-        <option value="56">56</option>
-    </select> <br>
-    <textarea name="address" class="form-control" placeholder="Enter address"></textarea> <br>
-    Hobbies: <br>
-        Cricket : <input type="checkbox" name="hobby[]" value="cricket" >
-        Football : <input type="checkbox" name="hobby[]" value="football">
-        Hockey : <input type="checkbox" name="hobby[]" value="hockey">
-        Tenis : <input type="checkbox" name="hobby[]" value="tenis">
-    </select><br>
-    <input type="submit" class="btn btn-success m-auto d-block w-50" name="submit" value="Add New">
-</form>
-=======
->>>>>>> 42475f072811c86244bf2551b49cd584bfedb23b
-
 <body>
     <form class="container w-25 mt-5">
         <input type="name" name="name" class="form-control" placeholder="Enter name"><br>

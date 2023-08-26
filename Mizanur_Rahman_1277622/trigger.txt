@@ -30,3 +30,15 @@ INSERT INTO students_audit SET action = 'delete',
 	student_id= OLD.id,
 	student_name = OLD.name;
 
+
+##################################################
+Another Table
+
+CREATE TRIGGER after_orders_insert
+AFTER INSERT ON orders
+FOR EACH ROW
+UPDATE products
+SET 
+	product_amount = product_amount - NEW.pr_amount
+	WHERE products.id = NEW.pr_id
+

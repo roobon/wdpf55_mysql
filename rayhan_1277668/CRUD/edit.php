@@ -48,6 +48,7 @@
          <input type="number" name="number" placeholder="number" value="<?php echo $row['phone'] ?>"> <br>
 
          <input type="submit" name="submit" value="Update"> <br>
+         
          <input type="hidden" value="<?php echo $row['PersonID'] ?>" name="id">
 
 

@@ -24,7 +24,7 @@
 
 <div class="container">
   <h2>List of all persons</h2>
-  <a href="entryform.php" class="btn btn-success">New Person Entry</a>
+  <a href="entry_procedure.php" class="btn btn-success">New Person Entry</a>
       
   <table class="table table-striped">
     <thead>

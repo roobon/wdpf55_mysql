@@ -17,7 +17,7 @@
     $hobbies = $row['Hobbies']; //string
     $hobbies = explode(",", $hobbies); //array
     $hobilist = array("cricket", "football", "hockey", "tenis", "badminton");
-    $namefield = "hobby";
+    
     
     
     if(isset($_POST['update'])){
@@ -62,21 +62,9 @@
         <?php 
             foreach($hobilist as $val){  ?>
                 <label> <?php echo $val; ?> </label>
-                <input type="checkbox" name="<?php echo $namefield.'[]'; ?>" value="<?php echo $val; ?>" <?php echo in_array($val, $hobbies)? "checked" :""?>>
+                <input type="checkbox" name="hobby[]" value="<?php echo $val; ?>" <?php echo in_array($val, $hobbies)? "checked" :""?>>
                 
             <?php } ?><br>
-        
-       
-        <!-- <label for="">Cricket</label>
-        <input type="checkbox" name="cricket" value="cricket">
-        <label for="">Footbal</label>
-        <input type="checkbox" name="football" value="football">
-        <label for="">Hockey</label>
-        <input type="checkbox" name="hockey" value="hockey">
-        <label for="">Tenis</label>
-        <input type="checkbox" name="tenis" value="tenis">
-        <label for="">Badminton</label>
-        <input type="checkbox" name="badminton" value="badminton"><br> -->
         
 
         <input type="submit" name="update" value="UPDATE">
