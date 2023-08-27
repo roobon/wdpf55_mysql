@@ -306,6 +306,10 @@ SELECT customers.customerNumber, customerName, phone, city , quantityOrdered ,or
 
 
 
+CREATE VIEW manufacturer_info AS
+SELECT manufacturer.M_id , Company_name , Address, Contract, P_id , P_name, P_price  FROM manufacturer, products WHERE manufacturer.M_id = products.M_id
+
+
 
 
 
@@ -323,7 +327,6 @@ Create PROCEDURE students_info(IN p_Name varchar(30), IN p_Gender ENUM('Male','F
      insert into students( Name, Gender , DOB, Email, Batch ,Address, Hobbies) values (p_Name, p_Gender,p_DOB, p_Email, p_Batch, p_Address, p_Hobbies );
      END //
      
-
 
 
 
