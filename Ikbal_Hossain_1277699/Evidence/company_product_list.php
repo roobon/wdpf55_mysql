@@ -18,6 +18,7 @@ $db =  new mysqli("localhost", "root", "", "wdpf55_evidence");
     <div class="row">
       <div class="col-md-12">
       <h3> Company List </h3>
+      
 
 <?php // step: 03
 if (isset($_POST['delete'])) :
@@ -49,7 +50,9 @@ endif;
     <input type="submit" name="delete" class="btn btn-danger" value="DELETE">
 </form>
 
-<h3> Product List </h3>
+<h3> Product List </h3> 
+<a href="manufacturer_entry.php" class="btn btn-success">Manufacturer Entry </a>
+
 
 <?php
   $sql = "SELECT * FROM  product_list_view";
@@ -82,7 +85,7 @@ endif;
 
 </table> <br>
 
-<a href="manufacturer_entry.php" class="btn btn-success">Manufacturer Entry </a>
+
       </div>
     </div>
   </div>
