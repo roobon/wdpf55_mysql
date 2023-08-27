@@ -92,7 +92,11 @@ VALUES
 (101, "Akib", "Male", 35, 3.30, "Dhaka"),
 (102, "Tanzim", "Female", 18, 3.00, "Dhaka"),
 (103, "Ikbal", "Male", 30, 3.14, "Dhaka"),
-(104, "Walid", "Male", 18, 3.25, "Dhaka");
+(104, "Onu", "Male", 25, 3.25, "Luxmipur"),
+(105, "Nusrat", "Female", 27, 3.43, "Dhaka"),
+(106, "Tapsera", "Female", 28, 3.20, "Luxmipur"),
+(107, "Tahamina", "Female", 27, 3.05, "Dhaka"),
+(108, "Naomi", "Female", 27, 3.20, "Dhaka");
 
 ................................
 ### Find Records with Select ###
@@ -126,6 +130,10 @@ SELECT * FROM college.students_details LIMIT 2, 5; => show records 3 to 7 . LIMI
 ................
 ### Sorting ###
 ................
+
+SELECT name 
+FROM student_details 
+ORDER BY name
 
 
 
