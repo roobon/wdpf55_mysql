@@ -14,7 +14,7 @@
             extract($_POST);
 
             // $sql = "INSERT INTO manufacturer VALUES(NULL , '$company_name', '$address', '$contact_no')";
-            $sql = "INSERT INTO manufacturer VALUES(NULL , '$company', '$address', '$phone')"; // database er name use kori nai keno
+            $sql = "INSERT INTO manufacturer VALUES(NULL , '$company', '$address', '$phone')"; // database er name use kori nai keno?
             $db -> query($sql);
 
             if($db -> affected_rows > 0){
