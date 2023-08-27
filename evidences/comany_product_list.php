@@ -36,5 +36,33 @@
 
 
     <h3>Product List</h3>
+    <?php 
+        $sql = "SELECT * FROM product_list_view WHERE p_price>5000";
+        $result = $db->query($sql); ?>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Company Name</th>
+            </tr>   
+    <?php
+        $sn = 1;
+        while($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td><?php echo $sn; $sn++;?></td>
+                <td><?php echo $row['p_name']?></td>
+                <td><?php echo $row['p_price']?></td>
+                <td><?php echo $row['company_name']?></td>
+            </tr>
+    <?php
+        endwhile;
+    
+    ?>
+        </table>
+<br><br>
+<a href="manu_entry.php">New Manufacturer</a>
+
+
 </body>
 </html>
