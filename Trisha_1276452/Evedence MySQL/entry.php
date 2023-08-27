@@ -25,7 +25,6 @@ $db = new mysqli("localhost","root","","evedence_mysql");
         }
     }
     
-    
     ?>
 
 <h3>Manufacturer Entry</h3>
