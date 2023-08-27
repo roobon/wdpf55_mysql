@@ -34,7 +34,7 @@ $db =  new mysqli("localhost", "root", "", "wdpf55_evidence");
             ?>
 
             <!-- <option value=""><?php echo $row['company_name']; ?></option> -->
-            <option value="<?php echo $row['company_name']; ?>"><?php echo $row['company_name']; ?>
+            <option value="<?php echo $row['company_name']; ?>"><?php echo $row['company_name']; ?>~
 
             <?php endwhile;?>
         </select> <br>
