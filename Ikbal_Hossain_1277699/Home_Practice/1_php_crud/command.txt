@@ -11,6 +11,7 @@ student_gender varchar(6),
 student_email varchar(50),
 student_phone varchar(20),
 student_address varchar(100),
+student_city varchaar(50),
 student_batch varchar(50)  
 
 );

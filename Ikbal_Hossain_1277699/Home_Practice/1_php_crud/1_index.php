@@ -51,6 +51,7 @@
                 <th> Gender </th>
                 <th> Email </th>
                 <th> Phone </th>
+                <th> City </th>
                 <th> Address </th>
                 <th> Batch </th>
                 <th> Action </th>
@@ -63,6 +64,18 @@
 
                     <tr>
                         <td> <?php  echo $row ->  student_id ?> </td>
+                        <td> <?php  echo $row ->  student_name ?> </td>
+                        <td> <?php  echo $row ->  student_gender ?> </td>
+                        <td> <?php  echo $row ->  student_email ?> </td>
+                        <td> <?php  echo $row ->  student_phone ?> </td>
+                        <td> <?php  echo $row ->  student_city ?> </td>
+                        <td> <?php  echo $row ->  student_address ?> </td>
+                        <td> <?php  echo $row ->  student_batch ?> </td>
+
+                        <td>
+                            <a href="edit.php" class = "btn btn-outline-success"> Edit </a>
+                            <a href="delete.php" > Delete </a>
+                        </td>
                     </tr>
 
                 <?php   } ?>
