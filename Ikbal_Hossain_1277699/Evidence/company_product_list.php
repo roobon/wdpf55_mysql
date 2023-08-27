@@ -40,6 +40,8 @@ $db =  new mysqli("localhost", "root", "", "wdpf55_evidence");
         </select> <br>
 
         <input type="submit" name="delete" value="DELETE">
+
+        <h3> Product List </h3>
     </form>
 </body>
 
