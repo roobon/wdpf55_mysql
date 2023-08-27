@@ -1,0 +1,15 @@
+Order Table
+..............
+orderId, productId, ProductAmount
+
+
+##################################################
+
+CREATE TRIGGER after_orders_insert
+	AFTER INSERT ON orders
+	FOR EACH ROW
+   UPDATE products
+   
+   SET 
+	product_amount = product_amount - NEW.prdt_amount
+	WHERE products.product_id = NEW.prdt_id
