@@ -59,6 +59,9 @@ RENAME TABLE students TO students_details;
 ......................
 DROP TABLE student_details;
 
+DROP TABLES person1, person2;
+
+
 
 ### Insert data into Table ###
 ................................
