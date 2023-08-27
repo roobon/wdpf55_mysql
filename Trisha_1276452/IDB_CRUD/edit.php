@@ -22,9 +22,13 @@
             } 
             }
 
+<<<<<<< HEAD
+        $result = $db->query("SELECT * FROM persons WHERE ID='$id'");
+=======
     
         
         $result = $db->query("SELECT * FROM person2 WHERE ID='$id'");
+>>>>>>> 31c04c956610b9bfee8bbaaac66266a33928b65d
         $row = $result->fetch_assoc();
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">

@@ -1,5 +1,5 @@
 <?php 
-    $db = new mysqli("localhost", "root", "", "idb_bisew");
+    $db = new mysqli("localhost", "root", "", "test");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +15,7 @@
         extract($_POST);
         //print_r($hobby);
         $hobbies = implode(',', $hobby);
-        $sql = "CALL insert_studentinfo( '$name', '$gender', '$dob', '$email', '$batch', '$address', '$hobbies')";
-
-        // $sql = "INSERT INTO students VALUES(NULL, '$name', '$gender', '$dob', '$email', '$batch', '$address', '$hobbies')";
+        $sql = "INSERT INTO students VALUES(NULL, '$name', '$gender', '$dob', '$email', '$batch', '$address', '$hobbies')";
         $db->query($sql);
         if($db->affected_rows>0){
             header("Location:index.php");

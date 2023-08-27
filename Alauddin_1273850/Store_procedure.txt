@@ -1,0 +1,32 @@
+
+ 
+ DELIMITER //
+ Create PROCEDURE insert_studentinfo(IN p_name varchar(30),IN p_gender enum('Male','Female'),IN p_dob date,IN p_email varchar(50),IN p_batch varchar(10),IN p_address Varchar(50), IN p_hobbies Varchar(300))
+ BEGIN
+ insert into students(Name, Gender, DOB, Email, Batch, Address, Hobbies) values (p_name, p_gender, p_dob, p_email, p_batch, p_address, p_hobbies);
+  END //
+
+
+
+
+Create PROCEDURE insert_studentinfo(IN p_name varchar(50),IN p_gender varchar(20),IN p_dob varchar(20),IN p_email varchar(50),IN p_batch varchar(20),IN p_address Varchar(100), IN p_hobbies Varchar(50)) BEGIN insert into student_info(Name, Gender, DOB, Email, Batch, Address, Hobbies) values (p_name, p_gender, p_dob, p_email, p_batch, p_address, p_hobbies); END;
+
+
+
+
+
+CREATE TRIGGER `after_delete_company` AFTER DELETE ON `manufactural`
+ FOR EACH ROW DELETE FROM products WHERE mid=OLD.mid 
+
+
+CREATE DEFINER=`root`@`localhost` TRIGGER `after_delete_company` AFTER DELETE ON `manufactural` FOR EACH ROW DELETE FROM products WHERE mid=OLD.mid
+
+
+======================= Store Procedure insert command ==========================
+SET @p0='Abdul Kamal'; SET @p1='Male'; SET @p2='1981/05/16'; SET @p3='abdul@gmail.com'; SET @p4='GAVE-54'; SET @p5='Polton'; SET @p6='Hokey'; CALL `insert_studentinfo`(@p0, @p1, @p2, @p3, @p4, @p5, @p6); 
+
+
+CREATE PROCEDURE `insert_company_info`(IN `p_company` VARCHAR(50), IN `p_address` VARCHAR(100), IN `p_phone` VARCHAR(20)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER INSERT INTO manufactural VALUE(NULL, p_company, p_address, p_phone) 
+
+
+INSERT INTO manufactural(company_name, company_address, company_contact) VALUE(p_company, p_address, p_phone)
