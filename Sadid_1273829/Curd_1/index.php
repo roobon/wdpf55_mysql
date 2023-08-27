@@ -20,7 +20,7 @@ $result = $db->query($sql);
         <div class="col-md-12 mt-5">
             <!-- Display with table start -->
             <h1 class="text-center mb-4">Students List</h1>
-            <a class="btn btn-outline-primary" href="entry.php">Add New</a>
+            <a class="btn btn-outline-primary" href="entry_procedure.php">Add New</a>
             <table class="table text-center">
                 <thead>
                     <tr>
