@@ -20,9 +20,16 @@
 
 
 
+<<<<<<< HEAD
+        echo "Updated Succcessfully";
+       }else{
+        echo 'problem';
+       }
+=======
         if($db->affected_rows){
             echo "Inserted";
         }
+>>>>>>> 31c04c956610b9bfee8bbaaac66266a33928b65d
     }
 
 
