@@ -1,0 +1,24 @@
+3. SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status FROM 
+customers, orders WHERE customers.customerNumber = orders.customerNumber;
+.......................................................................................................
+
+4. SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status FROM 
+customers, orders WHERE customers.customerNumber = orders.customerNumber AND status = "Shipped";
+........................................................................................................
+
+5. SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status FROM 
+customers, orders WHERE customers.customerNumber = orders.customerNumber AND status != "Shipped";
+.........................................................................................................
+
+6. SELECT customers.customerNumber, customerName, phone, city, orders.orderNumber, orderdetails.
+orderNumber, productCode, productName,
+.........................................................................................................
+
+7. SELECT customers.customerNumber, customerName AS "Customer Name", phone, city, SUM(quantityOrdered) 
+ AS "Total Order", SUM(quantityOrdered * priceEach) AS "Total Price" FROM customers, orders, products,
+ orderdetails WHERE customers.customerNumber = orders.customerNumber AND orders.orderNumber =
+ orderdetails.orderNumber AND orderdetails.productCode = products.productCode GROUP BY customerNumber;
+
+..........................................................................................................
+
+CREATE VIEW customer_orders_view AS

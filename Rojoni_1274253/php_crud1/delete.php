@@ -8,9 +8,9 @@ if(isset($_GET['id'])){
    
    $id = $_GET['id'];
 
-    $db->query("DELETE FROM students WHERE id='$id'");
+    $db->query("DELETE FROM students WHERE ID='$id'");
 
-    if($bd->affeted_rows){
+    if($db->affected_rows){
         header("Location:index.php");
     
     }

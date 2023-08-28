@@ -1,0 +1,188 @@
+**** DDL => Data defination Language (CREATE, ALTER, DROP) ****
+.................................................................
+
+1. SHOW DATABASES;
+2. CREATE DATABASE COLLEGE;
+3. DROP DATABASE COLLEGE;
+
+### Create Table ###
+......................
+
+CREATE TABLE students
+(
+Roll int,
+Name varchar(50),
+Gender varchar(6),
+Age int,
+GPA double(3, 2),
+City varchar (15),    
+PRIMARY KEY AUTO_INCREMENT(Roll)
+
+);
+
+*** DML => Data Manipulation Language(INSERT, SELECT, UPDATE, DELETE) ***
+...........................................................................
+
+### Create Table from any place ###
+.....................................
+CREATE TABLE college.students
+(
+Roll int,
+Name varchar(50),
+Gender varchar(6),
+Age int,
+GPA double(3, 2),
+City varchar (15),    
+PRIMARY KEY AUTO_INCREMENT(Roll)
+
+);
+
+or
+
+CREATE TABLE college.students_details
+(
+Roll int PRIMARY KEY,
+Name varchar(50),
+Gender varchar(6),
+Age int,
+GPA double(3, 2),
+City varchar (15)
+);
+
+
+### Rename Table ###
+.....................
+RENAME TABLE students TO students_details;
+
+
+### Drop Table ###
+......................
+DROP TABLE student_details;
+
+
+### Insert data into Table ###
+................................
+INSERT INTO students_details
+(Roll, Name, Gender, Age, GPA, City)
+VALUES(101, "Rahim", "Male", 18, 3.44, "Sylhet");
+
+or,
+
+INSERT INTO students_details
+
+VALUES(103, "Tanzim", "Female", 23, 3.00, "Dhaka");
+
+
+### Insert multiple data into table from any place ###
+.......................................................
+INSERT INTO college.students_details
+(Roll, Name, Gender, Age, GPA, City)
+VALUES
+(101, "Akib", "Male", 35, 3.30, "Dhaka"),
+(102, "Tanzim", "Female", 18, 3.00, "Dhaka"),
+(103, "Ikbal", "Male", 30, 3.14, "Dhaka"),
+(104, "Walid", "Male", 18, 3.25, "Dhaka");
+
+
+or,
+
+INSERT INTO college.students_details
+
+VALUES
+(101, "Akib", "Male", 35, 3.30, "Dhaka"),
+(102, "Tanzim", "Female", 18, 3.00, "Dhaka"),
+(103, "Ikbal", "Male", 30, 3.14, "Dhaka"),
+(104, "Walid", "Male", 18, 3.25, "Dhaka");
+
+................................
+### Find Records with Select ###
+................................
+
+For Single Column => SELECT Name FROM students_details;
+....................
+For Multiple Column => SELECT Name, Gender, GPA FROM students_details;
+......................
+
+For Multiple Column from anywhere => 
+.....................................
+SELECT Name, Gender, GPA FROM college.students_details;
+
+For all Column from anywhere => SELECT * FROM college.students_details;
+................................
+
+........................
+DISTINCT, LIMIT Keyword
+........................
+
+SELECT DISTINCT City FROM college.students_details; =>  only show not repeated city
+.......................................................
+
+SELECT * FROM college.students_details LIMIT 5; => first 5 records will show
+.................................................
+
+SELECT * FROM college.students_details LIMIT 2, 5; => show records 3 to 7 . LIMIT(2, 5) => drop first 2 records then show next 5 records
+.....................................................
+
+................
+### Sorting ###
+................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Data Type
+....................
+
+*** Numeric data type
+
+1. SMALLINT
+2. INT
+3. BIGINT
+
+1. FLOAT
+2. DOUBLE(M, D)   exmple: 4.44 => total digit = 3 & after decimal digit = 2
+3. DECIMAL(M, D)
+
+*** Character Type
+
+1. Char(m)
+2. Varchar(m) m = character length(20) if you put only 5 character although your limit 20. it will take space that you have write 
+3. text
+
+*** Date and Time data type
+
+1. YEAR (YYYY)
+2. DATE (YYYY-MM-DD)
+3. TIME (HH:MM:SS)
+
+*** Some other data type
+
+1. BLOB  => Binary Large Object => for Image, Audio
+2. LOGICAL => for true, false, yes, no
+

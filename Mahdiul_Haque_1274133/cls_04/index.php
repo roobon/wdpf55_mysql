@@ -24,7 +24,7 @@
 
 <div class="container">
   <h2>List of all persons</h2>
-  <a href="entryform.php" class="btn btn-success">New Person Entry</a>
+  <a href="entry_procedure.php" class="btn btn-success">New Person Entry</a>
       
   <table class="table table-striped">
     <thead>
@@ -62,9 +62,9 @@
         <td><?php echo $row->address?></td>
         <td><?php echo $row->hobbies	 ?></td>
         <td>
-          <a href="edit.php?id=<?php echo $row->id;?>"class="btn btn-success">Edit</a>
+          <a href="edit.php?id=<?php echo $row->id;?>"class="btn btn-success">Edit</a><br>
 
-          <a href="delete.php?id=<?php echo $row->id; ?>" onclick="return confirm('Are you sure to delete')"a class="btn btn-danger">Delete</a>
+          <a href="delete.php?id=<?php echo $row->id; ?>" onclick="return confirm('Are you sure to delete')"class="btn btn-danger">Delete</a>
         </td>
        
                                     <!-- icon kote hobe -->

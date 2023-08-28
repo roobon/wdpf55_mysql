@@ -1,0 +1,22 @@
+
+ 
+ DELIMITER //
+ Create PROCEDURE insert_studentinfo(IN p_name varchar(30),IN p_gender enum('Male','Female'),IN p_dob date,IN p_email varchar(50),IN p_batch varchar(10),IN p_address Varchar(50), IN p_hobbies Varchar(300))
+ BEGIN
+ insert into students(Name, Gender, DOB, Email, Batch, Address, Hobbies) values (p_name, p_gender, p_dob, p_email, p_batch, p_address, p_hobbies);
+  END //
+
+
+
+
+Create PROCEDURE insert_studentinfo(IN p_name varchar(50),IN p_gender varchar(20),IN p_dob varchar(20),IN p_email varchar(50),IN p_batch varchar(20),IN p_address Varchar(100), IN p_hobbies Varchar(50)) BEGIN insert into student_info(Name, Gender, DOB, Email, Batch, Address, Hobbies) values (p_name, p_gender, p_dob, p_email, p_batch, p_address, p_hobbies); END;
+
+
+
+
+
+CREATE TRIGGER `after_delete_company` AFTER DELETE ON `manufactural`
+ FOR EACH ROW DELETE FROM products WHERE mid=OLD.mid 
+
+
+CREATE DEFINER=`root`@`localhost` TRIGGER `after_delete_company` AFTER DELETE ON `manufactural` FOR EACH ROW DELETE FROM products WHERE mid=OLD.mid
