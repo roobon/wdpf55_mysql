@@ -15,9 +15,9 @@ if ( isset( $_POST['submit'] ) ) {
     if (  $result->num_rows  ){
       $_SESSION['name'] = $data['Name'] ;  
       $_SESSION['email'] = $data['Email'] ;  
-      header('Location:manufacturer.php');
+      header('Location:dashboard.php');
     } else {
-        $_SESSION['error'] = " Login failed. " ;
+        $_SESSION['error'] = " <p>  Login failed.  </p> " ;
         header('Location:index.php');
     }
     

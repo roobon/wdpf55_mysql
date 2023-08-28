@@ -26,7 +26,6 @@
         //$sql = "INSERT INTO manufacturar VALUES(NULL,  '$company', '$address', '$contact')";
         $sql = "CALL insert_company_info('$company', '$address', '$contact')";
         $db->query($sql);
-
     }
     ?>
     <h3>Manufacturar Entry Form</h3>
@@ -43,6 +42,16 @@
         <input type="submit" value="SUBMIT" name="submit" class="btn btn-primary mt-2">
 
     </form>
+    <?php 
+    if (isset($_POST["submit"])) {
+
+            if($db->affected_rows>0){
+                echo "<b>Manufacturar Successfully Added.</b>";
+            }else{
+                echo "Failed to add new Manufacturar.";
+            }
+        }
+    ?>
 </div>
 </body>
 

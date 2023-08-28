@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Structure for view `product_details_view`
 --
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `product_details_view`  AS SELECT `product`.`pid` AS `pid`, `product`.`p_name` AS `p_name`, `product`.`p_price` AS `p_price`, `manufacturar`.`company_name` AS `company_name` FROM (`product` join `manufacturar`) WHERE `product`.`mid` = `manufacturar`.`mid``mid`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `product_details_view`  AS SELECT `product`.`pid` AS `pid`, `product`.`p_name` AS `p_name`, `product`.`p_price` AS `p_price`, `manufacturar`.`company_name` AS `company_name` FROM (`product` join `manufacturar`) WHERE `product`.`mid` = `manufacturar`.`mid`  ;
 
 --
 -- VIEW `product_details_view`
