@@ -210,6 +210,26 @@ SELECT * FROM students_details WHERE Age <= 25 AND (Gender = "Female" OR GPA >= 
 
 
 
+{
+SELECT * FROM students_details 
+WHERE City = "Jamalpur"
+OR City = "Rajshahi"
+OR City = "Barishal";
+
+*** IN Operator ***  instead of OR => using when condition on same column => show the name of students who belongs to "Jamalpur" or "Rajshahi" or "Barishal"
+....................
+SELECT * FROM students_details 
+WHERE City IN ("Jamalpur", "Rajshahi", "Barishal");
+}
+
+*** NOT IN *** Operator
+........................
+
+SELECT * FROM students_details 
+WHERE City NOT IN ("Jamalpur", "Rajshahi", "Barishal");
+
+// show the name of students who doesn't belong to "Jamalpur" or "Rajshahi" or "Barishal"
+
 
 ...............
 ### Update ###
