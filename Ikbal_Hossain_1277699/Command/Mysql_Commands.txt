@@ -173,10 +173,69 @@ FROM (table_name)
 WHERE (condition);
 
 
+SELECT Name, City FROM college.students_details WHERE Gender = "Female";
+// note: sql is not case sensitive
+
+*** To avoid duplicate value use => DISTINCT
+
+SELECT DISTINCT City FROM students_details WHERE Gender = "Male"; 
+
+SELECT DISTINCT Name, City FROM students_details WHERE Gender = "Male" ORDER BY Name DESC; 
+
+
+SELECT Name, Gender, Age FROM students_details WHERE Age < 29 ORDER BY Age ASC;
+
+
+.....................
+Relational Operators
+.....................
+
+SELECT Roll, Name, GPA FROM students_details WHERE Roll BETWEEN 102 AND 105;
+
+SELECT Roll, Name, GPA FROM students_details WHERE Roll != 102;
+// when use !=, you can't add more than one value, if you add only first one will be showed
+
+
+......................................
+Logical Operator(AND OR IN NOT LIKE)
+......................................
+
+SELECT * FROM students_details WHERE Gender = "Male" OR GPA >= 3.20;
+// Here, all male and the female who have GPA >= 3.20 will be showed    
+
+SELECT * FROM students_details WHERE Gender = "Male" AND GPA >= 3.30; 
+// Here, the man who have GPA >= 3.20 will be showed. Both condition have to be fulfilled
+
+SELECT * FROM students_details WHERE Age <= 25 AND (Gender = "Female" OR GPA >= 3.30);
 
 
 
+{
+SELECT * FROM students_details 
+WHERE City = "Jamalpur"
+OR City = "Rajshahi"
+OR City = "Barishal";
 
+*** IN Operator ***  instead of OR => using when condition on same column => show the name of students who belongs to "Jamalpur" or "Rajshahi" or "Barishal"
+....................
+SELECT * FROM students_details 
+WHERE City IN ("Jamalpur", "Rajshahi", "Barishal");
+}
+
+*** NOT IN *** Operator
+........................
+
+SELECT * FROM students_details 
+WHERE City NOT IN ("Jamalpur", "Rajshahi", "Barishal");
+
+// show the name of students who doesn't belong to "Jamalpur" or "Rajshahi" or "Barishal"
+
+
+...............
+### Update ###
+...............
+
+UPDATE `students_details` SET `Gender` = 'Female' WHERE `students_details`.`Roll` = 108;
 
 
 
