@@ -130,20 +130,47 @@ SELECT * FROM college.students_details LIMIT 5; => first 5 records will show
 SELECT * FROM college.students_details LIMIT 2, 5; => show records 3 to 7 . LIMIT(2, 5) => drop first 2 records then show next 5 records
 .....................................................
 
+
+
 ................
 ### Sorting ###
 ................
 
 SELECT name 
-FROM student_details 
+FROM students_details 
 ORDER BY name
 
+Here.
+SELECT (which column I want to show) FROM (database) ORDER BY (which column order will be applied) => by default ascending order
 
 
 
+SELECT *
+FROM students_details 
+ORDER BY name, city DESC;
+
+Here, name column will be sorted. the first column after written ORDER BY that will be sorted first.
 
 
 
+..............................
+### Arithmetic Operation ###
+..............................
+
+SELECT 5 + 2; 
+SELECT 5 - 2; 
+SELECT 5 * 2;
+SELECT 5 / 2;
+SELECT 5 % 2;
+
+
+
+.....................
+### where Clause ###
+.....................
+SELECT (column_list)
+FROM (table_name)
+WHERE (condition);
 
 
 
