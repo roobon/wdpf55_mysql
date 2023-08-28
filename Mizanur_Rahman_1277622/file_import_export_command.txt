@@ -1,0 +1,17 @@
+FILE IMPORT & EXPORT COMMAND FOR MYSQL
+#######################################
+LOAD DATA INFILE "sales.txt" INTO TABLE sales 
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n';
+-----------------------------------
+SELECT * INTO OUTFILE "test_backup.txt"
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+FROM wdpf55.students;
+-----------------------------------
+///MYSQL database dumping from Shell  #####dump means export
+# mysqldump -h localhost -u root -p wdpf55 > wdpf55_backup_file.sql
+-----------------------------------
+///MYSQL database import from Shell 
+# mysql -h localhost -u root -p wdpf55_test_1 < wdpf55_backup_file.sql
+-----------------------------------
