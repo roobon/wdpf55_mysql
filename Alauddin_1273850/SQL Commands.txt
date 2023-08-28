@@ -70,3 +70,14 @@ SELECT customerNumber, customerName, phone, addressLine1, addressLine2, orderNum
 =============== Create View ===============
 CREATE VIEW customers_orders_view AS
 SELECT customers.customerNumber, customerName AS "Customer Name", phone, city, SUM(quantityOrdered) AS 'Total Orders', SUM(quantityOrdered * priceEach) AS 'Total Price' FROM customers, orders, products, orderdetails WHERE customers.customerNumber = orders.customerNumber AND orders.orderNumber = orderdetails.orderNumber AND orderdetails.productCode = products.productCode GROUP BY customerNumber;
+
+
+
+=============== 2 tables views ==============
+
+SELECT manufactural.mid, company_name, company_address, company_contact, pid, p_name FROM manufactural, products WHERE manufactural.mid = products.mid;
+
+
+=============== create views tables ============
+CREATE VIEW manufactural_products_view AS
+SELECT manufactural.mid, company_name, company_address, company_contact, pid, p_name FROM manufactural, products WHERE manufactural.mid = products.mid;
