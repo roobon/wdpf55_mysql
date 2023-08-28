@@ -1,9 +1,9 @@
-<?php // this is the overall (1st step) do anything in php & mysql with server
+<?php 
 
     $host = "localhost";
     $user = "root";
     $password = "";
-    $database = "self_practice";
+    $database = "wdpf55_evidence1";
 
     $db = new mysqli($host, $user, $password, $database);
 

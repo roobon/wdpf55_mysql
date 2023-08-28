@@ -1,0 +1,24 @@
+//Import Data from a text file
+load data infile "sales.txt" into table sales
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n';
+
+//Export Data from a table to a text file
+SELECT * INTO OUTFILE "test_backup.txt"
+FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'
+FROM wdpf55.users;
+
+//Export Data from a table to a Excel file
+SELECT * INTO OUTFILE "test_backup.xls"
+FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
+FROM wdpf55.users;
+
+// MySQL database dumping from Shell
+# mysqldump -h localhost -u root -p wdpf55 > wdpf55_backup.sql
+
+// MySQL database importing from Shell
+# mysql -h localhost -u root -p wdpf55_test1 < wdpf55_backup.sql
+
+
+
+
