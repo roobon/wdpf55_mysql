@@ -36,6 +36,12 @@ $db = new mysqli("localhost", "root", "", "isdb_bisew");
         </select>
         <input type="submit" name="delete" value="DELETE">
     </form>
+    <br><br>
+
+    <div class="container">
+        <h3>Student Entry Form</h3>
+        <a class="btn btn-success" href="entry_form.php">Student Entry Form</a>
+    </div>
     
 </body>
 </html>
