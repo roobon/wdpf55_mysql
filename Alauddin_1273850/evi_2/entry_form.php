@@ -13,16 +13,17 @@ $db = new mysqli("localhost", "root", "", "isdb_bisew");
     <?php 
         if(isset($_POST['insert'])){
             extract($_POST);
-            echo "CALL insert_student_info('$name', '$address', '$mobile')";
-            $sql = "CALL insert_student_info('$name', '$address', '$mobile')";
+            //echo "INSERT INTO students ('$name', '$address', '$mobile')";
+
+            $sql = "CALL insert_studentinfo('$name', '$address', '$mobile')";
+            //$sql = "INSERT INTO students VALUES(NULL, '$name', '$address', '$mobile')";
             $db->query($sql);
             if($db->affected_rows>0){
                 header("Inserted <br>");
             }
         }    
-    
     ?>
-    <form action="">
+    <form action="" method="post">
         <label for="">Name</label><br>
         <input type="text" name="name" placeholder="Enter Student Name"><br>
 
