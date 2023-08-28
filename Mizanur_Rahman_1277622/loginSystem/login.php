@@ -15,6 +15,7 @@ if(isset($_POST["submit"])){
     $row = $resutl->fetch_assoc();
     session_start();
 
+    
     if($resutl->num_rows){
         $_SESSION["name"] = $row["name"];
         $_SESSION["email"] = $row["email"];

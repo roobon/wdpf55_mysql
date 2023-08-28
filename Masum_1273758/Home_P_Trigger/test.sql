@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2023 at 12:50 PM
+-- Generation Time: Aug 27, 2023 at 09:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -18,14 +18,14 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `idb_bisew`
+-- Database: `test`
 --
 
 DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_company_info` (IN `P_company` VARCHAR(50), IN `P_address` VARCHAR(100), IN `P_phone` VARCHAR(20))   INSERT INTO manufacturer (Company_name, Address, Contract)  VALUES (P_company, P_address, P_phone )$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_company_info` (IN `P_company` VARCHAR(50), IN `P_address` VARCHAR(100), IN `P_phone` VARCHAR(20))   INSERT INTO manufacturer(Company_name,Address,Contract) VALUES(P_company,P_address,P_phone)$$
 
 DELIMITER ;
 
@@ -47,12 +47,14 @@ CREATE TABLE `manufacturer` (
 --
 
 INSERT INTO `manufacturer` (`M_id`, `Company_name`, `Address`, `Contract`) VALUES
-(2, 'Walton ', 'savar', '015555'),
-(4, 'SAMSUNG ', 'savar', '015555'),
-(6, 'ALAUDDIN sweets', 'misty misty', '420420'),
-(7, 'P_company', 'P_address', 'P_phone'),
-(8, 'Akiz', 'asdasdasd', '1312'),
-(9, 'akiz mama', 'tama tama', '5566');
+(7, 'samsung', 'faridpur', 'sjlsjjsposj'),
+(10, 'city', 'bokshibazer', '01985214736'),
+(12, 'Nasless', 'Malibag', '01985214736'),
+(13, 'Boombee', 'Kakril', '01985214736'),
+(15, 'Squre', 'Dhanmondi', '01985214736'),
+(16, 'Bashundara', 'ddddd', '23652148'),
+(17, 'Akij', 'dkdkdkdk', '54875213'),
+(18, 'Navana', 'KawranBazer', '02136547896');
 
 --
 -- Triggers `manufacturer`
@@ -96,11 +98,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`P_id`, `P_name`, `P_price`, `M_id`) VALUES
-(2, 'Sony TV', 35000, 2),
-(3, 'Walton TAB', 15000, 2),
-(6, 'SAMSUNG A32', 35000, 4),
-(8, 'Sony TV', 35000, 2),
-(10, 'samsung TAB', 25000, 4);
+(12, 'Ricecooker', 256000, 7),
+(16, 'Suger', 150, 10),
+(18, 'chinegura', 230, 12),
+(19, 'Biscute', 500, 13);
 
 -- --------------------------------------------------------
 
@@ -135,13 +136,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `manufacturer`
 --
 ALTER TABLE `manufacturer`
-  MODIFY `M_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `M_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `P_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `P_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

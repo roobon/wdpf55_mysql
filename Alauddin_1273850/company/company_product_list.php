@@ -7,8 +7,12 @@ require_once('db_config.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="container">
     <h3>Company List</h3>
     <?php 
         if(isset($_POST['delete'])) :
@@ -32,10 +36,44 @@ require_once('db_config.php');
         </select>
     <input type="submit" name="delete" value="DELETE">
     </form>
+    </div>
+    <br><br>
 	
+    <div class="container">
+        <div><a class="btn btn-info" href="manufactural_entry.php">Manufactural Entry Form</a></div>
     <h3>Products List</h3>
-    <form action="" method="post">
-
-    </form>
+    <?php 
+        $sql = "SELECT * FROM manufactural_products_view";
+        $result = $db->query($sql);
+    ?>
+       <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Company Name</th>
+            </tr>
+        </thead>
+        <tbody>
+       <?php 
+       $sn = 1;
+        while($row = $result->fetch_assoc()): ?>
+        
+            <tr>
+                <td><?php echo $sn; $sn++; ?></td>
+                <td><?php echo $row['p_name'] ?></td>
+                <td><?php echo $row['p_price'] ?></td>
+                <td><?php echo $row['company_name'] ?></td>
+            </tr>
+       <?php 
+        endwhile;
+        
+       ?> 
+       </tbody>            
+       </table>
+    </div>
+    
+    
 </body>
 </html>
