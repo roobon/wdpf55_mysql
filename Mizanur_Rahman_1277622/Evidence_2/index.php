@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +11,24 @@
         crossorigin="anonymous"></script>
     <title>Log In Page</title>
 </head>
+
 <body>
-<?php
-        session_start();
-        if (isset($_SESSION["error"])) {
-            echo $_SESSION["error"];
-            //unset($_SESSION["error"]);
-        }
-        ?>
+
     <div class="container">
-        <h2 class="d-flex justify-content-center mb-2">Login Form</h2>
+        <div class="mb-2 d-flex justify-content-center">
+            <h2>Login Form</h2>
+        </div>
+        
+        <div class="container d-flex justify-content-center">
+        <?php 
+            if(isset($_GET["error"])){ ?>
+            <p class="text-danger"><?php echo $_GET["error"];?></p>
+        <?php    }   ?>
+        </div>
+        
+
         <div class="d-flex justify-content-center">
-            <form action="" method="post">
+            <form action="login.php" method="post">
                 <div class="mb-3">
                     <input type="email" name="email" placeholder="Enter your email" class="form-control">
                 </div>
@@ -30,10 +37,11 @@
                 </div>
                 <div class="mb-3">
                     <input type="submit" value="SUBMIT" name="submit" class="btn btn-outline-dark">
-                    <input type="reset" value="RESET" name="reset" class="btn btn-outline-warning">
+                    <a href="index.php" class="btn btn-outline-warning">RESET</a>
                 </div>
             </form>
         </div>
     </div>
 </body>
+
 </html>

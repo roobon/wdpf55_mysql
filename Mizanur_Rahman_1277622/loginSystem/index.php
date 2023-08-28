@@ -1,3 +1,4 @@
+<?php require_once("db_config.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +14,7 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>Login Form</h2>
+    <div class="container" style="text-align: center; margin-top: 120px; width: 400px;">
         <?php
         session_start();
         if (isset($_SESSION["error"])) {
@@ -22,15 +22,21 @@
             unset($_SESSION["error"]);
         }
         ?>
-        <div class="d-flex justify-content-center">
-            <form action="login.php" method="post" class="form-control">
-                <div class="col-md-4">
-                    <input type="email" name="email" placeholder="Enter your email" class="form-control col-md-4">
+        <div>
+            <form action="login.php" method="post" class="form-control p-3">
+                <h2>Login Form</h2>
+                <div>
+                    <!-- Email Input -->
+                    <div>
+                        <input type="email" name="email" placeholder="Enter your email" class="form-control mb-2">
+                    </div>
+                    <!-- Password Input -->
+                    <div>
+                        <input type="password" name="password" placeholder="Enter your password" class="form-control">
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <input type="password" name="password" placeholder="Enter your password" class="form-control">
-                </div>
-                <input type="submit" value="LOGIN" name="submit" class="btn btn-dark">
+                <!-- Submit Button -->
+                <input type="submit" value="LOGIN" name="submit" class="btn btn-dark mt-4">
             </form>
         </div>
     </div>
