@@ -1,0 +1,57 @@
+SELECT customerNumber, customerName, phone, city FROM customers;
+------------------------------------------------------------------------------
+=====>from two table data show
+SELECT customerNumber, customerName, phone, city, orderNumber, orderDate, status
+FROM customers, orders WHERE customers.customerNumber = orders.customerNumber;
+
+--------------------------------------------------------------------------------
+SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status
+FROM customers, orders WHERE customers.customerNumber = orders.customerNumber AND status != 'Shipped';
+--------------------------------------------------------------------------------
+
+SELECT customers.customerNumber, customerName, phone, city, orderNumber, orderDate, status
+FROM customers, orders WHERE customers.customerNumber = orders.customerNumber;
+--------------------------------------------------------------------------------
+========FROM 3 TABLE===========
+SELECT customers.customerNumber, customerName, phone, city, orders.orderNumber, orderDate, status, productCode, quantityOrdered, 
+priceEach FROM customers, orders, orderdetails WHERE customers.customerNumber = orders.customerNumber AND orders.orderNumber = orderdetails.orderNumber;
+--------------------------------------------------------------------------------
+========FROM 4 TABLE===========
+SELECT customers.customerNumber, customerName, phone, city, orders.orderNumber, orderDate, status, products.productCode, productName, 
+quantityOrdered, priceEach FROM customers, orders, orderdetails, products WHERE customers.customerNumber = orders.customerNumber 
+AND orders.orderNumber = orderdetails.orderNumber;
+--------------------------------------------------------------------------------
+========FROM 4 TABLE WITH MULTIPLY WITH NEW COLUM===========
+SELECT customers.customerNumber, customerName, phone, city, orders.orderNumber, orderDate, status, products.productCode, productName, 
+quantityOrdered, priceEach, quantityOrdered * priceEach AS 'Total Price' FROM customers, orders, orderdetails, products WHERE 
+customers.customerNumber = orders.customerNumber 
+AND orders.orderNumber = orderdetails.orderNumber;
+--------------------------------------------------------------------------------
+========GROUP BY===========
+SELECT customers.customerNumber, customerName, phone, city, 
+SUM(quantityOrdered) AS "Total Quantity",  SUM(quantityOrdered * priceEach) AS 'Total Price' FROM customers, orders, orderdetails, products WHERE 
+customers.customerNumber = orders.customerNumber 
+AND orders.orderNumber = orderdetails.orderNumber GROUP BY customerNumber;
+--------------------------------------------------------------------------------
+========VIEW===========
+CREATE VIEW customer_orders_view AS
+SELECT customers.customerNumber, customerName, phone, city, 
+SUM(quantityOrdered) AS "Total Quantity",  SUM(quantityOrdered * priceEach) AS 'Total Price' FROM customers, orders, orderdetails, products WHERE 
+customers.customerNumber = orders.customerNumber 
+AND orders.orderNumber = orderdetails.orderNumberCREATE VIEW customer_details_view AS
+SELECT customerNumber, customerName, phone, city FROM customers;;
+--------------------------------------------------------------------------------
+============VIEW===================
+CREATE VIEW product_details_view AS
+SELECT pid, p_name, p_price, company_name FROM product, manufacturar WHERE product.mid = manufacturar.mid;
+--------------------------------------------------------------------------------
+========VIEW===========
+CREATE VIEW customer_details_view AS
+SELECT customerNumber, customerName, phone, city FROM customers GROUP BY customerNumber;
+<<<<<<< HEAD
+=======
+
+--------------------------------------------------------------------------------------
+===================PROCEDURE Data Insert================================
+CREATE PROCEDURE `insert_company_info`(IN `p_company` VARCHAR(100), IN `p_address` VARCHAR(100), IN `p_contact` VARCHAR(50)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER INSERT INTO manufacturar(company_name, address, contact) VALUES(p_company, p_address, p_contact)
+>>>>>>> 055d43327e7d9aef0f355b54e7185cecbd00ced9

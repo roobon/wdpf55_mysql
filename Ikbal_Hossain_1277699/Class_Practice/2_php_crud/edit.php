@@ -30,7 +30,7 @@
 
 
            // step: 02
-           $sql = "UPDATE persons SET LastName ='$lname', FirstName = '$fname', Address = '$address', City = '$city', email_address = '$email', dob = '$dob' WHERE PersonID = '$id' ";
+           $sql = "UPDATE persons SET LastName ='$lname', FirstName = '$fname', gender = '$gender', Address = '$address', City = '$city', email_address = '$email', dob = '$dob' WHERE person_id = '$id' ";
 
            // step:03
            $db -> query($sql);
@@ -44,7 +44,7 @@
         }
 
         // step: 05
-        $result = $db -> query("SELECT * FROM persons WHERE PersonID = '$id'");
+        $result = $db -> query("SELECT * FROM persons WHERE person_id = '$id'");
         $row = $result -> fetch_assoc();
     ?>
 
@@ -54,6 +54,9 @@
         FirstName: <input type="text" name="fname" value="<?php echo $row['FirstName'] ?>" placeholder="Enter LastName"> <br>
 
         LastName: <input type="text" name="lname" value="<?php echo $row['LastName'] ?>" placeholder="Enter LastName"> <br>
+
+        Gender:  Male <input type="radio" name="gender" value="Male" <?php echo ($row['gender'] == 'Male') ? 'checked' : ""; ?> >
+                Female <input type="radio" name="gender" value="Female" <?php echo ($row['gender'] == 'Female') ? 'checked' : ""; ?>> <br>
 
         Address: <br> <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address'] ?></textarea> <br>
 
@@ -71,7 +74,7 @@
 
         <input type="submit" name="update" value = "Update"> <br>
 
-        <input type= "hidden" value = " <?php echo $row['PersonID'] ?>" name = "id" >
+        <input type= "hidden" value = " <?php echo $row['person_id'] ?>" name = "id" >
 
     </form>
 </body>

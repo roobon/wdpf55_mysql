@@ -30,3 +30,5 @@ INSERT INTO users VALUES (
 //SELECT Query
 SELECT * FROM users;  //for select all fields
 SELECT id, name, email FROM users; //for select specific fields
+
+

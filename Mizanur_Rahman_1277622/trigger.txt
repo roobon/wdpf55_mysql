@@ -1,0 +1,47 @@
+CREATE TABLE students_audit(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	student_id INT NOT NULL,
+	student_name VARCHAR(100),
+	action VARCHAR(10),
+	date DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+------------------------------------------------
+CREATE TRIGGER after_students_insert
+AFTER INSERT ON students
+FOR EACH ROW
+INSERT INTO students_audit SET action = 'insert',
+	student_id= NEW.id,
+	student_name = NEW.name;
+
+-----------------------------------------------
+CREATE TRIGGER after_students_update
+AFTER UPDATE ON students
+FOR EACH ROW
+INSERT INTO students_audit SET action = 'update',
+	student_id= OLD.id,
+	student_name = OLD.name;
+
+
+-------------------------------------------
+CREATE TRIGGER after_students_delete
+AFTER DELETE ON students
+FOR EACH ROW
+INSERT INTO students_audit SET action = 'delete',
+	student_id= OLD.id,
+	student_name = OLD.name;
+--------------------------------------------
+CREATE TRIGGER `after_delete_student` AFTER DELETE ON `student` 
+FOR EACH ROW DELETE FROM result WHERE sutdent_id = OLD.id
+
+
+##################################################
+Another Table
+
+CREATE TRIGGER after_orders_insert
+AFTER INSERT ON orders
+FOR EACH ROW
+UPDATE products
+SET 
+	product_amount = product_amount - NEW.pr_amount
+	WHERE products.id = NEW.pr_id
+

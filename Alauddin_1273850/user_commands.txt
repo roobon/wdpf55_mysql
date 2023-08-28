@@ -3,3 +3,13 @@ create user 'masum'@'localhost' identified by 'abc1234';
 mysql -u localhost -u root -p
 
 grant select, insert on wdpf55.* to 'masum'@'localhost';
+
+============ database Export command line =============
+
+mysqldump -u root -p wdpf55 > wdpf55_backup.sql
+
+mysqldump -h localhost -u root -p wdpf55 > wdpf55_backup.sql
+
+============== mysql database import command line =============
+
+mysql -h localhost -u root -p wdpf55_text1 < wdpf55_backup.sql 

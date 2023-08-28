@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php 
-       $sql = "SELECT * FROM persons";
+       $sql = "SELECT * FROM person2";
        $result = $db->query($sql);
     ?>
 
