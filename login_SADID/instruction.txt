@@ -1,0 +1,2 @@
+1. create a database named "sadid"
+2. import 'users.sql' within the database.
