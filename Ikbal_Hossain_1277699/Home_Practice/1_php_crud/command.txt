@@ -18,3 +18,17 @@ student_batch varchar(50)
 
 
 3.
+INSERT INTO self_practice.students_info
+
+(student_id, student_name, student_gender, student_email, student_phone,
+ student_city, student_address, student_batch)
+
+VALUES
+(NULL, "Ikbal Hossain", "Male", "ikbalhossain125@gmail.com", "01723835125", "Luxmipur", "Sadar", "WDPF/TCLK-M/55/01"),
+(NULL, "Jesmin Nahar", "Female", "ikbalhossain125@gmail.com", "01723835125", "Dhaka", "Hazipara", "WDPF/TCLK-M/55/01"),
+(NULL, "Monzila Jafrin", "Female", "monzilajafrin@gmail.com", "01987445588", "Luxmipur", "Sadar", "WDPF/TCLK-M/54/01"),
+(NULL, "Nusrat Jahan", "Female", "nusratjahan@gmail.com", "01478364588", "Dhaka", "Dhanmondi", "WDPF/TCLK-M/52/01"),
+(NULL, "Nadia Sultana", "Female", "nadiasultana@gmail.com", "01365447788", "Luxmipur", "Ramgoti", "WDPF/TCLK-M/55/01"),
+(NULL, "Hasnain Sadid", "Male", "hasnainsadid@gmail.com", "01978446655", "Mymensingh", "Sadar", "WDPF/TCLK-M/56/01"),
+(NULL, "Mehedi Hasan", "Male", "mededihasan@gmail.com", "01458726465", "Barishal", "Sadar", "WDPF/TCLK-M/55/01"),
+(NULL, "Walid Hassan", "Male", "walidhassan@gmail.com", "01832328385", "Rajshahi", "Sadar", "WDPF/TCLK-M/56/01");
