@@ -11,3 +11,9 @@ DELIMITER //
     CREATE VIEW product_list_view AS 
 SELECT p_id, product_name, price, company_name FROM product, manufacturer
  WHERE manufacturer.m_id = product.m_id
+
+
+
+ CREATE VIEW product_list_view AS 
+SELECT p_id, product_name, price, company_name FROM product, manufacturer
+ WHERE manufacturer.m_id = product.m_id
