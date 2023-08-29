@@ -266,8 +266,8 @@ CREATE TABLE students_audit(
 1. 	SELECT * FROM customers WHERE city = 'Madrid' OR city='paris';				= view both city result
 
 
-
-2. 	SELECT customers.customerNumber , customerName, phone, city orderNumber, orderDate, status FROM customers , orders WHERE customers.customerNumber = 	orders.customerNumber 									
+ CREATE VIEW manufacturer_info AS
+2. 	SELECT manufacturer.M_id , Company_name, Address, Contract products.P_id, P_name, P_price FROM Manufacturer , products WHERE manufacturer.M_id = 	products.P_id 									
 												= get data from two table
 
 
@@ -306,10 +306,6 @@ SELECT customers.customerNumber, customerName, phone, city , quantityOrdered ,or
 
 
 
-CREATE VIEW manufacturer_info AS
-SELECT manufacturer.M_id , Company_name , Address, Contract, P_id , P_name, P_price  FROM manufacturer, products WHERE manufacturer.M_id = products.M_id
-
-
 
 
 
@@ -327,6 +323,7 @@ Create PROCEDURE students_info(IN p_Name varchar(30), IN p_Gender ENUM('Male','F
      insert into students( Name, Gender , DOB, Email, Batch ,Address, Hobbies) values (p_Name, p_Gender,p_DOB, p_Email, p_Batch, p_Address, p_Hobbies );
      END //
      
+
 
 
 
