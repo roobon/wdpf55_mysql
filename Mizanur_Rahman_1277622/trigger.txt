@@ -29,6 +29,9 @@ FOR EACH ROW
 INSERT INTO students_audit SET action = 'delete',
 	student_id= OLD.id,
 	student_name = OLD.name;
+--------------------------------------------
+CREATE TRIGGER `after_delete_student` AFTER DELETE ON `student` 
+FOR EACH ROW DELETE FROM result WHERE sutdent_id = OLD.id
 
 
 ##################################################

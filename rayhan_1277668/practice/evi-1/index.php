@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style> 
+    p {
+        background-color: lightsalmon ;
+        width: 40%;
+        padding: 10px;
+        font-size: 30px;
+        
+
+    }
+    </style>
 </head>
 <body>
 
@@ -19,7 +29,7 @@ if ( isset( $_SESSION['error'] )  ) {
 
 ?>
 
-    <h2>  Please Log in To Gain Full Access To Manufacturer </h2>
+    <h2>  Please Log in To Gain Full Access To Dashboard </h2>
 
     <form action="login.php" method="post">
         <input type="text" name="name" placeholder="User Name"> <br>
