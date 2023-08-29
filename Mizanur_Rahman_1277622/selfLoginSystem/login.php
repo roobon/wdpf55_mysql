@@ -1,8 +1,8 @@
 <?php 
 include_once("db_config.php");
 if(isset($_POST["submit"])){
-    extract($_REQUEST);
-    
+    extract($_REQUEST);  
+
     $sql = "SELECT name, email, password FROM users WHERE email ='$email' AND password ='$password' ";
     $result = $db->query($sql);
     $row = $result->fetch_assoc();

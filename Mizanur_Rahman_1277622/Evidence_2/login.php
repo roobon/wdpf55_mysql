@@ -1,44 +1,21 @@
-<?php
-include_once("db_config.php");
-if (isset($_POST["email"]) && isset($_POST["password"])) {
+<?php 
+    if (isset($_REQUEST['submit'])) {
+        extract($_REQUEST);
 
-    function validate($data)
-    {
-        $data = trim($data);
-        $data = stripcslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+        require_once("db_config.php");
 
-    $email = validate($_POST["email"]);
-    $pass = validate($_POST["password"]);
-
-    if (empty($email)) {
-        header("Location:index.php?error= Email is required");
-        exit();
-    } else if (empty($pass)) {
-        header("Location:index.php?error= Password is required");
-        exit();
-    } else {
-        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password';";
         $result = $db->query($sql);
-        $row = $result->fetch_assoc();
+        $row = $result->fetch_object();
 
-        if($result->num_rows===1){
-            $_POST["email"] = $row["email"];
-            $_POST["password"] = $row["password"];
+        session_start();
+        if ($result->num_rows) {
+            $_SESSION['name'] = $row->name;
+            $_SESSION['email'] = $row->email;
             header("Location: home.php");
-        }else{
-            $_POST["error"] = "Your Email or Password is wrong";
-            //$_SESSION['error'] = "Email and password is not stored in the database";
+        } else {
+            $_SESSION['error'] = "Error message";
             header("Location: index.php");
         }
-
     }
-} else {
-    header("Location:index.php");
-    exit();
-}
 ?>
-
-
