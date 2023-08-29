@@ -52,16 +52,6 @@ $db = new mysqli("localhost", "root", "", "isdb_bisew");
             <div class="p-3">
             <a class="btn btn-info" href="edit.php?id=<?php ?>"><span class="glyphicon glyphicon-edit"> Edit</span></a>
             </div>
-            <div class="p-3">
-                <?php 
-                    session_start();
-                    if (!isset($_SESSION['email'])) {
-                        header("Location:index.php");
-                    }
-                ?>
-                    <h1>Welcome to the Home page, <?php echo $_SESSION['name'] ?></h1>
-                    <a class="btn btn-warning" href="logout.php">Logout</a>
-            </div>
         </div>
         <?php 
             $sql ="SELECT * FROM  students_result_view ";
