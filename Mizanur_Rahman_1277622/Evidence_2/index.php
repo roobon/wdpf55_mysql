@@ -20,10 +20,13 @@
         </div>
         
         <div class="container d-flex justify-content-center">
-        <?php 
-            if(isset($_GET["error"])){ ?>
-            <p class="text-danger"><?php echo $_GET["error"];?></p>
-        <?php    }   ?>
+            <?php 
+                session_start();
+                if (isset($_SESSION["error"])) {
+                    echo $_SESSION["error"];
+                    unset($_SESSION["error"]);
+                }
+            ?>
         </div>
         
 

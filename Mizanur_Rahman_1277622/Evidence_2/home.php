@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["email"])){
+        header("Location: index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +13,7 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Thank You for Login</h1>
+    <h1><?php session_start(); echo $_SESSION['name'] ?>, Thank You for Login</h1>
     <a href="index.php">Log Out</a>
 </body>
 </html>
