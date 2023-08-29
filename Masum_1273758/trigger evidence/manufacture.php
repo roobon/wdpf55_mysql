@@ -53,7 +53,7 @@ $db=new mysqli("localhost","root","","test");
     <select name="company">
     <option value="">Select One</option>
     <?php 
-    $result = $db->query("SELECT *FROM manufacturer");
+    $result = $db->query("SELECT * FROM manufacturer");
     $sn = 1;
 
     while($row = $result->fetch_assoc()):

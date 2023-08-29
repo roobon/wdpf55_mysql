@@ -1,1 +1,17 @@
 INSERT INTO `students` (`ID`, `Name`, `Gender`, `DOB`, `Email`, `Batch`, `Address`, `Hobbies`) VALUES (NULL, 'MD Alauddin', 'Male', '1995/03/30', 'alauddin@gmail.com', '18', 'south,khilgaon', 'Traveling,sports');
+
+
+
+
+
+
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES (NULL, 'Masum ', 'masum@gmail.com', SHA1('12345'));
+
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES (NULL, 'alauddin ', 'alauddin@gmail.com', SHA1('ala'));
+
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES (NULL, 'kicchuna ', 'ki@gmail.com', SHA1('dimuna'));
+
+
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES ('', 'Ki Kos', 'kicchuna@gmail.com', SHA1('dimuna'));
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES ('', 'Masum', 'masum@gmail.com', SHA1('1234'));
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES ('', 'MD Alauddin', 'alauddin@gmail.com', SHA1('ala')); 
