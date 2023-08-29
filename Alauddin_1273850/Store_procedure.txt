@@ -30,3 +30,19 @@ CREATE PROCEDURE `insert_company_info`(IN `p_company` VARCHAR(50), IN `p_address
 
 
 INSERT INTO manufactural(company_name, company_address, company_contact) VALUE(p_company, p_address, p_phone)
+
+
+
+
+
+
+
+
+
+LOAD DATA INFILE "sales.txt"
+INTO TABLE sales (id, client_id, order_time, sub_total, shipping_cost, total_cost);
+
+
+load data infile "sales.txt" into table sales
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
