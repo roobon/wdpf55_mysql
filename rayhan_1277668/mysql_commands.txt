@@ -254,8 +254,11 @@ CREATE TABLE students_audit(
 
 
 
-
 * DELETE FROM products WHERE M_id=OLD.M_id
+
+
+* DELETE FROM result WHERE student_id = OLD.st_id	= ( student_id -> result table | OLD.st_id -> student table )
+
 
 
 
@@ -332,10 +335,21 @@ Create PROCEDURE students_info(IN p_Name varchar(30), IN p_Gender ENUM('Male','F
 
 
 
+====================================== DATABASE INDEXING =================================
+
+1. full text indexing
+
+** enable full text indexing in the productDescription column. **
+
+SELECT `productCode` , `productName` FROM products WHERE MATCH (`productDescription`) AGAINST ('wheels');
 
 
 
+// shell command for backup / export  of big Database
+mysqldump -u root -p wdpf_55 > wdpf_55_backup.sql
 
+// Mysql database importing from shell
+mysql -h localhost -u root -p wdpf_test < wdpf_55_backup.sql
 
 
 
