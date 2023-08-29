@@ -18,7 +18,7 @@ if(!isset($_SESSION["email"])){
 </head>
 <body>
     <div class="container">
-        <h2><?php echo $_SESSION["email"] . ","?>Welcome to Login Page</h2>
+        <h2><?php echo $_SESSION["name"] . ","?>Welcome to Login Page</h2>
 
         <a href="logout.php" class="btn btn-danger">Log Out</a>
     </div>
