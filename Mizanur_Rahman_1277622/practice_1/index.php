@@ -49,7 +49,7 @@ $db = new mysqli("localhost", "root", "", "evidence_1");
                 endwhile;
                 ?>
             </select>
-            <input type="submit" value="DELETE" name="delete" class="btn btn-outline-primary">
+            <input type="submit" value="DELETE" name="delete" class="btn btn-danger">
         </form>
     </div>
 
