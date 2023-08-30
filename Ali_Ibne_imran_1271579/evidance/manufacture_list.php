@@ -1,4 +1,4 @@
-<?php  $db= new mysqli("localhost","root","","evidance");?>
+<?php  $db= new mysqli("localhost","root","","evidence");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
         
     ?>
     <div class="container">
-        <h1>Manufacture</h1>
+        <h1>Manufacturer List</h1>
         <form action="" method="post">
 
             <div class="form-group mb-3 mt-3">
@@ -43,6 +43,7 @@
 
 
                             <br>
+            <a href="entry_company_procedure.php" class="btn btn-success">New Entry</a>
                             <br>
 
 
@@ -50,7 +51,7 @@
 
         <h1>Product List</h1>
         <?php 
-            $sql = "SELECT * FROM product_list WHERE price>5000";
+            $sql = "SELECT * FROM product_list_view WHERE price>5000";
             $result = $db->query($sql);
         ?>
             
@@ -59,10 +60,10 @@
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>SN</th>
                         <th>Product Name</th>
                         <th>Price</th>
-                        <th>Company Name</th>
+                        
                        
                     </tr>
                 </thead>
@@ -77,7 +78,7 @@
                         <td><?php echo $no?></td>
                         <td><?php echo $row["product_name"] ?></td>
                         <td><?php echo $row["price"]?></td>
-                        <td><?php echo $row["company_name"] ?></td>
+                        
                           
                     </td>
                     </tr>
@@ -90,7 +91,7 @@
                 </tbody>
             </table>
            <br>
-           <a href="entry_company_procedure.php" class="btn btn-success">New Entry</a>
+           
                         <br>
                         <br>
                         <br>
