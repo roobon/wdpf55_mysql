@@ -8,3 +8,11 @@ DELIMITER ;
 -----TRIGGER-------------------------------------
 CREATE TRIGGER `after_manufacturar_delete` AFTER DELETE ON `manufacturar`
  FOR EACH ROW DELETE FROM product WHERE mid=OLD.mid
+
+ --------------------------------------------------
+
+ ------VIEW----------------------------------------
+CREATE VIEW product_details_view AS
+SELECT pid, p_name, p_price, company_name FROM product, manufacturar WHERE product.mid = manufacturar.mid;
+
+ -------------------------------

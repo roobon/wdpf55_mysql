@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2023 at 08:43 AM
+-- Generation Time: Aug 30, 2023 at 06:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -45,7 +45,8 @@ INSERT INTO `manufacturar` (`mid`, `company_name`, `address`, `contact`) VALUES
 (11, 'Toshiba', 'Japan', '0'),
 (15, 'Canon', 'Japan', '123'),
 (16, 'OPPO', 'India', '987'),
-(19, 'Akij', 'Dhaka', '0');
+(19, 'Akij', 'Dhaka', '0'),
+(20, 'Ford', 'India', '0');
 
 --
 -- Triggers `manufacturar`
@@ -73,7 +74,7 @@ ALTER TABLE `manufacturar`
 -- AUTO_INCREMENT for table `manufacturar`
 --
 ALTER TABLE `manufacturar`
-  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
