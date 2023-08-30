@@ -20,7 +20,7 @@ $db = new mysqli("localhost", "root", "", "exam");
     if(isset($_POST["delete"])):
         //print_r($_POST);
         $id = $_POST["company"];
-        $db->query("DELETE FROM manufacturer WHERE id = $id");
+        $db->query("DELETE FROM manufacturer WHERE id = $id"); //delete query
 
         if($db->affected_rows>0){
             echo "Deleted <br>";
