@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2023 at 05:26 AM
+-- Generation Time: Aug 22, 2023 at 08:55 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -33,7 +33,7 @@ CREATE TABLE `students` (
   `Gender` enum('Male','Female') NOT NULL,
   `DOB` date NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Batch` tinyint(10) NOT NULL,
+  `Batch` varchar(10) NOT NULL,
   `Address` varchar(50) NOT NULL,
   `Hobbies` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -43,9 +43,12 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`ID`, `Name`, `Gender`, `DOB`, `Email`, `Batch`, `Address`, `Hobbies`) VALUES
-(1, 'MD Alauddin', 'Male', '1995-03-30', 'alauddin@gmail.com', 18, 'south,khilgaon', 'Traveling,sports'),
-(10, 'hscbu', 'Male', '2023-08-01', 'a@gmail.com', 0, 'z/sd.kfui', 'cricket,footbal,tenis'),
-(11, 'Abdur Rahim', 'Male', '1986-04-17', 'abdur@gmail.com', 0, 'Shahjahanpur', 'cricket,hockey,badminton');
+(1, 'MD Alauddin', 'Male', '1995-03-30', 'alauddin@gmail.com', 'WDPF-55', 'south,khilgaon', 'football,tenis,badminton'),
+(10, 'Habiba', 'Female', '2000-08-01', 'ha@gmail.com', 'WDPF-55', 'Mohammadpur', 'cricket,football,tenis'),
+(11, 'Abdur Rahim', 'Male', '1986-04-17', 'abdur@gmail.com', 'GAVE-54', 'Shahjahanpur', 'cricket,hockey,badminton'),
+(12, 'Abdul karim', 'Male', '2023-08-12', 'k@gmail.com', '.NET-53', 'kakraile', 'cricket,hockey,badminton'),
+(13, 'nadia', 'Female', '2023-07-31', 'n@gmail.com', 'JAVA-52', 'rampura', 'footbal,hockey'),
+(14, 'Masum', 'Male', '1995-12-22', 'mal@gmail.com', 'JAVA-52', 'Jatrabari', 'hockey,badminton');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +68,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

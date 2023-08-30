@@ -10,7 +10,7 @@
      require_once("db_config.php");
       $id = $_REQUEST['id']; 
       
-      $result = $myDB->query("SELECT * FROM persons WHERE PersonID = '$id' ");
+      $result = $db->query("SELECT * FROM persons WHERE PersonID = '$id' ");
 
       if(isset($_POST['update'])){
         extract($_POST);

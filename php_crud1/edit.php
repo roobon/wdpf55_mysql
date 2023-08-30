@@ -14,7 +14,7 @@
         // UPdate data using submission
         if(isset($_POST['update'])){
             extract($_POST);
-            $newhobbies = implode("," ,$hobby);
+            $newhobbies = implode("," ,$hobby); // array to string
             $sql = "UPDATE students SET Name='$name', Gender='$gender', DOB='$dob', Email='$email', Batch='$batch', Address='$address', Hobbies='$newhobbies' WHERE ID='$id'";
             $db->query($sql);
             if($db->affected_rows>0){
@@ -30,7 +30,7 @@
         $hobbies = $row['Hobbies']; // string
         $hobbies = explode(",", $hobbies); // array
         $hobilist = array("cricket", "football", "hockey", "badminton", "tenis");
-        $namefield  = "hobby";
+        //$namefield  = "hobby";
     
     
     ?>
@@ -54,7 +54,7 @@
         Hobbies: <br>
         <?php 
             foreach($hobilist as $val){ ?>
-            <label for=""><?php echo $val; ?></label> <input type="checkbox" name="<?php echo $namefield.'[]'; ?>" value="<?php echo $val; ?>" <?php echo in_array($val , $hobbies)? "checked":"";?>>
+            <label for=""><?php echo $val; ?></label> <input type="checkbox" name="hobby[]" value="<?php echo $val; ?>" <?php echo in_array($val , $hobbies)? "checked":"";?>>
         <?php    }
         ?><br>
         <input type="hidden" name="id" value="<?php echo $id; ?>">
