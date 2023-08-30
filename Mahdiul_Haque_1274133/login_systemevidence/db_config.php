@@ -2,14 +2,14 @@
    $host = "localhost";
    $user = "root";
    $pass = "";
-   $db =  "idb_bisew";
+   $database = "singer";
 
-   $db = new mysqli("localhost", "root", "", "idb_bisew");
-
-
+   $db = new mysqli($host, $user, $pass, $database);
 
 
 
 
 
+
+  
 ?>
