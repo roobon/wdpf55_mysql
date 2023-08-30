@@ -2,12 +2,13 @@
      
      if(isset($_REQUEST['login'])) {
           extract($_REQUEST);
-          $pass = ($password);
+          // $pass = ($password);
           require_once("db_config.php");
-          $sql = "SELECT name, email, password FROM user WHERE email='$email' AND password = '$pass'";
+          // echo " SELECT name, email, password FROM users WHERE email='$email' AND password = '$password'";
+          $sql = "SELECT name, email, password FROM users WHERE email='$email' AND password = '$password'";
           $result = $db->query($sql);
           $row = $result->fetch_object();
-
+       
 
           session_start();
           if ($result->num_rows)  {
