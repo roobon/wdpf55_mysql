@@ -49,7 +49,7 @@ $db = new mysqli("localhost", "root", "", "evidence_1");
                 endwhile;
                 ?>
             </select>
-            <input type="submit" value="DELETE" name="delete" class="btn btn-outline-primary">
+            <input type="submit" value="DELETE" name="delete" class="btn btn-danger">
         </form>
     </div>
 
@@ -58,7 +58,7 @@ $db = new mysqli("localhost", "root", "", "evidence_1");
     </div>
     <div class="container">
         <?php 
-        $sql = "SELECT * FROM product_details_view WHERE p_price>30000";
+        $sql = "SELECT * FROM product_details_view WHERE p_price>5000";
         $result = $db->query($sql); ?>
 
         <table class="table table-striped">
