@@ -6,7 +6,7 @@ if(isset($_REQUEST['submit'])){
     
     $db->query("INSERT INTO user VALUES(NULL, '$name', '$gender', '$email',  '$dob', '$address', '$hobbies')");
     
-    if($db->affected_rows){
+    if($db->affected_rows>0){
         header("Location: index.php");
     }
 }
