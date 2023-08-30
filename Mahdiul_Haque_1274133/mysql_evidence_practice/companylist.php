@@ -25,7 +25,7 @@
     <form action="" method="post">
     Manufacturer List :<br><br>
             <select name="manufacture">
-            <option value="">Select One</option>
+            <option value="checked">Select One</option>
             <?php 
               $result = $db->query("SELECT * FROM  manufacturer");
               while($row = $result->fetch_assoc())  :
@@ -64,6 +64,6 @@
      </table><br>
     <a href="entryformmanufacture.php">New Manufacturer</a>
 
-     <input type="submit" name="update" value="UPDATE">
+    
 </body>
 </html>
