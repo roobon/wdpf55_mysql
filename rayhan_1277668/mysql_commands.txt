@@ -315,6 +315,9 @@ SELECT manufacturer.M_id , Company_name , Address, Contract, P_id , P_name, P_pr
 
 
 
+CREATE VIEW students_info AS SELECT student.id , name , adress, mobile, module_name , total_mark, result.student_id FROM student, result WHERE student.id = result.student_id;
+
+
 
 ======================================= Stored Routine ===============================================
 
