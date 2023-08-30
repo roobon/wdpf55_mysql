@@ -10,3 +10,8 @@ INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES (NULL, 'Masum ', 
 INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES (NULL, 'alauddin ', 'alauddin@gmail.com', SHA1('ala'));
 
 INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES (NULL, 'kicchuna ', 'ki@gmail.com', SHA1('dimuna'));
+
+
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES ('', 'Ki Kos', 'kicchuna@gmail.com', SHA1('dimuna'));
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES ('', 'Masum', 'masum@gmail.com', SHA1('1234'));
+INSERT INTO `users` (`ID`, `Name`, `Email`, `Password`) VALUES ('', 'MD Alauddin', 'alauddin@gmail.com', SHA1('ala')); 

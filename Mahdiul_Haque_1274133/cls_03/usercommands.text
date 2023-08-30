@@ -16,6 +16,7 @@ show  tables;
 UPDATE persons SET FirstName='Mizanur', LastName='Rahman', Address= 'Gulistan',
 District='Dhaka' WHERE PersonID='11'
 
+RENAME USER 'masum@localhost' TO 'masuma'@'localhost';
 
  // database e nijer moto kore korte hbe....
 
