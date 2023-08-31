@@ -39,30 +39,22 @@
             </div>
             <button type="submit" class="form-control btn btn-success" name="delete">Delete</button>
         </form>
-
-
-
                             <br>
                             <br>
-
-
-
-
         <h1>Product List</h1>
         <?php 
-            $sql = "SELECT * FROM product_list WHERE price>5000";
+            $sql = "SELECT * FROM pricerangeproducts";
             $result = $db->query($sql);
         ?>
-            
-
-    
+   
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Product Name</th>
                         <th>Price</th>
-                        <th>Company Name</th>
+                        <th>Company ID</th>
+                       
                        
                     </tr>
                 </thead>
@@ -77,7 +69,9 @@
                         <td><?php echo $no?></td>
                         <td><?php echo $row["product_name"] ?></td>
                         <td><?php echo $row["price"]?></td>
-                        <td><?php echo $row["company_name"] ?></td>
+                        <td><?php echo $row["m_id"] ?></td>
+                        
+
                           
                     </td>
                     </tr>
