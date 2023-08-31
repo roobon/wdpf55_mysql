@@ -1,0 +1,45 @@
+CREATE TABLE sales (
+id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+client_id SMALLINT UNSIGNED NOT NULL,
+order_time TIMESTAMP NOT NULL,
+sub_total DECIMAL(8,2) NOT NULL,
+shipping_cost DECIMAL(8,2) NOT NULL,
+total_cost DECIMAL(8,2) NOT NULL
+);
+
+
+"", 45633, 2010-12-19 01:13:42,22.04 ,5.67, 27.71 \n
+"", 942, 2010-12-19 01:15:12, 11.50, 3.40, 14.90 \n
+"", 7879, 2010-12-19 01:15:22, 95.99, 15.00, 110.99 \n
+"", 55521,2010-12-19 01:30:45, 10.75, 3.00, 13.75 \n
+
+LOAD DATA INFILE "sales1.txt"
+INTO TABLE sales (id, client_id, order_time, sub_total, shipping_cost, total_cost);
+
+LOAD DATA INFILE "sales1.txt" into table sales
+FIELDS TERMINATED BY ","
+LINES TERMINATED BY "\n";
+
+SELECT * INTO OUTFILE "text_backup.txt"
+FIELDS TERMINATED BY "," LINES TERMINATED BY "\n"
+FROM wdpf55.user;
+
+
+SELECT * INTO OUTFILE "text_backup.xls"
+FIELDS TERMINATED BY "\t" LINES TERMINATED BY "\n"
+FROM idb_bisew_wdpf55.students;
+
+// MySQL database dumping from Shell
+# mysqldump -u root -p idb_bisew_wdpf55 > idb_bisew_wdpf55_backup.sql
+
+
+// MySQL database importing from Shell
+# mysql -h localhost -u root -p wdpf55_test1 < idb_bisew_wdpf55_backup.sql
+
+# mysqladmin -h localhost -u root -p variables
+
+
+
+
+
+

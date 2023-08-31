@@ -1,4 +1,4 @@
-<?php 
+ <?php 
     // echo $_GET["id"];   // step: 02 in delete option
     $id = $_GET["id"]; 
 

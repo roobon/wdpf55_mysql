@@ -1,4 +1,4 @@
-<?php  $db= new mysqli("localhost","root","","evidance");?>
+<?php  $db= new mysqli("localhost","root","","evidence");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,12 +23,11 @@
                     $sql = "CALL insert_company_info('$name','$address','$contact')";
 
                     
-                     //$sql = "INSERT INTO manufacturer VALUE(NULL,'$name','$address','$contact')";
                     $db->query($sql);
 
                     if($db->affected_rows){
                        echo "Success";
-                       header("Location: company_list.php");
+                       header("Location: manufacture_list.php");
                     }
                 }
             ?>
