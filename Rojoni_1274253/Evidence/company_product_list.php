@@ -16,8 +16,8 @@ $db = new mysqli("localhost","root","","mysql_evidence");
     <?php if(isset($_POST['delete'])):
 
         // print_r($_post);
-        $mid = $_POST['company'];
-        $db->query("DELETE FROM manufacturer WHERE mid = '$mid'");
+        $mid = $_POST['name'];
+        $db->query("DELETE FROM manufacture WHERE mid = '$mid'");
         if($db->affected_rows>0){
             echo "Deleted<br>";
         }
@@ -26,13 +26,13 @@ $db = new mysqli("localhost","root","","mysql_evidence");
     
     ?>
     <form action="" method="post">
-        <select name="company" >
+        <select name="name" >
             <option value="">Select One</option>
             <?php 
-            $result = $db->query("SELECT * FROM manufacturer");
+            $result = $db->query("SELECT * FROM manufacture");
             while($row = $result->fetch_assoc()) :
     ?>
-    <option value="<?php echo $row['mid'];?>"><?php echo $row['company_name'];?></option>
+    <option value="<?php echo $row['mid'];?>"><?php echo $row['name'];?></option>
     <?php  endwhile;?>
 
         </select>
@@ -41,7 +41,7 @@ $db = new mysqli("localhost","root","","mysql_evidence");
 
     <h3>Product List</h3>
     <?php 
-    $sql = "SELECT * FROM product_list_view";
+    $sql = "SELECT * FROM product";
     $result = $db->query($sql);  ?>
 <table border="1">
     <tr>
@@ -60,7 +60,7 @@ $db = new mysqli("localhost","root","","mysql_evidence");
             <td><?php echo $sn; $sn++; ?></td>
             <td><?php echo $row['p_name']?></td>
             <td><?php echo $row['p_price']?></td>
-            <td><?php echo $row['company_name']?></td>
+            <td><?php echo $row['company_id']?></td>
         </tr>
 <?php
     endwhile; ?>
