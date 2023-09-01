@@ -47,7 +47,7 @@
 
                 <h3 style="color: blue;"> Student Entry Form </h3>
 
-
+<!-- why we use php core here and echo -->
                 <form action=" <?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 
                     Name: <input type="text" name="stName"> <br> <br>
