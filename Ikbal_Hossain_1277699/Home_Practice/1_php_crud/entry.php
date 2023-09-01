@@ -22,7 +22,7 @@
             // step: 02 after form
         require_once("db_config.php"); // step: connection mandatory
 
-        $sql = ("INSERT INTO students_info VALUES (NULL, '$stName', '$gender', '$email', '$phone', '$city', '$address', '$batch',)");
+        $sql = ("INSERT INTO students_info VALUES (NULL, '$stName', '$gender', '$email', '$phone', '$city', '$address', '$batch')");
         $db -> query($sql); // why???  
 
 
