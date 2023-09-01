@@ -18,20 +18,20 @@
         if(isset($_POST["submit"])){
             extract($_POST); // why???
 
-
             // step: 02 after form
-        require_once("db_config.php"); // step: connection mandatory
+            require_once("db_config.php"); // step: connection mandatory
+     
 
-        $sql = ("INSERT INTO students_info VALUES (NULL, '$stName', '$gender', '$email', '$phone', '$city', '$address', '$batch',)");
-        $db -> query($sql); // why???  
+            $sql = ("INSERT INTO students_info VALUES (NULL, '$stName', '$gender', '$email', '$phone', '$city', '$address', '$batch')");
+            $db->query($sql); // why???  
 
+            // after form submission form for confirm message
+            if($db->affected_rows){
+                // echo "<h4> Successfully Inserted </h4>";
+                header("Location: 1_index.php");
+            }
 
-        // after form submission form for confirm message
-        if($db -> affected_rows){
-            echo "<h4> Successfully Inserted </h4>";
         }
-
-        }  
 
     ?>
 
@@ -100,36 +100,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
