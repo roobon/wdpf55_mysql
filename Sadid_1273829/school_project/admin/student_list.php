@@ -116,6 +116,15 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">DataTable with default features</h3>
+                <?php 
+                // session_start();
+                if(isset($_SESSION["msg"])):
+                  $msg = $_SESSION["msg"];?>
+                  <div class="alert alert-success"><?php echo $msg?> </div>
+                <?php 
+              session_unset();
+
+              endif; ?>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -129,6 +138,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Address</th>
+                    <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -141,6 +151,10 @@
                     <td><?php echo $row->email?></td>
                     <td><?php echo $row->phone?></td>
                     <td><?php echo $row->address?></td>
+                     <td>
+                      <a href="" class="btn btn-primary" >Edit</a>
+                      <a href="student_delete.php?id=<?php echo $row->id?>" class="btn btn-danger" >DELETE</a>
+                     </td>
                   </tr>
                   <?php endwhile; ?>
                   </tbody>
