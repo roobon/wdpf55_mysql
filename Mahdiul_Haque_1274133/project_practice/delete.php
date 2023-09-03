@@ -1,5 +1,6 @@
 <?php 
-    $db = new mysqli("localhost", "root", "", "singer");
+   $db = new mysqli("localhost", "root", "", "factory_detalis");
+
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +13,8 @@
 <body>
     <?php 
       if(isset($_POST['delete'])):
-        $id = $_POST['manufacture'];
-        $db->query("DELETE FROM product WHERE m_id = '$id'");
+        $id = $_POST['company'];
+        $db->query("DELETE FROM company_list WHERE company_id = '$id'");
         if($db->affected_rows>0){
             echo "Deleted<br>";
         }
@@ -22,34 +23,34 @@
     
     endif;
     ?>
-   <form action="" method="post">
+<form action="" method="post">
     Manufacture : <br><br>
-    <select name="manufacture">
+    <select name="company">
         <option value="checked">Select One</option>
         <?php 
-         $result = $db->query("SELECT * FROM manufacturer");
+         $result = $db->query("SELECT * FROM company_list");
          while($row = $result->fetch_assoc()) :
         
         ?>
-        <option><?php  echo $row['m_id']?><?php  echo $row['name']?></option>
+        <option><?php  echo $row['company_id']?><?php  echo $row['company_name']?></option>
         <?php  endwhile;?>
 
 
     </select><br><br>
     <input type="submit" name="delete" value="Delete">
    </form>
-
-   <h3>Product List</h3>
+   <h3>Company List</h3>
     <?php 
-     $sql = "SELECT * FROM product_line_view WHERE price>5000";
+     $sql = "SELECT * FROM company_list1";
      $db->query($sql);
      $result = $db->query($sql); ?>
       <table border="11">
          <tr>
-          <th>P_ID</th>
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>M_ID</th>
+          <th>Company ID</th>
+          <th>Company Name</th>
+          <th>Company Address</th>
+          <th>Company Email</th>
+          <th>Company Phone</th>
         </tr>
      
      <?php 
@@ -57,15 +58,15 @@
           while($row = $result->fetch_assoc()): ?>
           <tr>
              <td><?php echo $sn; $sn++;?></td>
-             <td><?php echo $row['p_name']?></td>
-             <td><?php echo $row['price']?></td>
-             <td><?php echo $row['m_id']?></td>
+             <td><?php echo $row['company_name']?></td>
+             <td><?php echo $row['company_address']?></td>
+             <td><?php echo $row['company_email']?></td>
+             <td><?php echo $row['company_phone']?></td>
             </tr>
      <?php 
         endwhile;
      
      ?>
-     </table><br>
-    <a href="entryformmanufacture.php">New Manufacturer</a>
+     </table>
 </body>
 </html>
