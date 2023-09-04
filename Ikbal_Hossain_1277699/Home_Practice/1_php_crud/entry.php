@@ -20,15 +20,10 @@
 
             // step: 02 after form
             require_once("db_config.php"); // step: connection mandatory
-     
 
-<<<<<<< HEAD
-        $sql = ("INSERT INTO students_info VALUES (NULL, '$stName', '$gender', '$email', '$phone', '$city', '$address', '$batch')"); // according to database field serial
-        $db -> query($sql); // why???  
-=======
             $sql = ("INSERT INTO students_info VALUES (NULL, '$stName', '$gender', '$email', '$phone', '$city', '$address', '$batch')");
             $db->query($sql); // why???  
->>>>>>> b8449719c632df0a09e2f17a49b417986b2c8887
+
 
             // after form submission form for confirm message
             if($db->affected_rows){
@@ -36,18 +31,14 @@
                 header("Location: 1_index.php");
             }
 
-<<<<<<< HEAD
+
         // after form submission for confirm message
-        if($db -> affected_rows){
+        if($db->affected_rows){
             echo "<h4> Successfully Inserted </h4>";
-=======
->>>>>>> b8449719c632df0a09e2f17a49b417986b2c8887
+
         }
 
     ?>
-
-
-
 
 
 <!-- step: 01 create a form -->
