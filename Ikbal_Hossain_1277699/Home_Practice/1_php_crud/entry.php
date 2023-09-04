@@ -37,6 +37,7 @@
             echo "<h4> Successfully Inserted </h4>";
 
         }
+    }
 
     ?>
 
