@@ -40,7 +40,7 @@
   
 
 
-         <table class="table table-dark table-striped">
+         <table class="table table-success table-striped">
             <tr>
                 <th>Student ID </th>
                 <th> Name </th>
