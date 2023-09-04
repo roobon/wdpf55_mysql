@@ -80,11 +80,11 @@ $db = new mysqli("localhost", "root", "", "isdb_bisew");
                         $sn = 1;
                         while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <th><?php echo $sn; $sn++; ?></th>
-                            <th><?php echo $row['Name']; ?></th>
-                            <th><?php echo $row['Address']; ?></th>
-                            <th><?php echo $row['Mobile']; ?></th>
-                            <th><a class="btn btn-info" href="edit.php?id=<?php ?>"><span class="glyphicon glyphicon-edit"> Edit</span></a></th>
+                            <td><?php echo $sn; $sn++; ?></td>
+                            <td><?php echo $row['Name']; ?></td>
+                            <td><?php echo $row['Address']; ?></td>
+                            <td><?php echo $row['Mobile']; ?></td>
+                            <td><a class="btn btn-info" href="edit.php?id=<?php ?>"><span class="glyphicon glyphicon-edit"> Edit</span></a></td>
                         </tr>
                         <?php 
                             endwhile;
