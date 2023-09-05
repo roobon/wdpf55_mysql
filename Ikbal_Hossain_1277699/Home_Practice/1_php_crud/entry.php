@@ -18,18 +18,17 @@
 
             // step: 02 after form
             require_once("db_config.php"); // step: connection mandatory
-     
 
             $sql = ("INSERT INTO students_info VALUES (NULL, '$stName', '$gender', '$email', '$phone', '$city', '$address', '$batch')");
             $db->query($sql); // why???  
+
 
             // after form submission form for confirm message
             if($db->affected_rows){
                 // echo "<h4> Successfully Inserted </h4>";
                 header("Location: 1_index.php");
             }
-
-        }
+         }
 
     ?>
 

@@ -37,7 +37,10 @@
                 <h3> List of All Students </h3>
       
       <a href="entry.php" class="btn btn-outline-success" style ="font-weight:bolder"> New Student Entry </a> <br> <br>
-         <table class="table table-dark table-striped">
+  
+
+
+         <table class="table table-success table-striped">
             <tr>
                 <th>Student ID </th>
                 <th> Name </th>
