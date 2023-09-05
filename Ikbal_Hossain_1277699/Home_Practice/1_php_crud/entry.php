@@ -10,8 +10,6 @@
 
 <body>
 
-
-
     <?php 
     
         // last stage for form validation
@@ -34,10 +32,6 @@
         }
 
     ?>
-
-
-
-
 
 <!-- step: 01 create a form -->
     <div class="container">
