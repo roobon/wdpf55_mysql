@@ -1,7 +1,6 @@
 <?php 
-//require_once("db_config.php");
 
-$db = new mysqli("localhost", "root", "", "evidence_1");
+$db = new mysqli("localhost", "root", "", "exam");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,21 +9,18 @@ $db = new mysqli("localhost", "root", "", "evidence_1");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
     <title>Form</title>
 </head>
 <body>
     <div class="container">
-    <h3>Manufacturar List</h3>
+    <h3>Manufacturer List</h3>
     </div>
 
     <?php 
     if(isset($_POST["delete"])):
         //print_r($_POST);
         $id = $_POST["company"];
-        $db->query("DELETE FROM manufacturar WHERE mid = $id");
+        $db->query("DELETE FROM manufacturer WHERE id = $id"); //delete query
 
         if($db->affected_rows>0){
             echo "Deleted <br>";
@@ -39,11 +35,11 @@ $db = new mysqli("localhost", "root", "", "evidence_1");
                 <option value="" checked>Select One</option>
 
                 <?php 
-                $result = $db->query("SELECT * FROM manufacturar");
+                $result = $db->query("SELECT * FROM manufacturer");
                 while($row = $result->fetch_assoc()) :
                 ?>
 
-                <option value="<?php echo $row['mid'];?>"><?php echo $row['company_name'];?></option>
+                <option value="<?php echo $row['id'];?>"><?php echo $row['name'];?></option>
 
                 <?php 
                 endwhile;
@@ -58,7 +54,7 @@ $db = new mysqli("localhost", "root", "", "evidence_1");
     </div>
     <div class="container">
         <?php 
-        $sql = "SELECT * FROM product_details_view WHERE p_price>5000";
+        $sql = "SELECT * FROM product_details_view WHERE price>5000";
         $result = $db->query($sql); ?>
 
         <table class="table table-striped">
@@ -66,7 +62,7 @@ $db = new mysqli("localhost", "root", "", "evidence_1");
                 <th>ID</th>
                 <th>Product Name</th>
                 <th>Price</th>
-                <th>Company Name</th>
+                <th>Manufacturer Company Name</th>
             </tr>    
 
         <?php
@@ -75,16 +71,16 @@ $db = new mysqli("localhost", "root", "", "evidence_1");
 
         <tr>
             <td><?php echo $sn ; $sn++;?></td>
-            <td><?php echo $row["p_name"];?></td>
-            <td><?php echo $row["p_price"];?></td>
-            <td><?php echo $row["company_name"];?></td>
+            <td><?php echo $row["name"];?></td>
+            <td><?php echo $row["price"];?></td>
+            <td><?php echo $row["Manufacturer"];?></td>
         </tr>
 
         <?php endwhile; ?>
         </table>
     </div>
     <div class="container">
-    <a href="entry.php" class="btn btn-dark" target="_blank">Add New Manufacturar</a>
+    <a href="entry.php" class="btn btn-dark" target="_blank">Add New Manufacturer</a>
     </div>
 </body>
 </html>
