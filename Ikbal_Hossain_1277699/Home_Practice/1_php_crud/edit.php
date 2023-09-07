@@ -62,13 +62,13 @@
 
                         <option value="Mymensingh" <?php echo ($row->student_city == "Mymensingh") ? "selected" : ""; ?>> Mymensingh </option>
 
-                        < value="Barishal" <?php echo ($row->student_city == "Barishal") ? "selected" : ""; ?>> Barishal </option>
+                        <option value="Barishal" <?php echo ($row->student_city == "Barishal") ? "selected" : ""; ?>> Barishal </option>
 
-                            <option value="Rajshahi" <?php echo ($row->student_city == "Rajshahi") ? "selected" : ""; ?>> Rajshahi </option>
+                        <option value="Rajshahi" <?php echo ($row->student_city == "Rajshahi") ? "selected" : ""; ?>> Rajshahi </option>
 
-                            <option value="Gopalganj" <?php echo ($row->student_city == "Gopalganj") ? "selected" : ""; ?>> Gopalganj </option>
+                        <option value="Gopalganj" <?php echo ($row->student_city == "Gopalganj") ? "selected" : ""; ?>> Gopalganj </option>
 
-                            <option value="Chadpur" <?php echo ($row->student_city == "Chadpur") ? "selected" : ""; ?>> Chadpur </option>
+                        <option value="Chadpur" <?php echo ($row->student_city == "Chadpur") ? "selected" : ""; ?>> Chadpur </option>
                     </select> <br> <br>
 
                     Address: <br>
@@ -81,25 +81,25 @@
 
                         <option value="WDPF/TCLK-M/50/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/50/01") ? "selected" : ""; ?>> WDPF/TCLK-M/50/01 </option>
 
-                        <option value="WDPF/TCLK-M/51/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/51/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/51/01 </option>
+                        <option value="WDPF/TCLK-M/51/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/51/01") ? "selected" : ""; ?>> WDPF/TCLK-M/51/01 </option>
 
-                        <option value="WDPF/TCLK-M/52/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/52/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/52/01 </option>
+                        <option value="WDPF/TCLK-M/52/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/52/01") ? "selected" : ""; ?>> WDPF/TCLK-M/52/01 </option>
 
-                        <option value="WDPF/TCLK-M/53/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/53/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/53/01 </option>
+                        <option value="WDPF/TCLK-M/53/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/53/01") ? "selected" : ""; ?>> WDPF/TCLK-M/53/01 </option>
 
-                        <option value="WDPF/TCLK-M/54/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/54/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/54/01 </option>
+                        <option value="WDPF/TCLK-M/54/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/54/01") ? "selected" : ""; ?>> WDPF/TCLK-M/54/01 </option>
 
-                        <option value="WDPF/TCLK-M/55/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/55/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/55/01 </option>
+                        <option value="WDPF/TCLK-M/55/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/55/01") ? "selected" : ""; ?>> WDPF/TCLK-M/55/01 </option>
 
-                        <option value="WDPF/TCLK-M/56/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/56/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/56/01 </option>
+                        <option value="WDPF/TCLK-M/56/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/56/01") ? "selected" : ""; ?>> WDPF/TCLK-M/56/01 </option>
 
-                        <option value="WDPF/TCLK-M/57/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/57/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/57/01 </option>
+                        <option value="WDPF/TCLK-M/57/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/57/01") ? "selected" : ""; ?>> WDPF/TCLK-M/57/01 </option>
 
-                        <option value="WDPF/TCLK-M/58/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/58/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/58/01 </option>
+                        <option value="WDPF/TCLK-M/58/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/58/01") ? "selected" : ""; ?>> WDPF/TCLK-M/58/01 </option>
 
-                        <option value="WDPF/TCLK-M/59/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/59/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/59/01 </option>
+                        <option value="WDPF/TCLK-M/59/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/59/01") ? "selected" : ""; ?>> WDPF/TCLK-M/59/01 </option>
 
-                        <option value="WDPF/TCLK-M/60/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/60/ 01") ? "selected" : ""; ?>> WDPF/TCLK-M/60/01 </option>
+                        <option value="WDPF/TCLK-M/60/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/60/01") ? "selected" : ""; ?>> WDPF/TCLK-M/60/01 </option>
 
                     </select> <br> <br>
 
