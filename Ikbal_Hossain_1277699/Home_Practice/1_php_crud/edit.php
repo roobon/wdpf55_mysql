@@ -54,7 +54,8 @@
 
                     Phone: <input type="text" name="phone" value="<?php echo $row->student_phone ?>"> <br> <br>
 
-                    City: <select name="city">
+                    City:
+                    <select name="city">
                         <option value=""> Select One </option>
                         <option value="Dhaka" <?php echo ($row->student_city == "Dhaka") ? "selected" : ""; ?>> Dhaka </option>
 
@@ -74,7 +75,8 @@
                     Address: <br>
                     <textarea name="address" id="" cols="30" rows="5"><?php echo $row->student_address ?></textarea> <br> <br>
 
-                    Batch: <select name="batch">
+                    Batch:
+                    <select name="batch">
                         <option value=""> Select Batch </option>
 
                         <option value="WDPF/TCLK-M/49/01" <?php echo ($row->student_batch == "WDPF/TCLK-M/49/01") ? "selected" : ""; ?>> WDPF/TCLK-M/49/01 </option>
