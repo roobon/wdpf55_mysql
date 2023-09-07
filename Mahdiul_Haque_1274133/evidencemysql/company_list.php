@@ -20,7 +20,7 @@
 
     endif;
     ?>
-<form action="" method="post"><br>
+   <form action="" method="post"><br>
         Manufacturer List :<br>
             <select name="manufacture">
             <option value="">Select One</option>
