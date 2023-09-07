@@ -10,8 +10,6 @@
 
 <body>
 
-
-
     <?php 
     
         // last stage for form validation
@@ -30,17 +28,9 @@
                 // echo "<h4> Successfully Inserted </h4>";
                 header("Location: 1_index.php");
             }
-
-
-        // after form submission for confirm message
-        if($db->affected_rows){
-            echo "<h4> Successfully Inserted </h4>";
-
-        }
-    }
+         }
 
     ?>
-
 
 <!-- step: 01 create a form -->
     <div class="container">
