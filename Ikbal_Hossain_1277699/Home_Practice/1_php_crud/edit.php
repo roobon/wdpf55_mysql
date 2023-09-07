@@ -18,7 +18,7 @@
     $row = $result->fetch_object();
     ?>
 
-    <?php  // step: 03
+    <?php  // step: 03 mechanism for update table
     if (isset($_POST['update'])) {
         extract($_POST);
 
@@ -108,8 +108,7 @@
                     <input type="submit" class="btn btn-outline-success" name="update" value="UPDATE"> <br>
 
                     <input type="hidden" value="<?php echo $row->student_id ?>" name="id">
-
-
+                    <!-- What is the explanation of this line -->
 
             </div>
         </div>
