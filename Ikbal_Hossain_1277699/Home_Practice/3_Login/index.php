@@ -26,24 +26,24 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    <!-- step: 1 create a login table -->
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-md-4  m-auto d-block">
-                <form method="post">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name="password-" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+    <center>
+        <h1>Login Form</h1> <br>
+        <div style="background-color: gray; width: 500px;">
+
+
+            <div>
+                <label for=""> username </label>
+                <input type="text" name="username" required>
+            </div> <br> 
+            <div>
+                <label for=""> password </label>
+                <input type="password" name="password" required>
+            </div> <br> 
+            <div>
+                <input type="submit" value="Login">
             </div>
         </div>
-    </div>
+    </center>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
