@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
                             <input type="password" name="password" required>
                         </div> <br>
                         <div class="text-center">
-                            <input type="submit" value="Login" class="m-3">
+                            <input type="submit" name="submit" value="Login" class="m-3">
                         </div>
                     </form>
                 </div>
