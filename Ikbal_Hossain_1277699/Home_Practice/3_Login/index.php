@@ -26,24 +26,28 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    <center>
-        <h1>Login Form</h1> <br>
-        <div style="background-color: gray; width: 500px;">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4 m-auto d-block">
 
-
-            <div>
-                <label for=""> username </label>
-                <input type="text" name="username" required>
-            </div> <br> 
-            <div>
-                <label for=""> password </label>
-                <input type="password" name="password" required>
-            </div> <br> 
-            <div>
-                <input type="submit" value="Login">
+                <h1 class="text-center">Login Form</h1> <br>
+                <div style="background-color: gray; width: 500px;">
+                    <br>
+                    <div class="text-center">
+                        <label for=""> username </label>
+                        <input type="text" name="username" required>
+                    </div> <br>
+                    <div class="text-center">
+                        <label for=""> password </label>
+                        <input type="password" name="password" required>
+                    </div> <br>
+                    <div class="text-center">
+                        <input type="submit" value="Login" class="m-3">
+                    </div>
+                </div>
             </div>
         </div>
-    </center>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
