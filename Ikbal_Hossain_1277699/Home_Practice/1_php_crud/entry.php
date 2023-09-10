@@ -10,16 +10,14 @@
 
 <body>
 
-
-
     <?php 
+      // step: 02 after form
+      require_once("db_config.php"); // step: connection mandatory
     
         // last stage for form validation
         if(isset($_POST["submit"])){
-            extract($_POST); // why???
-
-            // step: 02 after form
-            require_once("db_config.php"); // step: connection mandatory
+           extract($_POST);
+          
 
             $sql = ("INSERT INTO students_info VALUES (NULL, '$stName', '$gender', '$email', '$phone', '$city', '$address', '$batch')");
             $db->query($sql); // why???  
@@ -30,10 +28,10 @@
                 // echo "<h4> Successfully Inserted </h4>";
                 header("Location: 1_index.php");
             }
+        
          }
 
     ?>
-
 
 <!-- step: 01 create a form -->
     <div class="container">
