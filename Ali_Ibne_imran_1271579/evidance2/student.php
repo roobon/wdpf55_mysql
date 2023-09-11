@@ -1,4 +1,4 @@
-<?php  $db= new mysqli("localhost","root","","evidance");?>
+<?php  $db= new mysqli("localhost","root","","idb_bisew");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +12,8 @@
     <?php 
        
         if(isset($_POST["delete"])){
-            $mid = $_POST["company"];
-            $db->query("DELETE FROM manufacturer WHERE m_id='$mid'");
+            $mid = $_POST["students"];
+            $db->query("DELETE FROM student WHERE id='$mid'");
             if($db->affected_rows){
                 echo "DELETED";
             }
@@ -23,39 +23,45 @@
         
     ?>
     <div class="container">
-        <h1>Manufacture</h1>
+        <h1>Student</h1>
         <form action="" method="post">
 
             <div class="form-group mb-3 mt-3">
-                <select name="company" id="" class="form-control">
+                <select name="students" class="form-control">
                    
                     <option value="">Select One</option>
                     <?php  
-                          $result = $db->query("SELECT * FROM manufacturer");
+                          $result = $db->query("SELECT * FROM student");
                           while($row = $result->fetch_assoc()):
                     ?>
-                    <option><?php echo $row["m_id"]." "?><?php echo $row["company_name"]?></option>
+                    <option><?php echo $row["id"]." "?><?php echo $row["name"]?></option>
                     <?php endwhile?>
                 </select>
             </div>
             <button type="submit" class="form-control btn btn-success" name="delete">Delete</button>
         </form>
-                            <br>
-                            <br>
+        <br>
+
+
+        <a href="result.php" class="btn btn-success">New Entry</a> 
+
+        <br>
+
         <h1>Product List</h1>
         <?php 
-            $sql = "SELECT * FROM pricerangeproducts";
+            $sql = "SELECT * FROM studentrecords";
             $result = $db->query($sql);
         ?>
-   
+            
+
+    
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Company ID</th>
-                       
+                        <th>Student Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
                        
                     </tr>
                 </thead>
@@ -68,11 +74,9 @@
     
                     <tr>
                         <td><?php echo $no?></td>
-                        <td><?php echo $row["product_name"] ?></td>
-                        <td><?php echo $row["price"]?></td>
-                        <td><?php echo $row["m_id"] ?></td>
-                        
-
+                        <td><?php echo $row["student_name"] ?></td>
+                        <td><?php echo $row["student_address"]?></td>
+                        <td><?php echo $row["student_phone"] ?></td>
                           
                     </td>
                     </tr>
@@ -84,11 +88,6 @@
     
                 </tbody>
             </table>
-           <br>
-           <a href="entry_company_procedure.php" class="btn btn-success">New Entry</a>
-                        <br>
-                        <br>
-                        <br>
     </div>
     
 </body>

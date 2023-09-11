@@ -1,5 +1,5 @@
 <?php
-$db = new mysqli("localhost","root","","mysql_evidence");
+$db = new mysqli("localhost","root",""," mysql_evidence ");
 
 ?>
 
@@ -16,13 +16,8 @@ $db = new mysqli("localhost","root","","mysql_evidence");
     <?php if(isset($_POST['delete'])):
 
         // print_r($_post);
-<<<<<<< HEAD
         $mid = $_POST['company'];
         $db->query("DELETE FROM manufacturer WHERE mid = '$mid'");
-=======
-        $mid = $_POST['name'];
-        $db->query("DELETE FROM manufacture WHERE mid = '$mid'");
->>>>>>> 4c8c693ba8db3cf999fe5b22ff2c3488784ad0df
         if($db->affected_rows>0){
             echo "Deleted<br>";
         }
@@ -30,8 +25,9 @@ $db = new mysqli("localhost","root","","mysql_evidence");
     
     
     ?>
+    <a href="company_product_list.php">Company and Product List</a><br><br>
     <form action="" method="post">
-        <select name="name" >
+        <select name="company" >
             <option value="">Select One</option>
             <?php 
             $result = $db->query("SELECT * FROM manufacturer");
@@ -46,8 +42,11 @@ $db = new mysqli("localhost","root","","mysql_evidence");
 
     <h3>Product List</h3>
     <?php 
-    $sql = "SELECT * FROM product_details_view_2 WHERE price>5000";
-    $result = $db->query($sql);  ?>
+        $sql = "SELECT * FROM product1_list_view_2 WHERE p_price>5000"; 
+        $result = $db->query($sql); 
+
+     ?>
+
 <table border="1">
     <tr>
         <th>ID</th>
@@ -65,7 +64,7 @@ $db = new mysqli("localhost","root","","mysql_evidence");
             <td><?php echo $sn; $sn++; ?></td>
             <td><?php echo $row['p_name']?></td>
             <td><?php echo $row['p_price']?></td>
-            <td><?php echo $row['company_id']?></td>
+            <td><?php echo $row['company_name']?></td>
         </tr>
 <?php
     endwhile; ?>
