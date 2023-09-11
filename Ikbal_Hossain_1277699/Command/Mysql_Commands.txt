@@ -1,3 +1,26 @@
+*** Database connection code***
+<?php // this is the overall (1st step) do anything in php & mysql with server
+// error_reporting(0)
+    $host = "localhost";
+    $user = "root";
+    $password = "";
+    $database = "self_practice";
+
+    $db = new mysqli($host, $user, $password, $database); or mysqli_connect
+or, 
+    $db = new mysqli("localhost", "root", "", "self_practice");
+
+    for checking
+    ............
+    if($db){
+        echo "connection ok";
+    } else {
+        echo "connection not ok".mysqli_connect_error();
+    }
+
+?>
+
+
 **** DDL => Data defination Language (CREATE, ALTER, DROP) ****
 .................................................................
 
@@ -130,26 +153,112 @@ SELECT * FROM college.students_details LIMIT 5; => first 5 records will show
 SELECT * FROM college.students_details LIMIT 2, 5; => show records 3 to 7 . LIMIT(2, 5) => drop first 2 records then show next 5 records
 .....................................................
 
+
+
 ................
 ### Sorting ###
 ................
 
 SELECT name 
-FROM student_details 
+FROM students_details 
 ORDER BY name
 
+Here.
+SELECT (which column I want to show) FROM (database) ORDER BY (which column order will be applied) => by default ascending order
 
 
 
+SELECT *
+FROM students_details 
+ORDER BY name, city DESC;
+
+Here, name column will be sorted. the first column after written ORDER BY that will be sorted first.
 
 
 
+..............................
+### Arithmetic Operation ###
+..............................
+
+SELECT 5 + 2; 
+SELECT 5 - 2; 
+SELECT 5 * 2;
+SELECT 5 / 2;
+SELECT 5 % 2;
 
 
 
+.....................
+### where Clause ###
+.....................
+SELECT (column_list)
+FROM (table_name)
+WHERE (condition);
+
+
+SELECT Name, City FROM college.students_details WHERE Gender = "Female";
+// note: sql is not case sensitive
+
+*** To avoid duplicate value use => DISTINCT
+
+SELECT DISTINCT City FROM students_details WHERE Gender = "Male"; 
+
+SELECT DISTINCT Name, City FROM students_details WHERE Gender = "Male" ORDER BY Name DESC; 
+
+
+SELECT Name, Gender, Age FROM students_details WHERE Age < 29 ORDER BY Age ASC;
+
+
+.....................
+Relational Operators
+.....................
+
+SELECT Roll, Name, GPA FROM students_details WHERE Roll BETWEEN 102 AND 105;
+
+SELECT Roll, Name, GPA FROM students_details WHERE Roll != 102;
+// when use !=, you can't add more than one value, if you add only first one will be showed
+
+
+......................................
+Logical Operator(AND OR IN NOT LIKE)
+......................................
+
+SELECT * FROM students_details WHERE Gender = "Male" OR GPA >= 3.20;
+// Here, all male and the female who have GPA >= 3.20 will be showed    
+
+SELECT * FROM students_details WHERE Gender = "Male" AND GPA >= 3.30; 
+// Here, the man who have GPA >= 3.20 will be showed. Both condition have to be fulfilled
+
+SELECT * FROM students_details WHERE Age <= 25 AND (Gender = "Female" OR GPA >= 3.30);
 
 
 
+{
+SELECT * FROM students_details 
+WHERE City = "Jamalpur"
+OR City = "Rajshahi"
+OR City = "Barishal";
+
+*** IN Operator ***  instead of OR => using when condition on same column => show the name of students who belongs to "Jamalpur" or "Rajshahi" or "Barishal"
+....................
+SELECT * FROM students_details 
+WHERE City IN ("Jamalpur", "Rajshahi", "Barishal");
+}
+
+*** NOT IN *** Operator
+........................
+
+SELECT * FROM students_details 
+WHERE City NOT IN ("Jamalpur", "Rajshahi", "Barishal");
+
+// show the name of students who doesn't belong to "Jamalpur" or "Rajshahi" or "Barishal"
+
+
+...............
+### Update ###
+...............
+
+UPDATE `students_details` SET `Gender` = 'Female' WHERE `students_details`.`Roll` = 108;
 
 
 

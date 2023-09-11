@@ -6,7 +6,7 @@ grant select,insert on wdpf55.*to 'masum'@'localhost';
 
 revoke insert on wdpf55.* from 'masum'@'localhost';
 
-show databses;
+show databses;  
 drop databses wdpf55;
 use wdpf55;
 INSERT INTO persons VAlUES(NUll,'Shuvo','Ahmed','Dhanmondi','Dhaka','shuvo@gmail.com','');
