@@ -1,5 +1,5 @@
 <?php
-$db = new mysqli("localhost","root","","mysql_evidence");
+$db = new mysqli("localhost","root",""," mysql_evidence ");
 
 ?>
 
@@ -25,8 +25,9 @@ $db = new mysqli("localhost","root","","mysql_evidence");
     
     
     ?>
+    <a href="company_product_list.php">Company and Product List</a><br><br>
     <form action="" method="post">
-        <select name="name" >
+        <select name="company" >
             <option value="">Select One</option>
             <?php 
             $result = $db->query("SELECT * FROM manufacturer");
@@ -41,8 +42,11 @@ $db = new mysqli("localhost","root","","mysql_evidence");
 
     <h3>Product List</h3>
     <?php 
-    $sql = "SELECT * FROM product_details_view_2 WHERE price>5000";
-    $result = $db->query($sql);  ?>
+        $sql = "SELECT * FROM product1_list_view_2 WHERE p_price>5000"; 
+        $result = $db->query($sql); 
+
+     ?>
+
 <table border="1">
     <tr>
         <th>ID</th>
