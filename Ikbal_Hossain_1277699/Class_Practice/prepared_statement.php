@@ -20,24 +20,25 @@ $stmt->bind_param("ssssss", $student_name, $student_gender, $student_dob, $stude
 // set parameters and execute
 $student_name = "John"; 
 $student_gender = "Doe";
-$email = "john@example.com";
-$
-$
+$student_dob = "john@example.com";
+$student_email =
+$student_batch =
+$student_address
+
+$stmt->execute();
+
+$student_name = "Mary";
+$student_gender = "Moe";
+$student_dob = "mary@example.com";
+$student_email
+$student_batch
 $
 $stmt->execute();
 
-$firstname = "Mary";
-$lastname = "Moe";
-$email = "mary@example.com";
-$
-$
-$
-$stmt->execute();
-
-$firstname = "Julie";
-$lastname = "Dooley";
-$email = "julie@example.com";
-$
+$student_name = "Julie";
+$student_gender = "Dooley";
+$student_dob = "julie@example.com";
+$student_email
 $
 $
 $stmt->execute();
