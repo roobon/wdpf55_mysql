@@ -16,8 +16,13 @@ $db = new mysqli("localhost","root","","mysql_evidence");
     <?php if(isset($_POST['delete'])):
 
         // print_r($_post);
+<<<<<<< HEAD
+        $mid = $_POST['company'];
+        $db->query("DELETE FROM manufacturer WHERE mid = '$mid'");
+=======
         $mid = $_POST['name'];
         $db->query("DELETE FROM manufacture WHERE mid = '$mid'");
+>>>>>>> 4c8c693ba8db3cf999fe5b22ff2c3488784ad0df
         if($db->affected_rows>0){
             echo "Deleted<br>";
         }
@@ -29,10 +34,10 @@ $db = new mysqli("localhost","root","","mysql_evidence");
         <select name="name" >
             <option value="">Select One</option>
             <?php 
-            $result = $db->query("SELECT * FROM manufacture");
+            $result = $db->query("SELECT * FROM manufacturer");
             while($row = $result->fetch_assoc()) :
     ?>
-    <option value="<?php echo $row['mid'];?>"><?php echo $row['name'];?></option>
+    <option value="<?php echo $row['mid'];?>"><?php echo $row['company_name'];?></option>
     <?php  endwhile;?>
 
         </select>
@@ -41,7 +46,7 @@ $db = new mysqli("localhost","root","","mysql_evidence");
 
     <h3>Product List</h3>
     <?php 
-    $sql = "SELECT * FROM product";
+    $sql = "SELECT * FROM product_details_view_2 WHERE price>5000";
     $result = $db->query($sql);  ?>
 <table border="1">
     <tr>

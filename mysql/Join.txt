@@ -1,0 +1,39 @@
+https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+
+Limit
+Join
+
+SELECT m.member_id, m.name,
+c.committee_id, c.name AS committee
+FROM members m
+INNER JOIN committees c ON m.name = c.name
+
+SELECT 
+    m.member_id, 
+    m.name AS member, 
+    c.committee_id, 
+    c.name AS committee
+FROM
+    members m
+INNER JOIN committees c USING(name);
+
+
+SELECT m.member_id, m.name,
+c.committee_id, c.name AS committee
+FROM members m, committees c WHERE  m.name = c.name
+
+
+SELECT 
+    m.member_id, 
+    m.name AS member, 
+    c.committee_id, 
+    c.name AS committee
+FROM
+    members m
+LEFT JOIN committees c USING(name);
+
+
+
+
+
+https://www.mysqltutorial.org/mysql-join/
