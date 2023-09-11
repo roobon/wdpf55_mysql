@@ -19,6 +19,9 @@ FROM wdpf55.users;
 // MySQL database importing from Shell
 # mysql -h localhost -u root -p wdpf55_test1 < wdpf55_backup.sql
 
+// Shell commands for mysql
+mysqladmin -h localhost -u root -p variables
+
 
 
 
