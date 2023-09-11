@@ -29,9 +29,22 @@
             header("Location:index.php");
         }
     }
+
+        $result = $db->query("SELECT * FROM persons WHERE ID='$id'");
+        $row = $result->fetch_assoc();
+
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
         <label for="">Name: </label><br>
+<<<<<<< HEAD
+        <input type="text" name="name" placeholder="Enter your name" value="<?php echo $row['Name']?>"><br>
+
+        <label for="">Gender: </label><br>
+        <label for="">Male</label>
+        <input type="radio" name="gender" value="male" <?php if($row['gender'] == 'male') echo "selected";?>>
+        <label for="">Female</label>
+        <input type="radio" name="gender" value="female" value="male" <?php if($row['gender'] == 'female') echo "selected";?>><br>
+=======
         <input type="text" name="name" placeholder="Enter your name" value="<?php echo $row['Name']; ?>"><br>
 
         <label for="">Gender: </label><br>
@@ -39,6 +52,7 @@
         <input type="radio" name="gender" value="Male" <?php echo ($row['Gender']=='Male') ? "checked": ''; ?>>
         <label for="">Female</label>
         <input type="radio" name="gender" value="Female" <?php echo ($row['Gender']=='Female') ? "checked":''?>><br>
+>>>>>>> 0fb78d0bd73e2baa639269e70ddc8b7719d847a5
 
         <label for="">Date of Birth</label><br>
         <input type="date" name="dob" value="<?php echo $row['DOB']?>"><br>
@@ -49,6 +63,16 @@
         <label for="">Batch</label><br>
         <select name="batch">
             <option value="">Select one</option>
+<<<<<<< HEAD
+            <option value="WDPF-55"  <?php if($row['batch'] == 'WDPF-55') echo "selected";?>>WDPF-55</option>
+            <option value=".NET-53" <?php if($row['batch'] == '.NET-53') echo "selected";?>>.NET-53</option>
+            <option value="JAVA-52" <?php if($row['batch'] == 'JAVA-52') echo "selected";?>>JAVA-52</option>
+            <option value="GAVE-54" <?php if($row['batch'] == 'GAVE-54') echo "selected";?>>GAVE-54</option>
+        </select><br>
+
+        <label for="">Address</label><br>
+        <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address']?></textarea><br>
+=======
             <option value="WDPF-55" <?php if($row['Batch']=='WDPF-55') echo "selected"?>>WDPF-55</option>
             <option value=".NET-53" <?php if($row['Batch']=='.NET-53') echo "selected"?>>.NET-53</option>
             <option value="JAVA-52" <?php if($row['Batch']=='JAVA-52') echo "selected"?>>JAVA-52</option>
@@ -57,6 +81,7 @@
 
         <label for="">Address</label><br>
         <textarea name="address" id="" cols="30" rows="10"><?php echo $row['Address']; ?></textarea><br>
+>>>>>>> 0fb78d0bd73e2baa639269e70ddc8b7719d847a5
 
         <label for="">Hobbies</label><br>
         <?php 

@@ -1,0 +1,22 @@
+SELECT customers.customerNumber,CustomerName, phone, city, orderNumber, orderDate, status FROM customers, orders 
+WHERE customers.customerNumber = orders.customerNumber;
+###########################
+SELECT customerNumber, customerName, phone, city, orderNumber, shipmentDate, status, orderNumber, productCode, 
+quantityOrdered, priceEach, productCode, productName, productVendor, buyPrice, MSRP FROM products, orders, 
+orderdetails, customers WHERE orderdetails.productCode = products.productCode AND customers.customerNumber = customerNumber
+;
+############################
+
+SELECT customers.customerNumber, customerName, phone, city, orders.orderNumber, products.productCode, 
+quantityOrdered, priceEach, SUM(quantityOrdered*priceEach) as Total FROM products, orders, orderdetails, customers WHERE 
+orderdetails.productCode = products.productCode AND customers.customerNumber = orders.customerNumber 
+AND orders.orderNumber = orderdetails.orderNumber GROUP BY customerNumber;
+
+
+#####################################
+CREATE VIEW customer_orders_view AS
+
+SELECT customers.customerNumber, customerName AS "Customer Name", phone, city, SUM(quantityOrdered) AS "total Orders" 
+, SUM(quantityOrdered*priceEach) AS "Total Price" FROM products, orders, orderdetails, customers WHERE 
+orderdetails.productCode = products.productCode AND customers.customerNumber = orders.customerNumber 
+AND orders.orderNumber = orderdetails.orderNumber GROUP BY customerNumber;

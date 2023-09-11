@@ -21,7 +21,7 @@
     endif;
     ?>
 <form action="" method="post"><br>
-        Manufacturer List :
+        Manufacturer List :<br>
             <select name="manufacture">
             <option value="">Select One</option>
             <?php 
@@ -35,6 +35,38 @@
         </select><br><br>
        
         <input type="submit" name="delete" value="DELETE">
-    </form> 
+    </form><br> 
+
+    <h3>Product List</h3>
+    <?php 
+     $sql = "SELECT * FROM product_list_view WHERE price>5000";
+     $db->query($sql);
+     $result = $db->query($sql); ?>
+      <table border="11">
+         <tr>
+          <th>P_ID</th>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>M_ID</th>
+        </tr>
+     
+     <?php 
+          $sn = 1;
+          while($row = $result->fetch_assoc()): ?>
+          <tr>
+             <td><?php echo $sn; $sn++;?></td>
+             <td><?php echo $row['p_name']?></td>
+             <td><?php echo $row['p_price']?></td>
+             <td><?php echo $row['m_id']?></td>
+            </tr>
+     <?php 
+        endwhile;
+     
+     ?>
+     </table><br>
+
+     <a href="entryform.manufacture.php">New Manufacturer</a>
+
+     <input type="submit" name="update" value="UPDATE">
 </body>
 </html>

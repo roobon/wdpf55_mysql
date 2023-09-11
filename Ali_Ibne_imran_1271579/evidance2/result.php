@@ -1,3 +1,5 @@
+<?php  $db= new mysqli("localhost","root","","idb_bisew");?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +12,25 @@
 </head>
 <body>
     <div class="container">
+    <?php 
+            // require_once("connection.php");
+                if(isset($_POST["entry"])){
+                    extract($_POST);
+                    
+
+                    $sql = "CALL InsertStudent('$name','$address','$contact')";
+
+                    
+                     //$sql = "INSERT INTO manufacturer VALUE(NULL,'$name','$address','$contact')";
+                    $db->query($sql);
+
+                    if($db->affected_rows){
+                       echo "Success";
+                       header("Location: student.php");
+                    }
+                }
+            ?>
+
         <form action="" method="post">
             <div class="form-group mb-3 mt-3">
                 <label>Student Name :</label>

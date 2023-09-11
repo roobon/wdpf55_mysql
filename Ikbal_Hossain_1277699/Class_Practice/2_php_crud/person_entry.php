@@ -11,7 +11,7 @@
     <?php 
     // step: 02
         if(isset($_POST['submit'])){
-            extract($_POST);
+            extract($_POST);  // why???
             require_once("db_config.php");
 
             // jodi check box thake tahole take implode kore array theke string a convert korte hobe. tahole akdik check box show korbe // eita checkbox er khetre projojjo
@@ -20,8 +20,8 @@
             // $db -> query($sql);
 
             // step:
-           $sql = "INSERT INTO persons VALUES (NULL, '$lname', '$fname', '$gender', '$address', '$city', '$email', '$dob')";
-           $db -> query($sql);
+           $sql = ("INSERT INTO persons VALUES (NULL, '$lname', '$fname', '$gender', '$address', '$city', '$email', '$dob')");
+           $db -> query($sql); // why???
 
         //    echo $db -> affected_rows;  // step: 3 after submission form. check for alert
             // step:

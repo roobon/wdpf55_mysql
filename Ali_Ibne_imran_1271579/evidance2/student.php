@@ -13,7 +13,7 @@
        
         if(isset($_POST["delete"])){
             $mid = $_POST["students"];
-            $db->query("DELETE FROM student WHERE student_id='$mid'");
+            $db->query("DELETE FROM student WHERE id='$mid'");
             if($db->affected_rows){
                 echo "DELETED";
             }
@@ -31,7 +31,8 @@
                    
                     <option value="">Select One</option>
                     <?php  
-                          $result = $db->query("SELECT * FROM student");while($row = $result->fetch_assoc()):
+                          $result = $db->query("SELECT * FROM student");
+                          while($row = $result->fetch_assoc()):
                     ?>
                     <option><?php echo $row["id"]." "?><?php echo $row["name"]?></option>
                     <?php endwhile?>
@@ -39,10 +40,54 @@
             </div>
             <button type="submit" class="form-control btn btn-success" name="delete">Delete</button>
         </form>
+        <br>
 
 
+        <a href="result.php" class="btn btn-success">New Entry</a> 
 
-          
+        <br>
+
+        <h1>Product List</h1>
+        <?php 
+            $sql = "SELECT * FROM studentrecords";
+            $result = $db->query($sql);
+        ?>
+            
+
+    
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+    
+                   <?php  
+                        $no = 1;
+                        while($row = $result->fetch_assoc()):
+                    ?>
+    
+                    <tr>
+                        <td><?php echo $no?></td>
+                        <td><?php echo $row["student_name"] ?></td>
+                        <td><?php echo $row["student_address"]?></td>
+                        <td><?php echo $row["student_phone"] ?></td>
+                          
+                    </td>
+                    </tr>
+                    <?php 
+                        $no++;
+                        endwhile;
+                    ?>
+                
+    
+                </tbody>
+            </table>
     </div>
     
 </body>

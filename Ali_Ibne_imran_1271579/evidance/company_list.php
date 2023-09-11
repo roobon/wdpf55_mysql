@@ -31,7 +31,8 @@
                    
                     <option value="">Select One</option>
                     <?php  
-                          $result = $db->query("SELECT * FROM manufacturer");while($row = $result->fetch_assoc()):
+                          $result = $db->query("SELECT * FROM manufacturer");
+                          while($row = $result->fetch_assoc()):
                     ?>
                     <option><?php echo $row["m_id"]." "?><?php echo $row["company_name"]?></option>
                     <?php endwhile?>
