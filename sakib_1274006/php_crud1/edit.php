@@ -69,15 +69,22 @@ $db = new mysqli($host, $user, $pass, $database);
     Address:<br>
     <textarea name="address" id="" cols="20" rows="5"><?php echo $row['Address']?></textarea><br>
     Hobbies:
-    <?php 
+    <!-- <?php 
     foreach($hobilist as $val){?>
     <?php echo $val;?> <input type="checkbox" name="<?php echo $namefield.'[]';?>"
     value="<?php echo $val;?>" <?php echo in_array($val , $hobbies)? "checked":"";?>>
 
     <?php } ?>
-    <br>
+    <br> -->
 
 
+
+    <?php 
+            foreach($hobilist as $val){ ?>
+            <?php echo $val; ?> <input type="checkbox" name="<?php echo $namefield.'[]'; ?>
+            " value="<?php echo $val; ?>" <?php echo in_array($val , $hobbies)? "checked":"";?>>
+        <?php    }
+        ?><br>
 
     <!-- <input type="checkbox" name="hobby[]" value="Programing">Programing
     <input type="checkbox" name="hobby[]" value="Game">Game

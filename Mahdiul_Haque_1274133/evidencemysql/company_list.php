@@ -20,7 +20,7 @@
 
     endif;
     ?>
-<form action="" method="post"><br>
+   <form action="" method="post"><br>
         Manufacturer List :<br>
             <select name="manufacture">
             <option value="">Select One</option>
@@ -55,8 +55,8 @@
           while($row = $result->fetch_assoc()): ?>
           <tr>
              <td><?php echo $sn; $sn++;?></td>
-             <td><?php echo $row['p_name']?></td>
-             <td><?php echo $row['p_price']?></td>
+             <td><?php echo $row['product_name']?></td>
+             <td><?php echo $row['price']?></td>
              <td><?php echo $row['m_id']?></td>
             </tr>
      <?php 
