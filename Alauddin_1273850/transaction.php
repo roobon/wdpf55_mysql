@@ -8,10 +8,10 @@
    $db->begin_transaction();
    print("Transaction Started......\n");
 
-   $error = 1;
+   $error = 0;
 
    //Creating a table
-   $db->query("CREATE TABLE Test(Name VARCHAR(255), AGE INT)");
+   $db->query("CREATE TABLE IF NOT EXISTS Test(Name VARCHAR(255), AGE INT)");
    print("Table Created......\n");
 
    //Inserting values
