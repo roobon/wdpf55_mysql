@@ -10,7 +10,7 @@
    print("Transaction Started......\n");
 
    $error = 0;
-   $db->query("IF NOT EXIST CREATE TABLE Test(Name VARCHAR(255), AGE INT)");
+   $db->query("CREATE TABLE IF NOT EXISTS Test(Name VARCHAR(255), AGE INT)");
    print("Table Created......\n");
 
    //Inserting values
