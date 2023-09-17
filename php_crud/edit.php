@@ -27,10 +27,15 @@
         $row = $result->fetch_assoc();
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-    ID: <input type="text" value="<?php echo $row['PersonID'] ?>" name="id" disabled><br>    
+
+    ID: <input type="text" value="<?php echo $row['PersonID'] ?>" name="id" disabled><br>   
+
     <input type="text" name="fname" placeholder="Enter First Name" value="<?php echo  $row['FirstName'] ?>"><br>
-        <input type="text" name="lname" placeholder="Enter Last Name" value="<?php echo  $row['LastName'] ?>"><br>
-        <textarea name="address" cols="30" rows="10"><?php echo  $row['Address'] ?></textarea><br>
+
+    <input type="text" name="lname" placeholder="Enter Last Name" value="<?php echo  $row['LastName'] ?>"><br>
+
+    <textarea name="address" cols="30" rows="10"><?php echo  $row['Address'] ?></textarea><br>
+    
         <select name="city">
             <option value="">Select one</option>
             <option value="Dhaka" <?php if($row['City']=='Dhaka') echo "selected"; ?>>Dhaka</option>

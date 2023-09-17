@@ -11,12 +11,12 @@ if ( isset( $_POST['submit'] ) ){
 
     $row = $result->fetch_assoc() ;
 
-    session_start();
+    session_start();    
 
     if ($result->num_rows) {
+        header("Location: home.php");
         $_SESSION['u_name'] = $row['Name'];
         $_SESSION['u_email'] = $row['email'];
-        header("Location: home.php");
     } else {
         $_SESSION['error'] = " Login failed. Pleas try again " ;
         header("Location: index.php");
