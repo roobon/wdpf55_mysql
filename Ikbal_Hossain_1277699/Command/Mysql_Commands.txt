@@ -265,9 +265,81 @@ WHERE City NOT IN ("Luxmipur", "Dhaka", "Barishal");
 *** Like *** Operator     => Search by Character
 ........................
 INSERT INTO `students_details` (`Roll`, `Name`, `Gender`, `Age`, `GPA`, `City`) VALUES ('113', 'Asha Moni', 'Female', '24', '2.75', 'Gazipur');
-SELECT * FROM students_details WHERE Name LIKE 'A%'; // Find out the student_details whose name start with A.
-SELECT * FROM students_details WHERE Name LIKE 'AN%'; // Find out the student_details whose name start with AN=> Ananna
-SELECT * FROM students_details WHERE Name LIKE '%A'; // Find out the student_details whose name end with A
+
+SELECT * FROM students_details WHERE Name LIKE 'A%'; 
+
+// Find out the student_details whose name start with A.
+
+
+SELECT * FROM students_details WHERE Name LIKE 'AN%'; 
+
+// Find out the student_details whose name start with AN=> Ananna
+
+
+SELECT * FROM students_details WHERE Name LIKE '%nz%'; 
+
+// Find out the student_details whose name belongs these character => Tanzim
+
+
+SELECT * FROM students_details WHERE Name LIKE '%A'; 
+
+// Find out the student_details whose name end with A
+
+
+SELECT * FROM students_details WHERE Name LIKE '_u%'; 
+
+// Find out the student_details whose name start with U in the 2nd character => Nusrat, Sumaiya.
+
+
+SELECT * FROM students_details WHERE Name LIKE '__u%'; 
+
+(Double underscore => Apart from the first two character, it will check if the next one has U) => Onu
+
+
+SELECT * FROM students_details WHERE Name LIKE '%n_'; => Tahamina
+
+
+
+..................................
+### AS Keyword For Custom Name ###
+..................................
+SELECT Roll AS ID, Name AS 'First Name' FROM students_details; // here Roll and Name will be converted ID and First Name
+
+
+....................................
+### Constraint AUTO_INCREMENT ###
+....................................
+CREATE TABLE teacher
+(
+    id int NOT NULL AUTO_INCREMENT, name varchar(50) NOT NULL, salary double(10,2), PRIMARY KEY(id)
+);
+// id te AUTO_INCREMENT deoyar karone NOT NULL kaj korbe na. apni caile id te value nao dite parben. karon id AUTO_INCREMENT hobe //
+
+INSERT INTO teacher VALUES
+(NULL, 'Ikbal Hossain', 40000),
+(NULL, "Nusrat Jahan", 35000),
+(NULL, "Tanzim Ferdousi", 30000);
+
+
+INSERT INTO teacher VALUES
+('Ikbal Hossain', 40000),  // but eivabe insert hobe na. bcz database a field 3 ta but ami insert dicci 2 ta. so column doesn't match with row insert.
+
+INSERT INTO teacher (name, salary) VALUES
+('Sumaiya Sultana', 15000); // eivabeo insert hobe bcz amar field number 2 = value 2. R id toh AUTO_INCREMENT deoya ace.
+
+
+DELETE FROM `teacher` WHERE `teacher`.`id` = 1;
+DELETE FROM `teacher` WHERE `teacher`.`id` = 2;
+DELETE FROM `teacher` WHERE `teacher`.`id` = 3;
+
+// table rekhe only value gula delete kore diyeci. field(column) name thik thakbe only record(row) delete hobe.
+
+
+NOT NULL => You have to put the value of the field while inserting data
+UNIQUE=> Doesn't allow to insert a duplicate value in a column
+PRIMARY KEY=> NOT NULL + UNIQUE
+CHECK => Determines whether the value is valid or not from a logical expression.
+DEFAULT => While inserting data into a table, if no value is supplied to a column, then the column gets the value set as DEFAULT.
 
 
 ...............
