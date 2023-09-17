@@ -1,17 +1,21 @@
 <?php
 if (isset($_POST["submit"])) {
     require_once("db_config.php");
-    extract($_POST);
+    // extract($_POST);
+    $username = $_POST["username"];
+    $password = $_POST["password"];
     $pass = sha1("$password");
-    echo "SELECT * FROM users WHERE email = '$email' AND password = '$pass'";
-    // $result = $db->query($sql);
+    // echo "SELECT * FROM users WHERE username = '$username' AND password = '$pass'";
 
-    // if ($result->num_rows) {
-    //     header("Location: home.php");
-    // }
-    // else{
-    //     echo "incorrect pass";
-    // }
+    $sql = ("SELECT * FROM users WHERE username = '$username' AND password = '$pass'");
+    $result = $db->query($sql);
+    $row = $result->fetch_object();
+
+    if ($result->num_rows) {
+        echo "Successfully Login";
+    } else {
+        echo "Failed";
+    }
 }
 ?>
 
@@ -26,21 +30,27 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    <!-- step: 1 create a login table -->
     <div class="container">
         <div class="row mt-5">
-            <div class="col-md-4  m-auto d-block">
-                <form method="post">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name="password-" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            <div class="col-md-4 m-auto d-block">
+
+                <h1 class="text-center">Login Form</h1> <br>
+                <div style="background-color: gray; width: 500px;">
+                    <br>
+                    <form action="" method="POST">
+                        <div class="text-center">
+                            <label for=""> username </label>
+                            <input type="text" name="username" value="ikbalhossain125@gmail.com">
+                        </div> <br>
+                        <div class="text-center">
+                            <label for=""> password </label>
+                            <input type="password" name="password" required>
+                        </div> <br>
+                        <div class="text-center">
+                            <input type="submit" name="submit" value="Login" class="m-3">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

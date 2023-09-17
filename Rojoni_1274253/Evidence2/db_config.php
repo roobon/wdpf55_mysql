@@ -2,7 +2,7 @@
  $host = "localhost";
  $user =  "root";
  $password = "";
- $database = "idb_bisew";
+ $database = "wdpf55";
 
 
  $db = new mysqli ($host,$user,$password,$database);
