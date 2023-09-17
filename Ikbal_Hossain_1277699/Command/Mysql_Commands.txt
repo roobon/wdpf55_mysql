@@ -201,6 +201,8 @@ SELECT Name, City FROM college.students_details WHERE Gender = "Female";
 
 *** To avoid duplicate value use => DISTINCT
 
+SELECT * FROM students_details WHERE Roll = 105;
+
 SELECT * FROM students_details WHERE Gender = "Female";
 
 SELECT name, City from students_details WHERE Gender = "Male";
@@ -220,6 +222,7 @@ Relational Operators
 SELECT Roll, Name, GPA FROM students_details WHERE Roll BETWEEN 102 AND 105;
 
 SELECT Roll, Name, GPA FROM students_details WHERE Roll != 102;
+
 // when use !=, you can't add more than one value, if you add only first one will be showed
 
 
@@ -228,34 +231,43 @@ Logical Operator(AND OR IN NOT LIKE)
 ......................................
 
 SELECT * FROM students_details WHERE Gender = "Male" OR GPA >= 3.20;
-// Here, all male and the female who have GPA >= 3.20 will be showed    
+// Here, all male and the female who have GPA >= 3.20 will be showed  // jekono ekta condition true holei sei value gula nibe
 
 SELECT * FROM students_details WHERE Gender = "Male" AND GPA >= 3.30; 
 // Here, the man who have GPA >= 3.20 will be showed. Both condition have to be fulfilled
 
 SELECT * FROM students_details WHERE Age <= 25 AND (Gender = "Female" OR GPA >= 3.30);
+SELECT * FROM students_details WHERE city = "Luxmipur" AND (Gender = "Male" OR GPA >= 3.20);
 
 
 
-{
+{*****
 SELECT * FROM students_details 
-WHERE City = "Jamalpur"
-OR City = "Rajshahi"
+WHERE City = "Dhaka"
+OR City = "Luxmipur"
 OR City = "Barishal";
 
 *** IN Operator ***  instead of OR => using when condition on same column => show the name of students who belongs to "Jamalpur" or "Rajshahi" or "Barishal"
 ....................
 SELECT * FROM students_details 
-WHERE City IN ("Jamalpur", "Rajshahi", "Barishal");
-}
+WHERE City IN ("Luxmipur", "Dhaka", "Barishal");
+}*****
 
 *** NOT IN *** Operator
 ........................
 
 SELECT * FROM students_details 
-WHERE City NOT IN ("Jamalpur", "Rajshahi", "Barishal");
+WHERE City NOT IN ("Luxmipur", "Dhaka", "Barishal");
 
-// show the name of students who doesn't belong to "Jamalpur" or "Rajshahi" or "Barishal"
+// show the details of students who doesn't belong to "Luxmipur" or "Dhaka" or "Barishal"
+
+........................
+*** Like *** Operator     => Search by Character
+........................
+INSERT INTO `students_details` (`Roll`, `Name`, `Gender`, `Age`, `GPA`, `City`) VALUES ('113', 'Asha Moni', 'Female', '24', '2.75', 'Gazipur');
+SELECT * FROM students_details WHERE Name LIKE 'A%'; // Find out the student_details whose name start with A.
+SELECT * FROM students_details WHERE Name LIKE 'AN%'; // Find out the student_details whose name start with AN=> Ananna
+SELECT * FROM students_details WHERE Name LIKE '%A'; // Find out the student_details whose name end with A
 
 
 ...............
