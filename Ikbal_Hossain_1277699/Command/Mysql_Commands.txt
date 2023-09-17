@@ -201,9 +201,13 @@ SELECT Name, City FROM college.students_details WHERE Gender = "Female";
 
 *** To avoid duplicate value use => DISTINCT
 
+SELECT * FROM students_details WHERE Gender = "Female";
+
+SELECT name, City from students_details WHERE Gender = "Male";
+
 SELECT DISTINCT City FROM students_details WHERE Gender = "Male"; 
 
-SELECT DISTINCT Name, City FROM students_details WHERE Gender = "Male" ORDER BY Name DESC; 
+SELECT DISTINCT Name, City FROM students_details WHERE Gender = "Male" ORDER BY Name DESC;   // dhaka will be repeated. DISTINCT will work may be on single column
 
 
 SELECT Name, Gender, Age FROM students_details WHERE Age < 29 ORDER BY Age ASC;
