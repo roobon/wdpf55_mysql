@@ -1,0 +1,18 @@
+view sql query
+---------------------------------------
+CREATE VIEW product_details_view AS
+SELECT product.id, product.name, product.price, 
+manufacturer.name AS Manufacturer FROM product, manufacturer WHERE product.manufacturer_id = manufacturer.id;
+
+--------------------
+CREATE TRIGGER `after_manufacturer_delete` AFTER DELETE ON `manufacturer`
+ FOR EACH ROW DELETE FROM product WHERE manufacturer_id=OLD.id
+
+--------------------------
+routine/store procedure
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_company_info`(IN `p_company` VARCHAR(100), 
+IN `p_address` VARCHAR(100), IN `p_contact` VARCHAR(50))
+INSERT INTO manufacturer(name, address, contact_no) VALUES(p_company, p_address, p_contact)$$
+DELIMITER ;
+---------------

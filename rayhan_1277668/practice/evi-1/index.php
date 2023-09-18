@@ -10,8 +10,11 @@
         width: 40%;
         padding: 10px;
         font-size: 30px;
-        
-
+    }
+    body {
+        /* display: flex;
+        justify-content: center; */
+        text-align: center;
     }
     </style>
 </head>
@@ -29,14 +32,22 @@ if ( isset( $_SESSION['error'] )  ) {
 
 ?>
 
-    <h2>  Please Log in To Gain Full Access To Dashboard </h2>
+<div>
+<h2>  Please Log in To Gain Full Access To Dashboard </h2>
 
-    <form action="login.php" method="post">
-        <input type="text" name="name" placeholder="User Name"> <br>
-        <input type="email" name="email" placeholder="Email"> <br>
-        <input type="password" name="password" placeholder="Password"> <br>
-        <input type="submit" name="submit" value="LOGIN">
+<form action="login.php" method="post">
+    <input type="text" name="name" placeholder="User Name"> <br>
+    <input type="email" name="email" placeholder="Email"> <br>
+    <input type="password" name="password" placeholder="Password"> <br> <br>
+    <input type="submit" name="submit" value="LOGIN"> <br> 
 
-    </form>
+    <a href="newUser.php"> New user ? please sign In </a>
+    
+    
+
+
+</form>
+
+</div>
 </body>
 </html>

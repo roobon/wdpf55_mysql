@@ -1,0 +1,18 @@
+-----ROUTINE---------------------------------------------
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_company_info`(IN `p_company` VARCHAR(100), IN `p_address` VARCHAR(100), IN `p_contact` VARCHAR(50))
+INSERT INTO manufacturar(company_name, address, contact) VALUES(p_company, p_address, p_contact)$$
+DELIMITER ;
+-------------------------------------------------
+
+-----TRIGGER-------------------------------------
+CREATE TRIGGER `after_manufacturar_delete` AFTER DELETE ON `manufacturar`
+ FOR EACH ROW DELETE FROM product WHERE mid=OLD.mid
+
+ --------------------------------------------------
+
+ ------VIEW----------------------------------------
+CREATE VIEW product_details_view AS
+SELECT pid, p_name, p_price, company_name FROM product, manufacturar WHERE product.mid = manufacturar.mid;
+
+ -------------------------------

@@ -81,3 +81,39 @@ SELECT manufactural.mid, company_name, company_address, company_contact, pid, p_
 =============== create views tables ============
 CREATE VIEW manufactural_products_view AS
 SELECT manufactural.mid, company_name, company_address, company_contact, pid, p_name FROM manufactural, products WHERE manufactural.mid = products.mid;
+
+
+
+========================= mysql joins ============================
+
+CREATE TABLE members (
+    member_id INT AUTO_INCREMENT,
+    name VARCHAR(100),
+    PRIMARY KEY (member_id)
+);
+
+CREATE TABLE committees (
+    committee_id INT AUTO_INCREMENT,
+    name VARCHAR(100),
+    PRIMARY KEY (committee_id)
+);
+
+
+INSERT INTO members(name)
+VALUES('John'),('Jane'),('Mary'),('David'),('Amelia');
+
+INSERT INTO committees(name)
+VALUES('John'),('Mary'),('Amelia'),('Joe');
+
+
+
+
+SELECT m.member_id, m.name, c.committee_id, c.name AS committee
+FROM members m
+INNER JOIN committees c ON m.name = c.name;
+
+
+
+SELECT m.member_id, m.name, c.committee_id, c.name AS committee
+FROM members m
+INNER JOIN committees c WHERE m.name = c.name;

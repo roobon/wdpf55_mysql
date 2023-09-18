@@ -12,10 +12,17 @@ if ( isset( $_POST['submit'] ) ) {
 
     session_start() ;
 
+
     if (  $result->num_rows  ){
       $_SESSION['name'] = $data['Name'] ;  
       $_SESSION['email'] = $data['Email'] ;  
-      header('Location:dashboard.php');
+      echo  " <p> Login successfull.... </P> " ;
+      echo '<script>
+            setTimeout(function() {
+                window.location.href = "dashboard.php";
+            }, 5000); // 5000 milliseconds = 5 seconds
+          </script>';
+      // header('Location:dashboard.php');
     } else {
         $_SESSION['error'] = " <p>  Login failed.  </p> " ;
         header('Location:index.php');

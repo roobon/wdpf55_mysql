@@ -13,7 +13,9 @@ $db = new mysqli("localhost","root","","mysql_evidence");
 if(isset($_POST['submit'])){
     extract($_POST);
     // echo "CALL insert_company_info('$cname', '$address', '$phone')";
-    $sql = "CALL insert_company_info('$cname', '$address', '$phone')";
+
+    // $sql = "INSERT INTO manufacture VALUES (NULL,'$cname','$address','$phone)";
+     $sql = "CALL insert_company_info('$cname', '$address', '$phone')";
     // $sql = "INSERT INTO manufacturer VALUES (NULL,'$cname','$address','$phone')";
     $db->query($sql);
  if($db->affected_rows>0){

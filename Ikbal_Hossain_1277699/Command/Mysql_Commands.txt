@@ -1,3 +1,57 @@
+### Data Type
+....................
+
+*** Numeric data type
+
+1. SMALLINT
+2. INT
+3. BIGINT
+
+1. FLOAT
+2. DOUBLE(M, D)   exmple: 4.44 => total digit = 3 & after decimal digit = 2
+3. DECIMAL(M, D)
+
+*** Character Type
+
+1. Char(m)
+2. Varchar(m) m = character length(20) if you put only 5 character although your limit 20. it will take space that you have write 
+3. text
+
+*** Date and Time data type
+
+1. YEAR (YYYY)
+2. DATE (YYYY-MM-DD)
+3. TIME (HH:MM:SS)
+
+*** Some other data type
+
+1. BLOB  => Binary Large Object => for Image, Audio
+2. LOGICAL => for true, false, yes, no
+
+
+*** Database connection code***
+<?php // this is the overall (1st step) do anything in php & mysql with server
+// error_reporting(0)
+    $host = "localhost";
+    $user = "root";
+    $password = "";
+    $database = "self_practice";
+
+    $db = new mysqli($host, $user, $password, $database); or mysqli_connect
+or, 
+    $db = new mysqli("localhost", "root", "", "self_practice");
+
+    for checking
+    .............
+    if($db){
+        echo "connection ok";
+    } else {
+        echo "connection not ok".mysqli_connect_error();
+    }
+
+?>
+
+
 **** DDL => Data defination Language (CREATE, ALTER, DROP) ****
 .................................................................
 
@@ -178,9 +232,15 @@ SELECT Name, City FROM college.students_details WHERE Gender = "Female";
 
 *** To avoid duplicate value use => DISTINCT
 
+SELECT * FROM students_details WHERE Roll = 105;
+
+SELECT * FROM students_details WHERE Gender = "Female";
+
+SELECT name, City from students_details WHERE Gender = "Male";
+
 SELECT DISTINCT City FROM students_details WHERE Gender = "Male"; 
 
-SELECT DISTINCT Name, City FROM students_details WHERE Gender = "Male" ORDER BY Name DESC; 
+SELECT DISTINCT Name, City FROM students_details WHERE Gender = "Male" ORDER BY Name DESC;   // dhaka will be repeated. DISTINCT will work may be on single column
 
 
 SELECT Name, Gender, Age FROM students_details WHERE Age < 29 ORDER BY Age ASC;
@@ -193,6 +253,7 @@ Relational Operators
 SELECT Roll, Name, GPA FROM students_details WHERE Roll BETWEEN 102 AND 105;
 
 SELECT Roll, Name, GPA FROM students_details WHERE Roll != 102;
+
 // when use !=, you can't add more than one value, if you add only first one will be showed
 
 
@@ -201,85 +262,261 @@ Logical Operator(AND OR IN NOT LIKE)
 ......................................
 
 SELECT * FROM students_details WHERE Gender = "Male" OR GPA >= 3.20;
-// Here, all male and the female who have GPA >= 3.20 will be showed    
+// Here, all male and the female who have GPA >= 3.20 will be showed  // jekono ekta condition true holei sei value gula nibe
 
 SELECT * FROM students_details WHERE Gender = "Male" AND GPA >= 3.30; 
 // Here, the man who have GPA >= 3.20 will be showed. Both condition have to be fulfilled
 
 SELECT * FROM students_details WHERE Age <= 25 AND (Gender = "Female" OR GPA >= 3.30);
+SELECT * FROM students_details WHERE city = "Luxmipur" AND (Gender = "Male" OR GPA >= 3.20);
 
 
 
-{
+{*****
 SELECT * FROM students_details 
-WHERE City = "Jamalpur"
-OR City = "Rajshahi"
+WHERE City = "Dhaka"
+OR City = "Luxmipur"
 OR City = "Barishal";
 
 *** IN Operator ***  instead of OR => using when condition on same column => show the name of students who belongs to "Jamalpur" or "Rajshahi" or "Barishal"
 ....................
 SELECT * FROM students_details 
-WHERE City IN ("Jamalpur", "Rajshahi", "Barishal");
-}
+WHERE City IN ("Luxmipur", "Dhaka", "Barishal");
+}*****
 
 *** NOT IN *** Operator
 ........................
 
 SELECT * FROM students_details 
-WHERE City NOT IN ("Jamalpur", "Rajshahi", "Barishal");
+WHERE City NOT IN ("Luxmipur", "Dhaka", "Barishal");
 
-// show the name of students who doesn't belong to "Jamalpur" or "Rajshahi" or "Barishal"
+// show the details of students who doesn't belong to "Luxmipur" or "Dhaka" or "Barishal"
+
+........................
+*** Like *** Operator     => Search by Character
+........................
+INSERT INTO `students_details` (`Roll`, `Name`, `Gender`, `Age`, `GPA`, `City`) VALUES ('113', 'Asha Moni', 'Female', '24', '2.75', 'Gazipur');
+
+SELECT * FROM students_details WHERE Name LIKE 'A%'; 
+
+// Find out the student_details whose name start with A.
 
 
+SELECT * FROM students_details WHERE Name LIKE 'AN%'; 
+
+// Find out the student_details whose name start with AN=> Ananna
+
+
+SELECT * FROM students_details WHERE Name LIKE '%nz%'; 
+
+// Find out the student_details whose name belongs these character => Tanzim
+
+
+SELECT * FROM students_details WHERE Name LIKE '%A'; 
+
+// Find out the student_details whose name end with A
+
+
+SELECT * FROM students_details WHERE Name LIKE '_u%'; 
+
+// Find out the student_details whose name start with U in the 2nd character => Nusrat, Sumaiya.
+
+
+SELECT * FROM students_details WHERE Name LIKE '__u%'; 
+
+(Double underscore => Apart from the first two character, it will check if the next one has U) => Onu
+
+
+SELECT * FROM students_details WHERE Name LIKE '%n_'; => Tahamina
+
+
+
+..................................
+### AS Keyword For Custom Name ###
+..................................
+SELECT Roll AS ID, Name AS 'First Name' FROM students_details; // here Roll and Name will be converted ID and First Name
+
+
+....................................
+### Constraint AUTO_INCREMENT ###
+....................................
+CREATE TABLE teacher
+(
+    id int NOT NULL AUTO_INCREMENT, name varchar(50) NOT NULL, salary double(10,2), PRIMARY KEY(id)
+);
+// id te AUTO_INCREMENT deoyar karone NOT NULL kaj korbe na. apni caile id te value nao dite parben. karon id AUTO_INCREMENT hobe //
+
+INSERT INTO teacher VALUES
+(NULL, 'Ikbal Hossain', 40000),
+(NULL, "Nusrat Jahan", 35000),
+(NULL, "Tanzim Ferdousi", 30000);
+
+
+INSERT INTO teacher VALUES
+('Ikbal Hossain', 40000),  // but eivabe insert hobe na. bcz database a field 3 ta but ami insert dicci 2 ta. Column count doesn't match value count at row 1
+
+INSERT INTO teacher (name, salary) VALUES
+('Sumaiya Sultana', NULL); // eivabeo insert hobe bcz amar field number 2 = value 2. R id toh AUTO_INCREMENT deoya ace. salary te 0.00 show korbe
+
+INSERT INTO teacher(name) VALUES
+('Aha Moni'); // salary te NULL show korbe. ar id AUTO_INCREMENT hoyate sei value auto niye nibe.
+
+
+DELETE FROM `teacher` WHERE `teacher`.`id` = 1;
+DELETE FROM `teacher` WHERE `teacher`.`id` = 2;
+DELETE FROM `teacher` WHERE `teacher`.`id` = 3;
+
+// table rekhe only value gula delete kore diyeci. field(column) name thik thakbe only record(row) delete hobe.
+
+
+NOT NULL => You have to put the value of the field while inserting data
+UNIQUE=> Doesn't allow to insert a duplicate value in a column
+PRIMARY KEY=> NOT NULL + UNIQUE
+CHECK => Determines whether the value is valid or not from a logical expression.
+DEFAULT => While inserting data into a table, if no value is supplied to a column, then the column gets the value set as DEFAULT.
+
+
+.................................
+### UPDATE RECORDS/STATEMENT ###
+.................................
+
+UPDATE table_name SET column1 = value1, column2 = value2,.... WHERE condition.
+
+UPDATE teacher SET salary = 10000 => eita likhle sobar salary 10,000 hoye jabe.
+
+UPDATE teacher SET salary = 10000 WHERE id = 9;
+UPDATE college.teacher SET salary = 15000 WHERE id = 8;
+
+UPDATE teacher SET salary = salary + 5000 WHERE salary <= 15000;
+
+UPDATE `students_details` SET `Gender` = 'Female' WHERE `students_details`.`Roll` = 108;  XX
+
+
+
+.................................
+### DELETE RECORDS/STATEMENT ###
+.................................
+Table theke je kono akta record all record delete korar jonno DELETE STATEMENT use kora hoy. like as UPDATE
+
+DELETE FROM table_name WHERE condition;
+
+DELETE FROM teacher WHERE id = 8;
+
+DELETE FROM college.teacher WHERE id > 6;
+DELETE FROM college.teacher WHERE salary = 10000;
+
+
+................
+### DESCRIBE ###
+................
+
+DESCRIBE teacher;   // to see the table structure
+
+
+
+
+...............................
+### UPPER & LOWER FUNCTION ###
+..............................
+
+SELECT UPPER("i am ikbal Hossain");
+Result => I AM IKBAL HOSSAIN
+
+SELECT LOWER("i am IKBAL Hossain");
+Result => i am ikbal hossain
+
+SELECT UPPER(name) FROM teacher;  // select korle only akta query ase but main value change hoy na
+
+SELECT UPPER(name) AS first_name FROM teacher; 
+
+
+
+
+.................
+### FUNCTION ###
+.................
+*** CONCAT ***
 ...............
-### Update ###
-...............
 
-UPDATE `students_details` SET `Gender` = 'Female' WHERE `students_details`.`Roll` = 108;
+SELECT CONCAT("Welcome to " , "mysql database");
+OR
+SELECT CONCAT('Welcome to ' , 'mysql database');
+Result => Welcome to mysql database
 
-
-
-
-
-
+SELECT CONCAT(Name, " is ", Age, " years old.") FROM students_details;
+SELECT CONCAT(Name, " is ", Age, " years old.") AS students_information FROM students_details;
 
 
 
+*** GREATEST ***
+.................
+
+SELECT GREATEST(5, 15, 7);
+SELECT LEAST(5, 15, 7);
+SELECT POW(2, 3);
+SELECT LOG(100);
+SELECT LOG10(100); // result=> 2
+
+
+*** TRUNCATE ***
+.................
+
+SELECT TRUNCATE(3.141696595, 4);  // result=> 3.1416
+SELECT TRUNCATE(LOG10(2), 2);  // result=> .30
+
+
+*** RAND ***
+.............
+SELECT RAND();
+// generate random number. result=> 0.7307147651265513
+
+
+*** EXP ***
+...........
+SELECT EXP(3);  // result=> 20.085536923187668
+
+
+............................
+### AGGREGATE FUNCTIONS ###
+............................
+Group functions operate on set of rows to give one result per group.
+
+AVG, COUNT, MAX, MIN, SUM 
+
+
+*** COUNT ***
+..............
+SELECT COUNT(*) FROM students_details;  // check how many records(row) are in a table.
+SELECT MAX(GPA) FROM students_details;  // check maximum GPA fild(column) of a table.
+SELECT MIN(GPA) FROM students_details;  // check minimum GPA fild(column) of a table.
 
 
 
+*** SUM, AVG ***
+.................
+SELECT SUM(salary), AVG(salary) FROM teacher;
+SELECT COUNT(*), MAX(salary), MIN(salary), SUM(salary), AVG(salary) FROM teacher;
+
+
+*** MAX, MIN ***
+.................
+SELECT MIN(GPA) FROM students_details WHERE Gender = "Female";
+SELECT Roll, Name, City, MAX(GPA) FROM students_details WHERE Gender = "Female";
 
 
 
+..................
+### SUB GUERY ###
+..................
+ekta query er modde arekta query execute korake SUB GUERY bole
 
+SELECT AVG(salary) FROM teacher;
+SELECT * FROM teacher WHERE salary > 24142.857143;
 
-### Data Type
-....................
+// at first akta query run kore AVARAGE salary ber kore nite hobe. tarpor AVARAGE salary ar value ke niye aro akta query run korte hobe
+abong dekhbo kar kar salary AVARAGE salary theke besi. This is the concept of SUM QUERY.
 
-*** Numeric data type
+You can write this way also
+SELECT * FROM teacher WHERE salary > (SELECT AVG(salary) FROM teacher);
 
-1. SMALLINT
-2. INT
-3. BIGINT
-
-1. FLOAT
-2. DOUBLE(M, D)   exmple: 4.44 => total digit = 3 & after decimal digit = 2
-3. DECIMAL(M, D)
-
-*** Character Type
-
-1. Char(m)
-2. Varchar(m) m = character length(20) if you put only 5 character although your limit 20. it will take space that you have write 
-3. text
-
-*** Date and Time data type
-
-1. YEAR (YYYY)
-2. DATE (YYYY-MM-DD)
-3. TIME (HH:MM:SS)
-
-*** Some other data type
-
-1. BLOB  => Binary Large Object => for Image, Audio
-2. LOGICAL => for true, false, yes, no
 

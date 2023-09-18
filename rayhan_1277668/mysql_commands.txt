@@ -125,6 +125,48 @@ UPDATE employees SET lastName='Ahmed', firstName='Masum', email='masum@gmail.com
 
 
 
+================= Limit data ===============
+
+$sql = "SELECT * FROM Orders LIMIT 30";			= data will show first 30 record
+
+$sql = "SELECT * FROM Orders LIMIT 10 OFFSET 5";	= prothom 5 ta baade porer 10 ta dekhabe.	
+
+
+
+
+
+
+=====================  mysql join  =================
+
+( db = wdpf55_sample ) 
+
+SELECT m.member_id, m.name , 
+c.committee_id, c.name as committee					= common id na thakleo name dhore table join kora hoyeche.
+FROM members m 								  sudhu common record gulai show korbe.
+INNER JOIN committees c ON m.name = c.name
+
+
+
+============( using where clause )=================
+
+SELECT m.member_id, m.name , 
+c.committee_id, c.name as committee
+FROM members m, committees c WHERE m.name = c.name;
+
+
+
+
+===============( left join )===================				= all data will show including 	common field				
+
+
+SELECT 
+    m.member_id, 
+    m.name AS member, 
+    c.committee_id, 
+    c.name AS committee
+FROM
+    members m								= this is the focusing table
+LEFT JOIN committees c USING(name);
 
 
 =============================== PHP Mysql ==============================================
@@ -311,6 +353,9 @@ SELECT customers.customerNumber, customerName, phone, city , quantityOrdered ,or
 
 
 
+CREATE VIEW students_info AS SELECT student.id , name , adress, mobile, module_name , total_mark, result.student_id FROM student, result WHERE student.id = result.student_id;
+
+
 
 ======================================= Stored Routine ===============================================
 
@@ -346,6 +391,48 @@ mysqldump -u root -p wdpf_55 > wdpf_55_backup.sql
 
 // Mysql database importing from shell
 mysql -h localhost -u root -p wdpf_test < wdpf_55_backup.sql
+
+
+
+
+
+========================================= Mysql prepared statement ===============================
+
+1. query  gula jomai rekhe shob gula aksathe call kore jaate database er upor pressure kom pore & joldi execution ghote.
+
+2. PDO  -  ( PHP Data Object )	= PDO te code kora thakle jekono database change hoye geleo kaaj korbe.
+
+
+
+
+
+
+
+
+
+==================================== foreign key constraint ======================================
+
+ALTER TABLE district					= jei table change korbo
+ADD CONSTRAINT FK_district_key				= set a index name
+FOREIGN KEY (div_id) REFERENCES division(id);		= first give foreign key column name then primary key column name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
