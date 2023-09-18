@@ -16,7 +16,7 @@ $db = new mysqli("localhost", "root", "", "isdb_bisew");
             //echo "INSERT INTO students ('$name', '$address', '$mobile')";
 
             $sql = "CALL insert_studentinfo('$name', '$address', '$mobile')";
-            //$sql = "INSERT INTO students VALUES(NULL, '$name', '$address', '$mobile')";
+            // $sql = "INSERT INTO students VALUES(NULL, '$name', '$address', '$mobile')";
             $db->query($sql);
             if($db->affected_rows>0){
                 header("Inserted <br>");
