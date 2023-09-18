@@ -1,3 +1,34 @@
+### Data Type
+....................
+
+*** Numeric data type
+
+1. SMALLINT
+2. INT
+3. BIGINT
+
+1. FLOAT
+2. DOUBLE(M, D)   exmple: 4.44 => total digit = 3 & after decimal digit = 2
+3. DECIMAL(M, D)
+
+*** Character Type
+
+1. Char(m)
+2. Varchar(m) m = character length(20) if you put only 5 character although your limit 20. it will take space that you have write 
+3. text
+
+*** Date and Time data type
+
+1. YEAR (YYYY)
+2. DATE (YYYY-MM-DD)
+3. TIME (HH:MM:SS)
+
+*** Some other data type
+
+1. BLOB  => Binary Large Object => for Image, Audio
+2. LOGICAL => for true, false, yes, no
+
+
 *** Database connection code***
 <?php // this is the overall (1st step) do anything in php & mysql with server
 // error_reporting(0)
@@ -11,7 +42,7 @@ or,
     $db = new mysqli("localhost", "root", "", "self_practice");
 
     for checking
-    ............
+    .............
     if($db){
         echo "connection ok";
     } else {
@@ -454,10 +485,11 @@ AVG, COUNT, MAX, MIN, SUM
 
 
 *** COUNT ***
-.............
+..............
 SELECT COUNT(*) FROM students_details;  // check how many records(row) are in a table.
 SELECT MAX(GPA) FROM students_details;  // check maximum GPA fild(column) of a table.
 SELECT MIN(GPA) FROM students_details;  // check minimum GPA fild(column) of a table.
+
 
 
 *** SUM, AVG ***
@@ -465,16 +497,17 @@ SELECT MIN(GPA) FROM students_details;  // check minimum GPA fild(column) of a t
 SELECT SUM(salary), AVG(salary) FROM teacher;
 SELECT COUNT(*), MAX(salary), MIN(salary), SUM(salary), AVG(salary) FROM teacher;
 
+
 *** MAX, MIN ***
-................
+.................
 SELECT MIN(GPA) FROM students_details WHERE Gender = "Female";
 SELECT Roll, Name, City, MAX(GPA) FROM students_details WHERE Gender = "Female";
 
 
 
-.................
+..................
 ### SUB GUERY ###
-.................
+..................
 ekta query er modde arekta query execute korake SUB GUERY bole
 
 SELECT AVG(salary) FROM teacher;
@@ -486,58 +519,4 @@ abong dekhbo kar kar salary AVARAGE salary theke besi. This is the concept of SU
 You can write this way also
 SELECT * FROM teacher WHERE salary > (SELECT AVG(salary) FROM teacher);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Data Type
-....................
-
-*** Numeric data type
-
-1. SMALLINT
-2. INT
-3. BIGINT
-
-1. FLOAT
-2. DOUBLE(M, D)   exmple: 4.44 => total digit = 3 & after decimal digit = 2
-3. DECIMAL(M, D)
-
-*** Character Type
-
-1. Char(m)
-2. Varchar(m) m = character length(20) if you put only 5 character although your limit 20. it will take space that you have write 
-3. text
-
-*** Date and Time data type
-
-1. YEAR (YYYY)
-2. DATE (YYYY-MM-DD)
-3. TIME (HH:MM:SS)
-
-*** Some other data type
-
-1. BLOB  => Binary Large Object => for Image, Audio
-2. LOGICAL => for true, false, yes, no
 
