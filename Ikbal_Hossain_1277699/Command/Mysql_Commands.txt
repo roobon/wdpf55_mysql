@@ -322,10 +322,13 @@ INSERT INTO teacher VALUES
 
 
 INSERT INTO teacher VALUES
-('Ikbal Hossain', 40000),  // but eivabe insert hobe na. bcz database a field 3 ta but ami insert dicci 2 ta. so column doesn't match with row insert.
+('Ikbal Hossain', 40000),  // but eivabe insert hobe na. bcz database a field 3 ta but ami insert dicci 2 ta. Column count doesn't match value count at row 1
 
 INSERT INTO teacher (name, salary) VALUES
-('Sumaiya Sultana', 15000); // eivabeo insert hobe bcz amar field number 2 = value 2. R id toh AUTO_INCREMENT deoya ace.
+('Sumaiya Sultana', NULL); // eivabeo insert hobe bcz amar field number 2 = value 2. R id toh AUTO_INCREMENT deoya ace. salary te 0.00 show korbe
+
+INSERT INTO teacher(name) VALUES
+('Aha Moni'); // salary te NULL show korbe. ar id AUTO_INCREMENT hoyate sei value auto niye nibe.
 
 
 DELETE FROM `teacher` WHERE `teacher`.`id` = 1;
@@ -342,9 +345,13 @@ CHECK => Determines whether the value is valid or not from a logical expression.
 DEFAULT => While inserting data into a table, if no value is supplied to a column, then the column gets the value set as DEFAULT.
 
 
-...............
-### Update ###
-...............
+.................................
+### UPDATE RECORDS/STATEMENT ###
+.................................
+
+UPDATE table_name SET column1 = value1, column2 = value2,.... WHERE condition.
+
+UPDATE teacher SET salary = 10000 => eita likhle sobar salary 10,000 hoye jabe.
 
 UPDATE `students_details` SET `Gender` = 'Female' WHERE `students_details`.`Roll` = 108;
 
