@@ -1,5 +1,8 @@
 <?php 
     session_start();
+    // if(!isset($_SESSION['myemail'])){
+    //     header("Location: index.php");
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +15,7 @@
 <body>
     <div class="container mt-5 w-25">
         <h1>
-            <?php echo $_SESSION['nyname'] . ", "?> Welcome to Home Page
+            <?php echo $_SESSION['myname'] . ", "?> Welcome to Home Page
         </h1>
 
         <h4><a href="logout.php"> Logout </a></h4>
