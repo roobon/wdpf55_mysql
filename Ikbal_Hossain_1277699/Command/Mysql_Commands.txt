@@ -353,7 +353,147 @@ UPDATE table_name SET column1 = value1, column2 = value2,.... WHERE condition.
 
 UPDATE teacher SET salary = 10000 => eita likhle sobar salary 10,000 hoye jabe.
 
-UPDATE `students_details` SET `Gender` = 'Female' WHERE `students_details`.`Roll` = 108;
+UPDATE teacher SET salary = 10000 WHERE id = 9;
+UPDATE college.teacher SET salary = 15000 WHERE id = 8;
+
+UPDATE teacher SET salary = salary + 5000 WHERE salary <= 15000;
+
+UPDATE `students_details` SET `Gender` = 'Female' WHERE `students_details`.`Roll` = 108;  XX
+
+
+
+.................................
+### DELETE RECORDS/STATEMENT ###
+.................................
+Table theke je kono akta record all record delete korar jonno DELETE STATEMENT use kora hoy. like as UPDATE
+
+DELETE FROM table_name WHERE condition;
+
+DELETE FROM teacher WHERE id = 8;
+
+DELETE FROM college.teacher WHERE id > 6;
+DELETE FROM college.teacher WHERE salary = 10000;
+
+
+................
+### DESCRIBE ###
+................
+
+DESCRIBE teacher;   // to see the table structure
+
+
+
+
+...............................
+### UPPER & LOWER FUNCTION ###
+..............................
+
+SELECT UPPER("i am ikbal Hossain");
+Result => I AM IKBAL HOSSAIN
+
+SELECT LOWER("i am IKBAL Hossain");
+Result => i am ikbal hossain
+
+SELECT UPPER(name) FROM teacher;  // select korle only akta query ase but main value change hoy na
+
+SELECT UPPER(name) AS first_name FROM teacher; 
+
+
+
+
+.................
+### FUNCTION ###
+.................
+*** CONCAT ***
+...............
+
+SELECT CONCAT("Welcome to " , "mysql database");
+OR
+SELECT CONCAT('Welcome to ' , 'mysql database');
+Result => Welcome to mysql database
+
+SELECT CONCAT(Name, " is ", Age, " years old.") FROM students_details;
+SELECT CONCAT(Name, " is ", Age, " years old.") AS students_information FROM students_details;
+
+
+
+*** GREATEST ***
+.................
+
+SELECT GREATEST(5, 15, 7);
+SELECT LEAST(5, 15, 7);
+SELECT POW(2, 3);
+SELECT LOG(100);
+SELECT LOG10(100); // result=> 2
+
+
+*** TRUNCATE ***
+.................
+
+SELECT TRUNCATE(3.141696595, 4);  // result=> 3.1416
+SELECT TRUNCATE(LOG10(2), 2);  // result=> .30
+
+
+*** RAND ***
+.............
+SELECT RAND();
+// generate random number. result=> 0.7307147651265513
+
+
+*** EXP ***
+...........
+SELECT EXP(3);  // result=> 20.085536923187668
+
+
+............................
+### AGGREGATE FUNCTIONS ###
+............................
+Group functions operate on set of rows to give one result per group.
+
+AVG, COUNT, MAX, MIN, SUM 
+
+
+*** COUNT ***
+.............
+SELECT COUNT(*) FROM students_details;  // check how many records(row) are in a table.
+SELECT MAX(GPA) FROM students_details;  // check maximum GPA fild(column) of a table.
+SELECT MIN(GPA) FROM students_details;  // check minimum GPA fild(column) of a table.
+
+
+*** SUM, AVG ***
+.................
+SELECT SUM(salary), AVG(salary) FROM teacher;
+SELECT COUNT(*), MAX(salary), MIN(salary), SUM(salary), AVG(salary) FROM teacher;
+
+*** MAX, MIN ***
+................
+SELECT MIN(GPA) FROM students_details WHERE Gender = "Female";
+SELECT Roll, Name, City, MAX(GPA) FROM students_details WHERE Gender = "Female";
+
+
+
+.................
+### SUB GUERY ###
+.................
+ekta query er modde arekta query execute korake SUB GUERY bole
+
+SELECT AVG(salary) FROM teacher;
+SELECT * FROM teacher WHERE salary > 24142.857143;
+
+// at first akta query run kore AVARAGE salary ber kore nite hobe. tarpor AVARAGE salary ar value ke niye aro akta query run korte hobe
+abong dekhbo kar kar salary AVARAGE salary theke besi. This is the concept of SUM QUERY.
+
+You can write this way also
+SELECT * FROM teacher WHERE salary > (SELECT AVG(salary) FROM teacher);
+
+
+
+
+
+
+
+
+
 
 
 
