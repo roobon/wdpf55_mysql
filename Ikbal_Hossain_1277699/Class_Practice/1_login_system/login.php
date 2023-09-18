@@ -11,7 +11,11 @@
         $result = $db->query($sql);
         $row = $result->fetch_object();
 
-        if($result->num_rows)
+        if($result->num_rows){
+            echo "Successfully Login";
+        } else {
+            echo "Email or Password doesn't match";
+        }
 
     }
     
