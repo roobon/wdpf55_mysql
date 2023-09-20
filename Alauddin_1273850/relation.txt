@@ -1,0 +1,32 @@
+ALTER TABLE employee_info
+ADD CONSTRAINT fk_employee_department
+FOREIGN KEY(department_id) REFERENCES departments(id);
+
+ALTER TABLE employee_info
+ADD CONSTRAINT fk_employee_designation
+FOREIGN KEY(designation_id) REFERENCES employee_designations(id);
+
+ALTER TABLE expenses
+ADD CONSTRAINT fk_employee_expenses
+FOREIGN KEY(employee_id) REFERENCES employee_info(id);
+
+ALTER TABLE attendances
+ADD CONSTRAINT fk_employee_attendances
+FOREIGN KEY(employee_id) REFERENCES employee_info(Id);
+
+ALTER TABLE leaves
+ADD CONSTRAINT fk_employee_leaves
+FOREIGN KEY(employee_id) REFERENCES employee_info(Id);
+
+ALTER TABLE employee_leavs
+ADD CONSTRAINT fk_employee_leaves
+FOREIGN KEY(leave_id) REFERENCES leaves(id);
+
+ALTER TABLE holydays
+ADD CONSTRAINT fk_employee_holydays
+FOREIGN KEY(attendace_id) REFERENCES attendances(id);
+
+ALTER TABLE holiday_informations
+ADD CONSTRAINT fk_employee_holiday
+_informations
+FOREIGN KEY(holiday_id) REFERENCES holydays(id);
