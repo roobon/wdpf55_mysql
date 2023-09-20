@@ -116,6 +116,16 @@ DROP TABLE student_details;
 DROP TABLES person1, person2;
 
 
+................
+### DESCRIBE ###
+................
+
+DESCRIBE students_details;   // to see the table structure
+
+
+
+
+
 
 ### Insert data into Table ###
 ................................
@@ -154,6 +164,65 @@ VALUES
 (106, "Tapsera", "Female", 28, 3.20, "Luxmipur"),
 (107, "Tahamina", "Female", 27, 3.05, "Dhaka"),
 (108, "Naomi", "Female", 27, 3.20, "Dhaka");
+
+
+
+
+CREATE TABLE teacher
+(
+    id int NOT NULL AUTO_INCREMENT, name varchar(50) NOT NULL, salary double(10,2), PRIMARY KEY(id)
+);
+// id te AUTO_INCREMENT deoyar karone NOT NULL kaj korbe na. apni caile id te value nao dite parben. karon id AUTO_INCREMENT hobe //
+
+INSERT INTO teacher VALUES
+(NULL, 'Ikbal Hossain', 40000),
+(NULL, "Nusrat Jahan", 35000),
+(NULL, "Tanzim Ferdousi", 30000);
+
+
+INSERT INTO teacher VALUES
+('Ikbal Hossain', 40000),  // but eivabe insert hobe na. bcz database a field 3 ta but ami insert dicci 2 ta. Column count doesn't match value count at row 1
+
+INSERT INTO teacher (name, salary) VALUES
+('Sumaiya Sultana', NULL); // eivabeo insert hobe bcz amar field number 2 = value 2. R id toh AUTO_INCREMENT deoya ace. salary te 0.00 show korbe
+
+INSERT INTO teacher(name) VALUES
+('Aha Moni'); // salary te NULL show korbe. ar id AUTO_INCREMENT hoyate sei value auto niye nibe.
+
+
+
+.................................
+### UPDATE RECORDS/STATEMENT ###
+.................................
+
+UPDATE table_name SET column1 = value1, column2 = value2,.... WHERE condition.
+
+UPDATE teacher SET salary = 10000 => eita likhle sobar salary 10,000 hoye jabe.
+
+UPDATE teacher SET salary = 10000 WHERE id = 9;
+UPDATE college.teacher SET salary = 15000 WHERE id = 8;
+
+UPDATE teacher SET salary = salary + 5000 WHERE salary <= 15000;
+
+UPDATE `students_details` SET `Gender` = 'Female' WHERE `students_details`.`Roll` = 108;  XX
+
+
+
+.................................
+### DELETE RECORDS/STATEMENT ###
+.................................
+Table theke je kono akta record all record delete korar jonno DELETE STATEMENT use kora hoy. like as UPDATE
+
+DELETE FROM table_name WHERE condition;
+
+DELETE FROM teacher WHERE id = 8;
+
+DELETE FROM college.teacher WHERE id > 6;
+DELETE FROM college.teacher WHERE salary = 10000;
+
+
+
+
 
 ................................
 ### Find Records with Select ###
@@ -518,5 +587,22 @@ abong dekhbo kar kar salary AVARAGE salary theke besi. This is the concept of SU
 
 You can write this way also
 SELECT * FROM teacher WHERE salary > (SELECT AVG(salary) FROM teacher);
+
+
+
+........................
+### ALTER STATEMENT ###
+........................
+1. you can ADD new column in a table
+2. you can RENAME the column
+3. you can DELETE a column
+
+SYNTAX
+......
+ALTER TABLE table_name
+ADD column_name datatype[size]
+
+ALTER table students_details ADD Phone text(20);
+
 
 
