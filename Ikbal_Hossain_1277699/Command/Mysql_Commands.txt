@@ -123,6 +123,38 @@ DROP TABLES person1, person2;
 DESCRIBE students_details;   // to see the table structure
 
 
+........................
+### ALTER STATEMENT ###
+........................
+1. you can ADD new column in a table
+2. you can RENAME the column
+3. you can DELETE a column
+
+ADD column SYNTAX
+..................
+ALTER TABLE table_name
+ADD column_name datatype[size]
+
+ALTER TABLE students_details ADD Phone text(20);
+ALTER TABLE student_details ADD Dept varchar(30);
+
+
+RENAME column SYNTAX
+.....................
+ALTER TABLE table_name
+CHANGE oldcolumn_name newcolumn_name datatype(size);
+
+ALTER TABLE students_details
+CHANGE Dept Department varchar(30);
+
+
+DELETE column SYNTAX
+.....................
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+ALTER TABLE students_details
+DROP COLUMN Phone;
 
 
 
@@ -418,7 +450,13 @@ CREATE TABLE teacher
 INSERT INTO teacher VALUES
 (NULL, 'Ikbal Hossain', 40000),
 (NULL, "Nusrat Jahan", 35000),
-(NULL, "Tanzim Ferdousi", 30000);
+(NULL, "Tanzim Ferdousi", 30000),
+(NULL, 'Walid Hasan', 35000),
+(NULL, "Monjila Jafrin", 20000),
+(NULL, "Monjarin", 50000),
+(NULL, 'Ayman sadik', 70000),
+(NULL, "Tasfia Tamima", 15000),
+(NULL, "Naomi", 30000);
 
 
 INSERT INTO teacher VALUES
@@ -597,12 +635,41 @@ SELECT * FROM teacher WHERE salary > (SELECT AVG(salary) FROM teacher);
 2. you can RENAME the column
 3. you can DELETE a column
 
-SYNTAX
-......
+ADD column SYNTAX
+..................
 ALTER TABLE table_name
 ADD column_name datatype[size]
 
-ALTER table students_details ADD Phone text(20);
+ALTER TABLE teacher ADD Phone text(20);
+ALTER TABLE teacher ADD Dept varchar(30);
+
+
+RENAME column SYNTAX
+.....................
+ALTER TABLE table_name
+CHANGE oldcolumn_name newcolumn_name datatype(size);
+
+ALTER TABLE teacher
+CHANGE Dept Department varchar(30);
+
+
+DELETE column SYNTAX
+.....................
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+
+ALTER TABLE students_details
+DROP COLUMN Phone;
+
+
+........................
+### UPDATE STATEMENT ###
+.........................
+UPDATE teacher SET Department = "CSC";
+UPDATE teacher SET Department = "BBA" WHERE id = 17;
+
+UPDATE `teacher` SET `Department` = 'Economics' WHERE id = 15; UPDATE teacher SET Department = 'Business' WHERE id = 16; UPDATE teacher SET Department = 'Business' WHERE id = 17; 
 
 
 
