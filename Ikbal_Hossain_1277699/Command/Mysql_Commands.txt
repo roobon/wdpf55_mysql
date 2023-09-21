@@ -148,6 +148,11 @@ ALTER TABLE students_details
 CHANGE Dept Department varchar(30);
 
 
+MODIFY column SYNTAX
+.....................
+ALTER TABLE table_name MODIFY column_name new_data_type;
+
+
 DELETE column SYNTAX
 .....................
 ALTER TABLE table_name
@@ -155,6 +160,7 @@ DROP COLUMN column_name;
 
 ALTER TABLE students_details
 DROP COLUMN Phone;
+
 
 
 
@@ -663,13 +669,48 @@ ALTER TABLE students_details
 DROP COLUMN Phone;
 
 
-........................
+.........................
 ### UPDATE STATEMENT ###
 .........................
 UPDATE teacher SET Department = "CSC";
 UPDATE teacher SET Department = "BBA" WHERE id = 17;
 
 UPDATE `teacher` SET `Department` = 'Economics' WHERE id = 15; UPDATE teacher SET Department = 'Business' WHERE id = 16; UPDATE teacher SET Department = 'Business' WHERE id = 17; 
+
+
+
+........................
+### GROUP BY CLAUSE ###
+........................
+you can divide rows or records in a table into smaller groups by using the GROUP BY CLAUSE.
+
+SYNTAX
+......
+SELECT    column, group_function(column) 
+FROM      Table
+WHERE condition
+GROUP BY group_by_expression
+ORDER BY column; 
+
+SELECT Department, SUM(salary) FROM teacher GROUP BY Department;
+
+SELECT Department, SUM(salary) FROM teacher GROUP BY Department ORDER BY SUM(salary);
+
+
+.......................
+### TRUNCATE TABLE ###
+.......................
+TRUNCATE TABLE teacher;  // delete only records of table not column or field;
+
+
+UPDATE PRIMARY index
+UPDATE `exam_result` SET `Reg_Number` = '20175' WHERE `exam_result`.`Reg_Number` = 20171; UPDATE `exam_result` SET `Reg_Number` = '20176' WHERE `exam_result`.`Reg_Number` = 20172; UPDATE `exam_result` SET `Reg_Number` = '20177' WHERE `exam_result`.`Reg_Number` = 20173;
+
+
+......................
+### JOINING TABLE ###
+......................
+
 
 
 
