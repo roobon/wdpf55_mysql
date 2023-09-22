@@ -669,6 +669,12 @@ ALTER TABLE students_details
 DROP COLUMN Phone;
 
 
+MODIFY column SYNTAX
+.....................
+ALTER TABLE table_name MODIFY column_name new_data_type;
+
+ALTER TABLE exam_result MODIFY Reg_Number int AUTO_INCREMENT;  // already PRIMARY KEY exists before. so, no need to write again.
+
 .........................
 ### UPDATE STATEMENT ###
 .........................
@@ -710,7 +716,64 @@ UPDATE `exam_result` SET `Reg_Number` = '20175' WHERE `exam_result`.`Reg_Number`
 ......................
 ### JOINING TABLE ###
 ......................
+SELECT students_details.Roll, Reg_Number, Name, Gender, Dept, students_details.GPA FROM students_details, exam_result WHERE students_details.Roll = exam_result.Roll;  // => VIEW concept comes from here.
+
+example => students_details.Name => fully qualifed name. This way you can be sure which table is being used for which column.
+
+SELECT students_details.Roll, Reg_Number, Name, Gender, Dept, students_details.GPA FROM students_details JOIN exam_result ON students_details.Roll = exam_result.Roll;
+
+
+......................
+### JOINING CLAUSE ###
+......................
+
+SELECT students_details.Roll, exam_result.Reg_Number, students_details.Name, students_details.Gender, exam_result.Dept, students_details.GPA FROM students_details JOIN exam_result ON students_details.Roll = exam_result.Roll;
+
+In short version,
+.................
+SELECT std.Roll, exam.Reg_Number, std.Name, std.Gender, exam.Dept, std.GPA FROM students_details AS std JOIN exam_result AS exam ON std.Roll = exam.Roll;
 
 
 
+..................
+### INNER JOIN ###
+..................
+SELECT std.Roll, exam.Reg_Number, std.Name, std.Gender, exam.Dept, std.GPA FROM students_details AS std INNER JOIN exam_result AS exam ON std.Roll = exam.Roll;
+
+// INNER JOIN only sei row gula return korteci jegulor modde dui ba totodikh tabler condition match kortece.
+
+
+..........................
+### LEFT & RIGHT JOIN ###
+..........................
+
+*** LEFT JOIN ***
+
+SELECT std.Roll, exam.Reg_Number, std.Name, std.Gender, exam.Dept, std.GPA FROM students_details AS std LEFT JOIN exam_result AS exam ON std.Roll = exam.Roll;
+
+
+*** RIGHT JOIN ***
+
+SELECT std.Roll, exam.Reg_Number, std.Name, std.Gender, exam.Dept, std.GPA FROM exam_result AS exam  Right JOIN students_details AS std ON std.Roll = exam.Roll;
+
+
+..........................
+### UNION & UNION ALL ###
+..........................
+
+*** UNION ***  // remove duplicate value
+
+SELECT Roll, Name, Gender FROM sylhet_tour UNION SELECT Roll, Name, Gender FROM dhaka_tour;
+
+
+
+*** UNION ALL ***  // doen't remove duplicate value.
+
+SELECT Roll, Name, Gender FROM sylhet_tour UNION ALL SELECT Roll, Name, Gender FROM dhaka_tour;
+
+
+
+.............
+### VIEW ###
+.............
 
