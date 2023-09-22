@@ -783,3 +783,33 @@ CREATE VIEW student_view AS SELECT ROll, Name, Gender, GPA FROM students_details
 CREATE VIEW student_view AS SELECT students_details.ROll, Reg_Number, Name, Gender, students_details.GPA FROM students_details, exam_result WHERE students_details.Roll = exam_result.Roll;
 
 
+*** UPDATE VIEW ***
+UPDATE student_view SET Name = "Joy Banik" WHERE Roll =104; 
+
+INSERT INTO student_view(Roll, Name, Gender) VALUES (108, "Kabir", "Male");  // hocce na
+DELETE FROM student_view WHERE Roll = 102;
+DROP VIEW student_view;
+
+
+
+...................
+### DATE & TIME ###
+...................
+SELECT CURDATE();
+SELECT CURTIME();
+SELECT NOW();
+
+SELECT ADDDATE('22023-09-24', INTERVAL 5 DAY);
+SELECT ADDDATE('22023-05-24', INTERVAL 5 MONTH);
+SELECT SUBFATE('22023-05-24', INTERVAL 5 MONTH);
+
+SELECT MAKEDATE(2023, 312);
+SELECT DAYNAME('2023-05-24');
+SELECT MONTHNAME('2023-05-24');
+
+SELECT DAYNAME(DOB) FROM students_details;
+
+
+
+
+
