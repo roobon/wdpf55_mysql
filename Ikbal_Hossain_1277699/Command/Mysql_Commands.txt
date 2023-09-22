@@ -776,4 +776,10 @@ SELECT Roll, Name, Gender FROM sylhet_tour UNION ALL SELECT Roll, Name, Gender F
 .............
 ### VIEW ###
 .............
+CREATE VIEW view_name AS SELECT column_name(s) FROM table_name(s) WHERE condition;
+
+CREATE VIEW student_view AS SELECT ROll, Name, Gender, GPA FROM students_details;
+
+CREATE VIEW student_view AS SELECT students_details.ROll, Reg_Number, Name, Gender, students_details.GPA FROM students_details, exam_result WHERE students_details.Roll = exam_result.Roll;
+
 
