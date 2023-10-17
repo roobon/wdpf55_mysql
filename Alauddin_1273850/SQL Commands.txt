@@ -105,8 +105,26 @@ VALUES('John'),('Jane'),('Mary'),('David'),('Amelia');
 INSERT INTO committees(name)
 VALUES('John'),('Mary'),('Amelia'),('Joe');
 
+SELECT 
+    m.member_id, 
+    m.name AS member, 
+    c.committee_id, 
+    c.name AS committee
+FROM
+    members m
+INNER JOIN committees c ON c.name = m.name;
+
+SELECT 
+    m.member_id, 
+    m.name AS member, 
+    c.committee_id, 
+    c.name AS committee
+FROM
+    members m
+INNER JOIN committees c USING(name);
 
 
+### database manualy ####
 
 SELECT m.member_id, m.name, c.committee_id, c.name AS committee
 FROM members m
