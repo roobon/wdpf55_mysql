@@ -17,8 +17,6 @@ $userName = $_SESSION['u_name'] ;
 ?>
 
 <body>
-    <h1> welcome home  <?php echo $userName  ;  ?>  </h1> 
-
-    <a href="logout.php"> Log out </a>
+   ?
 </body>
 </html>

@@ -68,8 +68,9 @@
       <td><?php echo $data['name']  ?> </td>
       <td><?php echo $data['year.']  ?></td>
       <td><?php echo $data['genre']  ?></td>
-      <td>  <button class="btn btn-warning"> Edit </button>  
-             <a class="btn btn-danger" href="delete.php?ID=<?php echo $data['id'] ?>">Delete</a> 
+      <td>  <a href="edit.php?id=<?php echo $data['id'] ?>" class="btn btn-warning"> Edit </a>  
+      
+      <a class="btn btn-danger" href="delete.php?ID=<?php echo $data['id'] ?>">Delete</a> 
     </td>
     </tr>
     <?php  } ?>
