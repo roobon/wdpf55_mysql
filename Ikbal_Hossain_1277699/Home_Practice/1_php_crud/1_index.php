@@ -13,7 +13,6 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
-    
 </head>
 
 <body>
@@ -21,9 +20,9 @@
        <?php  // step: 03  connection table from database to this page.
 
             $sql = "SELECT * FROM students_info";
-            // $db = $db -> query($sql);
+            // $db = $db -> query($sql); The variable $db is assumed to be an instance of a database connection,
             // $result = $db;
-            $result = $db->query($sql);
+            $result = $db->query($sql);  // executes a SQL query on a database connection represented by the $db variable and The result of the query execution is stored in the $result variable.
 
        ?>
 
@@ -85,8 +84,8 @@
         </div>
 
     </body>
-
 </html>
+
             
     
        

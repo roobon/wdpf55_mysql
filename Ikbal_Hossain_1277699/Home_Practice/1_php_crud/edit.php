@@ -46,7 +46,7 @@
                     Name: <input type="text" name="stName" value="<?php echo $row->student_name ?>"> <br> <br>
 
                     Gender:
-                    Male: <input type="radio" name="gender" value="Male" <?php echo ($row->student_gender == "Male") ? "checked" : ""; ?>>
+                    Male: <input type="radio" name="gender" value="Male" <?php echo ($row->student_gender == "Male") ? "checked" : ""; ?>>     
 
                     Female: <input type="radio" name="gender" value="Female" <?php echo ($row->student_gender == "Female") ? "checked" : ""; ?>> <br> <br>
 
